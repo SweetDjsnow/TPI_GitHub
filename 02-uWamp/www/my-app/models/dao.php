@@ -11,7 +11,7 @@
 
 class Database
 {
-
+    
     private $connector = null;
 
     public function Connect()
