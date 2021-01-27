@@ -93,3 +93,35 @@
 [Wed Jan 27 09:58:42.363209 2021] [mpm_winnt:warn] [pid 8776:tid 2912] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
 [Wed Jan 27 09:58:42.363209 2021] [mpm_winnt:warn] [pid 8776:tid 2908] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
 [Wed Jan 27 09:58:42.363209 2021] [mpm_winnt:warn] [pid 8776:tid 2852] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 27 10:29:24.564704 2021] [ssl:warn] [pid 13752:tid 828] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 27 10:29:24.566710 2021] [ssl:warn] [pid 13752:tid 828] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 27 10:29:24.737177 2021] [core:warn] [pid 13752:tid 828] AH00098: pid file H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Wed Jan 27 10:29:24.825140 2021] [ssl:warn] [pid 13752:tid 828] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Wed Jan 27 10:29:24.851223 2021] [ssl:warn] [pid 13752:tid 828] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 27 10:29:24.853396 2021] [ssl:warn] [pid 13752:tid 828] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 27 10:29:25.828704 2021] [mpm_winnt:notice] [pid 13752:tid 828] AH00455: Apache/2.4.18 (Win32) OpenSSL/1.0.2f PHP/5.6.18 configured -- resuming normal operations
+[Wed Jan 27 10:29:25.829703 2021] [mpm_winnt:notice] [pid 13752:tid 828] AH00456: Server built: Jan 28 2016 09:58:25
+[Wed Jan 27 10:29:25.829703 2021] [core:notice] [pid 13752:tid 828] AH00094: Command line: 'H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\bin\\apache\\bin\\httpd.exe -d H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/apache -f H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\bin\\apache\\conf\\httpd.conf'
+[Wed Jan 27 10:29:25.836685 2021] [mpm_winnt:notice] [pid 13752:tid 828] AH00418: Parent: Created child process 9748
+[Wed Jan 27 10:29:26.856776 2021] [ssl:warn] [pid 9748:tid 844] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 27 10:29:26.857774 2021] [ssl:warn] [pid 9748:tid 844] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 27 10:29:27.043467 2021] [ssl:warn] [pid 9748:tid 844] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Wed Jan 27 10:29:27.044493 2021] [ssl:warn] [pid 9748:tid 844] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 27 10:29:27.044493 2021] [ssl:warn] [pid 9748:tid 844] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 27 10:29:27.120532 2021] [mpm_winnt:notice] [pid 9748:tid 844] AH00354: Child: Starting 64 worker threads.
+[Wed Jan 27 10:29:29.182342 2021] [:error] [pid 9748:tid 1528] [client ::1:54206] PHP Warning:  opendir(../www,../www): Le fichier sp\xef\xbf\xbdcifi\xef\xbf\xbd est introuvable. (code: 2) in H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\index.php on line 137, referer: http://localhost/
+[Wed Jan 27 10:29:29.182342 2021] [:error] [pid 9748:tid 1528] [client ::1:54206] PHP Stack trace:, referer: http://localhost/
+[Wed Jan 27 10:29:29.183308 2021] [:error] [pid 9748:tid 1528] [client ::1:54206] PHP   1. {main}() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\index.php:0, referer: http://localhost/
+[Wed Jan 27 10:29:29.183308 2021] [:error] [pid 9748:tid 1528] [client ::1:54206] PHP   2. opendir() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\index.php:137, referer: http://localhost/
+[Wed Jan 27 10:29:29.184311 2021] [:error] [pid 9748:tid 1528] [client ::1:54206] PHP Warning:  opendir(../www): failed to open dir: No such file or directory in H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\index.php on line 137, referer: http://localhost/
+[Wed Jan 27 10:29:29.184785 2021] [:error] [pid 9748:tid 1528] [client ::1:54206] PHP Stack trace:, referer: http://localhost/
+[Wed Jan 27 10:29:29.185442 2021] [:error] [pid 9748:tid 1528] [client ::1:54206] PHP   1. {main}() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\index.php:0, referer: http://localhost/
+[Wed Jan 27 10:29:29.185908 2021] [:error] [pid 9748:tid 1528] [client ::1:54206] PHP   2. opendir() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\index.php:137, referer: http://localhost/
+[Wed Jan 27 10:29:29.186372 2021] [:error] [pid 9748:tid 1528] [client ::1:54206] PHP Warning:  readdir() expects parameter 1 to be resource, boolean given in H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\index.php on line 139, referer: http://localhost/
+[Wed Jan 27 10:29:29.186372 2021] [:error] [pid 9748:tid 1528] [client ::1:54206] PHP Stack trace:, referer: http://localhost/
+[Wed Jan 27 10:29:29.186372 2021] [:error] [pid 9748:tid 1528] [client ::1:54206] PHP   1. {main}() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\index.php:0, referer: http://localhost/
+[Wed Jan 27 10:29:29.187356 2021] [:error] [pid 9748:tid 1528] [client ::1:54206] PHP   2. readdir() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\index.php:139, referer: http://localhost/
+[Wed Jan 27 10:29:29.187356 2021] [:error] [pid 9748:tid 1528] [client ::1:54206] PHP Warning:  closedir() expects parameter 1 to be resource, boolean given in H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\index.php on line 148, referer: http://localhost/
+[Wed Jan 27 10:29:29.187356 2021] [:error] [pid 9748:tid 1528] [client ::1:54206] PHP Stack trace:, referer: http://localhost/
+[Wed Jan 27 10:29:29.188360 2021] [:error] [pid 9748:tid 1528] [client ::1:54206] PHP   1. {main}() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\index.php:0, referer: http://localhost/
+[Wed Jan 27 10:29:29.188360 2021] [:error] [pid 9748:tid 1528] [client ::1:54206] PHP   2. closedir() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\index.php:148, referer: http://localhost/
