@@ -125,3 +125,99 @@
 [Wed Jan 27 10:29:29.187356 2021] [:error] [pid 9748:tid 1528] [client ::1:54206] PHP Stack trace:, referer: http://localhost/
 [Wed Jan 27 10:29:29.188360 2021] [:error] [pid 9748:tid 1528] [client ::1:54206] PHP   1. {main}() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\index.php:0, referer: http://localhost/
 [Wed Jan 27 10:29:29.188360 2021] [:error] [pid 9748:tid 1528] [client ::1:54206] PHP   2. closedir() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\index.php:148, referer: http://localhost/
+[Wed Jan 27 12:12:56.746655 2021] [mpm_winnt:crit] [pid 9748:tid 844] AH02538: Child: Parent process exited abruptly. Child process is ending
+[Wed Jan 27 12:12:56.746655 2021] [mpm_winnt:warn] [pid 9748:tid 808] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 27 12:12:56.746655 2021] [mpm_winnt:warn] [pid 9748:tid 2752] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 27 12:12:56.746655 2021] [mpm_winnt:warn] [pid 9748:tid 2512] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 27 12:12:56.746655 2021] [mpm_winnt:warn] [pid 9748:tid 4] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 27 13:11:40.204006 2021] [ssl:warn] [pid 3840:tid 828] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 27 13:11:40.209254 2021] [ssl:warn] [pid 3840:tid 828] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 27 13:11:40.745582 2021] [core:warn] [pid 3840:tid 828] AH00098: pid file H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Wed Jan 27 13:11:40.850668 2021] [ssl:warn] [pid 3840:tid 828] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Wed Jan 27 13:11:40.888928 2021] [ssl:warn] [pid 3840:tid 828] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 27 13:11:40.892785 2021] [ssl:warn] [pid 3840:tid 828] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 27 13:11:43.892015 2021] [mpm_winnt:notice] [pid 3840:tid 828] AH00455: Apache/2.4.18 (Win32) OpenSSL/1.0.2f PHP/5.6.18 configured -- resuming normal operations
+[Wed Jan 27 13:11:43.895623 2021] [mpm_winnt:notice] [pid 3840:tid 828] AH00456: Server built: Jan 28 2016 09:58:25
+[Wed Jan 27 13:11:43.898076 2021] [core:notice] [pid 3840:tid 828] AH00094: Command line: 'H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\bin\\apache\\bin\\httpd.exe -d H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/apache -f H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\bin\\apache\\conf\\httpd.conf'
+[Wed Jan 27 13:11:43.910046 2021] [mpm_winnt:notice] [pid 3840:tid 828] AH00418: Parent: Created child process 17032
+[Wed Jan 27 13:11:44.881160 2021] [ssl:warn] [pid 17032:tid 848] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 27 13:11:44.897778 2021] [ssl:warn] [pid 17032:tid 848] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 27 13:11:45.400972 2021] [ssl:warn] [pid 17032:tid 848] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Wed Jan 27 13:11:45.405932 2021] [ssl:warn] [pid 17032:tid 848] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 27 13:11:45.410056 2021] [ssl:warn] [pid 17032:tid 848] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 27 13:11:45.920016 2021] [mpm_winnt:notice] [pid 17032:tid 848] AH00354: Child: Starting 64 worker threads.
+[Wed Jan 27 13:47:33.104939 2021] [:error] [pid 17032:tid 1508] [client ::1:64614] PHP Notice:  Array to string conversion in H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\controllers\\getAllBikes.php on line 9, referer: http://localhost/my-app/views/index.php
+[Wed Jan 27 13:47:33.104939 2021] [:error] [pid 17032:tid 1508] [client ::1:64614] PHP Stack trace:, referer: http://localhost/my-app/views/index.php
+[Wed Jan 27 13:47:33.104939 2021] [:error] [pid 17032:tid 1508] [client ::1:64614] PHP   1. {main}() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\controllers\\getAllBikes.php:0, referer: http://localhost/my-app/views/index.php
+[Wed Jan 27 13:51:11.335875 2021] [:error] [pid 17032:tid 1508] [client ::1:64805] PHP Notice:  Undefined offset: 0 in H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\controllers\\getAllBikes.php on line 11, referer: http://localhost/my-app/views/index.php
+[Wed Jan 27 13:51:11.336871 2021] [:error] [pid 17032:tid 1508] [client ::1:64805] PHP Stack trace:, referer: http://localhost/my-app/views/index.php
+[Wed Jan 27 13:51:11.336871 2021] [:error] [pid 17032:tid 1508] [client ::1:64805] PHP   1. {main}() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\controllers\\getAllBikes.php:0, referer: http://localhost/my-app/views/index.php
+[Wed Jan 27 14:21:22.595533 2021] [:error] [pid 17032:tid 1508] [client ::1:49771] PHP Warning:  mail(): &quot;sendmail_from&quot; not set in php.ini or custom &quot;From:&quot; header missing in H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\controllers\\sendMailRequest.php on line 3, referer: http://localhost/my-app/views/inscription.php
+[Wed Jan 27 14:21:22.596517 2021] [:error] [pid 17032:tid 1508] [client ::1:49771] PHP Stack trace:, referer: http://localhost/my-app/views/inscription.php
+[Wed Jan 27 14:21:22.596517 2021] [:error] [pid 17032:tid 1508] [client ::1:49771] PHP   1. {main}() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\controllers\\sendMailRequest.php:0, referer: http://localhost/my-app/views/inscription.php
+[Wed Jan 27 14:21:22.597523 2021] [:error] [pid 17032:tid 1508] [client ::1:49771] PHP   2. mail() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\controllers\\sendMailRequest.php:3, referer: http://localhost/my-app/views/inscription.php
+[Wed Jan 27 14:25:43.119400 2021] [:error] [pid 17032:tid 1508] [client ::1:50100] PHP Warning:  phpinfo(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone 'UTC' for now, but please set date.timezone to select your timezone. in H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\phpapps\\uwamp\\phpinfo.php on line 3
+[Wed Jan 27 14:25:43.120396 2021] [:error] [pid 17032:tid 1508] [client ::1:50100] PHP Stack trace:
+[Wed Jan 27 14:25:43.120396 2021] [:error] [pid 17032:tid 1508] [client ::1:50100] PHP   1. {main}() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\phpapps\\uwamp\\phpinfo.php:0
+[Wed Jan 27 14:25:43.120396 2021] [:error] [pid 17032:tid 1508] [client ::1:50100] PHP   2. phpinfo() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\phpapps\\uwamp\\phpinfo.php:3
+[Wed Jan 27 14:29:58.033520 2021] [mpm_winnt:crit] [pid 17032:tid 848] AH02538: Child: Parent process exited abruptly. Child process is ending
+[Wed Jan 27 14:29:58.034516 2021] [mpm_winnt:warn] [pid 17032:tid 1908] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 27 14:29:58.034516 2021] [mpm_winnt:warn] [pid 17032:tid 2540] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 27 14:29:58.034516 2021] [mpm_winnt:warn] [pid 17032:tid 844] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 27 14:29:58.034516 2021] [mpm_winnt:warn] [pid 17032:tid 2468] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 27 14:30:02.717457 2021] [ssl:warn] [pid 17556:tid 268] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 27 14:30:02.718462 2021] [ssl:warn] [pid 17556:tid 268] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 27 14:30:02.830156 2021] [core:warn] [pid 17556:tid 268] AH00098: pid file H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Wed Jan 27 14:30:02.926933 2021] [ssl:warn] [pid 17556:tid 268] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Wed Jan 27 14:30:02.933880 2021] [ssl:warn] [pid 17556:tid 268] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 27 14:30:02.934876 2021] [ssl:warn] [pid 17556:tid 268] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 27 14:30:03.314587 2021] [mpm_winnt:notice] [pid 17556:tid 268] AH00455: Apache/2.4.18 (Win32) OpenSSL/1.0.2f PHP/5.6.18 configured -- resuming normal operations
+[Wed Jan 27 14:30:03.323573 2021] [mpm_winnt:notice] [pid 17556:tid 268] AH00456: Server built: Jan 28 2016 09:58:25
+[Wed Jan 27 14:30:03.324574 2021] [core:notice] [pid 17556:tid 268] AH00094: Command line: 'H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\bin\\apache\\bin\\httpd.exe -d H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/apache -f H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\bin\\apache\\conf\\httpd.conf'
+[Wed Jan 27 14:30:03.331557 2021] [mpm_winnt:notice] [pid 17556:tid 268] AH00418: Parent: Created child process 18148
+[Wed Jan 27 14:30:04.191137 2021] [ssl:warn] [pid 18148:tid 872] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 27 14:30:04.192126 2021] [ssl:warn] [pid 18148:tid 872] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 27 14:30:04.339706 2021] [ssl:warn] [pid 18148:tid 872] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Wed Jan 27 14:30:04.340703 2021] [ssl:warn] [pid 18148:tid 872] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 27 14:30:04.340703 2021] [ssl:warn] [pid 18148:tid 872] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 27 14:30:04.403533 2021] [mpm_winnt:notice] [pid 18148:tid 872] AH00354: Child: Starting 64 worker threads.
+[Wed Jan 27 14:30:50.526472 2021] [mpm_winnt:crit] [pid 18148:tid 872] AH02538: Child: Parent process exited abruptly. Child process is ending
+[Wed Jan 27 14:30:50.527469 2021] [mpm_winnt:warn] [pid 18148:tid 988] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 27 14:30:50.527469 2021] [mpm_winnt:warn] [pid 18148:tid 244] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 27 14:30:50.527469 2021] [mpm_winnt:warn] [pid 18148:tid 880] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 27 14:30:50.527469 2021] [mpm_winnt:warn] [pid 18148:tid 968] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 27 14:30:54.179316 2021] [ssl:warn] [pid 6224:tid 832] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 27 14:30:54.180313 2021] [ssl:warn] [pid 6224:tid 832] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 27 14:30:54.283040 2021] [core:warn] [pid 6224:tid 832] AH00098: pid file H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Wed Jan 27 14:30:54.377819 2021] [ssl:warn] [pid 6224:tid 832] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Wed Jan 27 14:30:54.384768 2021] [ssl:warn] [pid 6224:tid 832] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 27 14:30:54.384768 2021] [ssl:warn] [pid 6224:tid 832] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 27 14:30:54.695205 2021] [mpm_winnt:notice] [pid 6224:tid 832] AH00455: Apache/2.4.18 (Win32) OpenSSL/1.0.2f PHP/5.6.18 configured -- resuming normal operations
+[Wed Jan 27 14:30:54.695205 2021] [mpm_winnt:notice] [pid 6224:tid 832] AH00456: Server built: Jan 28 2016 09:58:25
+[Wed Jan 27 14:30:54.696204 2021] [core:notice] [pid 6224:tid 832] AH00094: Command line: 'H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\bin\\apache\\bin\\httpd.exe -d H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/apache -f H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\bin\\apache\\conf\\httpd.conf'
+[Wed Jan 27 14:30:54.702187 2021] [mpm_winnt:notice] [pid 6224:tid 832] AH00418: Parent: Created child process 16764
+[Wed Jan 27 14:31:21.153931 2021] [ssl:warn] [pid 14572:tid 860] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 27 14:31:21.155893 2021] [ssl:warn] [pid 14572:tid 860] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 27 14:31:21.254630 2021] [core:warn] [pid 14572:tid 860] AH00098: pid file H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Wed Jan 27 14:31:21.343393 2021] [ssl:warn] [pid 14572:tid 860] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Wed Jan 27 14:31:21.351378 2021] [ssl:warn] [pid 14572:tid 860] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 27 14:31:21.351378 2021] [ssl:warn] [pid 14572:tid 860] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 27 14:31:22.439067 2021] [mpm_winnt:notice] [pid 14572:tid 860] AH00455: Apache/2.4.18 (Win32) OpenSSL/1.0.2f PHP/5.6.18 configured -- resuming normal operations
+[Wed Jan 27 14:31:22.440065 2021] [mpm_winnt:notice] [pid 14572:tid 860] AH00456: Server built: Jan 28 2016 09:58:25
+[Wed Jan 27 14:31:22.440065 2021] [core:notice] [pid 14572:tid 860] AH00094: Command line: 'H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\bin\\apache\\bin\\httpd.exe -d H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/apache -f H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\bin\\apache\\conf\\httpd.conf'
+[Wed Jan 27 14:31:22.450038 2021] [mpm_winnt:notice] [pid 14572:tid 860] AH00418: Parent: Created child process 12096
+[Wed Jan 27 14:31:23.327692 2021] [ssl:warn] [pid 12096:tid 836] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 27 14:31:23.329687 2021] [ssl:warn] [pid 12096:tid 836] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 27 14:31:23.482279 2021] [ssl:warn] [pid 12096:tid 836] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Wed Jan 27 14:31:23.484274 2021] [ssl:warn] [pid 12096:tid 836] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 27 14:31:23.484274 2021] [ssl:warn] [pid 12096:tid 836] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 27 14:31:23.557109 2021] [mpm_winnt:notice] [pid 12096:tid 836] AH00354: Child: Starting 64 worker threads.
+[Wed Jan 27 14:31:38.634212 2021] [:error] [pid 12096:tid 1588] [client ::1:50387] PHP Warning:  mail(): &quot;sendmail_from&quot; not set in php.ini or custom &quot;From:&quot; header missing in H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\controllers\\sendMailRequest.php on line 3, referer: http://localhost/my-app/views/inscription.php
+[Wed Jan 27 14:31:38.634212 2021] [:error] [pid 12096:tid 1588] [client ::1:50387] PHP Stack trace:, referer: http://localhost/my-app/views/inscription.php
+[Wed Jan 27 14:31:38.634212 2021] [:error] [pid 12096:tid 1588] [client ::1:50387] PHP   1. {main}() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\controllers\\sendMailRequest.php:0, referer: http://localhost/my-app/views/inscription.php
+[Wed Jan 27 14:31:38.634212 2021] [:error] [pid 12096:tid 1588] [client ::1:50387] PHP   2. mail() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\controllers\\sendMailRequest.php:3, referer: http://localhost/my-app/views/inscription.php
+[Wed Jan 27 14:34:16.265795 2021] [mpm_winnt:crit] [pid 12096:tid 836] AH02538: Child: Parent process exited abruptly. Child process is ending
+[Wed Jan 27 14:34:16.266793 2021] [mpm_winnt:warn] [pid 12096:tid 884] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 27 14:34:16.266793 2021] [mpm_winnt:warn] [pid 12096:tid 1748] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 27 14:34:16.266793 2021] [mpm_winnt:warn] [pid 12096:tid 1680] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 27 14:34:16.266793 2021] [mpm_winnt:warn] [pid 12096:tid 1724] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
