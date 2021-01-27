@@ -1,0 +1,95 @@
+[Thu Dec 14 13:36:00.043972 2017] [ssl:warn] [pid 11696:tid 324] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Dec 14 13:36:00.043972 2017] [ssl:warn] [pid 11696:tid 324] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Dec 14 13:36:00.355972 2017] [ssl:warn] [pid 11696:tid 324] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Thu Dec 14 13:36:00.355972 2017] [ssl:warn] [pid 11696:tid 324] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Dec 14 13:36:00.355972 2017] [ssl:warn] [pid 11696:tid 324] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Dec 14 13:36:00.418372 2017] [mpm_winnt:notice] [pid 11696:tid 324] AH00455: Apache/2.4.18 (Win32) OpenSSL/1.0.2f PHP/5.6.18 configured -- resuming normal operations
+[Thu Dec 14 13:36:00.418372 2017] [mpm_winnt:notice] [pid 11696:tid 324] AH00456: Server built: Jan 28 2016 09:58:25
+[Thu Dec 14 13:36:00.418372 2017] [core:notice] [pid 11696:tid 324] AH00094: Command line: 'D:\\Applications\\Applications-publics\\UwAmp\\bin\\apache\\bin\\httpd.exe -d D:/Applications/Applications-publics/UwAmp/bin/apache -f D:\\Applications\\Applications-publics\\UwAmp\\bin\\apache\\conf\\httpd.conf'
+[Thu Dec 14 13:36:00.433972 2017] [mpm_winnt:notice] [pid 11696:tid 324] AH00418: Parent: Created child process 4420
+[Thu Dec 14 13:36:01.229572 2017] [ssl:warn] [pid 4420:tid 336] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Dec 14 13:36:01.229572 2017] [ssl:warn] [pid 4420:tid 336] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Dec 14 13:36:01.479172 2017] [ssl:warn] [pid 4420:tid 336] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Thu Dec 14 13:36:01.479172 2017] [ssl:warn] [pid 4420:tid 336] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Dec 14 13:36:01.479172 2017] [ssl:warn] [pid 4420:tid 336] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Dec 14 13:36:01.494772 2017] [mpm_winnt:notice] [pid 4420:tid 336] AH00354: Child: Starting 64 worker threads.
+[Thu Dec 14 13:48:18.001187 2017] [mpm_winnt:crit] [pid 4420:tid 336] AH02538: Child: Parent process exited abruptly. Child process is ending
+[Thu Dec 14 13:48:18.001187 2017] [mpm_winnt:warn] [pid 4420:tid 4] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Thu Dec 14 13:48:18.001187 2017] [mpm_winnt:warn] [pid 4420:tid 484] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Thu Dec 14 13:48:18.001187 2017] [mpm_winnt:warn] [pid 4420:tid 1104] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Thu Dec 14 13:48:18.001187 2017] [mpm_winnt:warn] [pid 4420:tid 492] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Fri Dec 15 08:55:26.586682 2017] [ssl:warn] [pid 1072:tid 324] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Dec 15 08:55:26.586682 2017] [ssl:warn] [pid 1072:tid 324] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Dec 15 08:55:26.617882 2017] [core:warn] [pid 1072:tid 324] AH00098: pid file D:/Applications/Applications-publics/UwAmp/bin/apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri Dec 15 08:55:26.789481 2017] [ssl:warn] [pid 1072:tid 324] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Fri Dec 15 08:55:26.789481 2017] [ssl:warn] [pid 1072:tid 324] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Dec 15 08:55:26.789481 2017] [ssl:warn] [pid 1072:tid 324] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Dec 15 08:55:27.148279 2017] [mpm_winnt:notice] [pid 1072:tid 324] AH00455: Apache/2.4.18 (Win32) OpenSSL/1.0.2f PHP/5.6.18 configured -- resuming normal operations
+[Fri Dec 15 08:55:27.148279 2017] [mpm_winnt:notice] [pid 1072:tid 324] AH00456: Server built: Jan 28 2016 09:58:25
+[Fri Dec 15 08:55:27.148279 2017] [core:notice] [pid 1072:tid 324] AH00094: Command line: 'D:\\Applications\\Applications-publics\\UwAmp\\bin\\apache\\bin\\httpd.exe -d D:/Applications/Applications-publics/UwAmp/bin/apache -f D:\\Applications\\Applications-publics\\UwAmp\\bin\\apache\\conf\\httpd.conf'
+[Fri Dec 15 08:55:27.163878 2017] [mpm_winnt:notice] [pid 1072:tid 324] AH00418: Parent: Created child process 13172
+[Fri Dec 15 08:55:27.820074 2017] [ssl:warn] [pid 13172:tid 336] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Dec 15 08:55:27.820074 2017] [ssl:warn] [pid 13172:tid 336] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Dec 15 08:55:28.147672 2017] [ssl:warn] [pid 13172:tid 336] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Fri Dec 15 08:55:28.147672 2017] [ssl:warn] [pid 13172:tid 336] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Dec 15 08:55:28.147672 2017] [ssl:warn] [pid 13172:tid 336] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Dec 15 08:55:28.194472 2017] [mpm_winnt:notice] [pid 13172:tid 336] AH00354: Child: Starting 64 worker threads.
+[Wed Jan 29 11:23:50.448136 2020] [ssl:warn] [pid 8588:tid 356] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 29 11:23:50.448136 2020] [ssl:warn] [pid 8588:tid 356] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 29 11:23:50.572932 2020] [core:warn] [pid 8588:tid 356] AH00098: pid file K:/INF/Maitres-Eleves/Outils/_APP-Portables/03-developpement/04-srv-wamp/02-uWamp/bin/apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Wed Jan 29 11:23:50.760126 2020] [ssl:warn] [pid 8588:tid 356] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Wed Jan 29 11:23:50.760126 2020] [ssl:warn] [pid 8588:tid 356] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 29 11:23:50.760126 2020] [ssl:warn] [pid 8588:tid 356] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 29 11:23:51.508902 2020] [mpm_winnt:notice] [pid 8588:tid 356] AH00455: Apache/2.4.18 (Win32) OpenSSL/1.0.2f PHP/5.6.18 configured -- resuming normal operations
+[Wed Jan 29 11:23:51.508902 2020] [mpm_winnt:notice] [pid 8588:tid 356] AH00456: Server built: Jan 28 2016 09:58:25
+[Wed Jan 29 11:23:51.508902 2020] [core:notice] [pid 8588:tid 356] AH00094: Command line: 'K:\\INF\\Maitres-Eleves\\Outils\\_APP-Portables\\03-developpement\\04-srv-wamp\\02-uWamp\\bin\\apache\\bin\\httpd.exe -d K:/INF/Maitres-Eleves/Outils/_APP-Portables/03-developpement/04-srv-wamp/02-uWamp/bin/apache -f K:\\INF\\Maitres-Eleves\\Outils\\_APP-Portables\\03-developpement\\04-srv-wamp\\02-uWamp\\bin\\apache\\conf\\httpd.conf'
+[Wed Jan 29 11:23:51.524502 2020] [mpm_winnt:notice] [pid 8588:tid 356] AH00418: Parent: Created child process 5308
+[Wed Jan 29 11:23:52.257678 2020] [ssl:warn] [pid 5308:tid 368] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 29 11:23:52.257678 2020] [ssl:warn] [pid 5308:tid 368] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 29 11:23:52.554069 2020] [ssl:warn] [pid 5308:tid 368] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Wed Jan 29 11:23:52.554069 2020] [ssl:warn] [pid 5308:tid 368] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 29 11:23:52.554069 2020] [ssl:warn] [pid 5308:tid 368] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 29 11:23:52.616467 2020] [mpm_winnt:notice] [pid 5308:tid 368] AH00354: Child: Starting 64 worker threads.
+[Wed Jan 29 11:23:53.521238 2020] [mpm_winnt:crit] [pid 5308:tid 368] AH02538: Child: Parent process exited abruptly. Child process is ending
+[Wed Jan 29 11:23:53.521238 2020] [mpm_winnt:warn] [pid 5308:tid 552] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 29 11:23:53.521238 2020] [mpm_winnt:warn] [pid 5308:tid 556] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 29 11:23:53.521238 2020] [mpm_winnt:warn] [pid 5308:tid 392] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 29 11:23:53.521238 2020] [mpm_winnt:warn] [pid 5308:tid 4] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 29 11:26:54.694831 2020] [ssl:warn] [pid 8044:tid 356] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 29 11:26:54.694831 2020] [ssl:warn] [pid 8044:tid 356] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 29 11:26:54.804027 2020] [core:warn] [pid 8044:tid 356] AH00098: pid file K:/INF/Maitres-Eleves/Outils/_APP-Portables/03-developpement/04-srv-wamp/02-uWamp/bin/apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Wed Jan 29 11:26:54.991221 2020] [ssl:warn] [pid 8044:tid 356] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Wed Jan 29 11:26:54.991221 2020] [ssl:warn] [pid 8044:tid 356] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 29 11:26:54.991221 2020] [ssl:warn] [pid 8044:tid 356] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 29 11:26:55.552803 2020] [mpm_winnt:notice] [pid 8044:tid 356] AH00455: Apache/2.4.18 (Win32) OpenSSL/1.0.2f PHP/5.6.18 configured -- resuming normal operations
+[Wed Jan 29 11:26:55.552803 2020] [mpm_winnt:notice] [pid 8044:tid 356] AH00456: Server built: Jan 28 2016 09:58:25
+[Wed Jan 29 11:26:55.552803 2020] [core:notice] [pid 8044:tid 356] AH00094: Command line: 'K:\\INF\\Maitres-Eleves\\Outils\\_APP-Portables\\03-developpement\\04-srv-wamp\\02-uWamp\\bin\\apache\\bin\\httpd.exe -d K:/INF/Maitres-Eleves/Outils/_APP-Portables/03-developpement/04-srv-wamp/02-uWamp/bin/apache -f K:\\INF\\Maitres-Eleves\\Outils\\_APP-Portables\\03-developpement\\04-srv-wamp\\02-uWamp\\bin\\apache\\conf\\httpd.conf'
+[Wed Jan 29 11:26:55.552803 2020] [mpm_winnt:notice] [pid 8044:tid 356] AH00418: Parent: Created child process 6020
+[Wed Jan 29 11:26:56.301579 2020] [ssl:warn] [pid 6020:tid 368] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 29 11:26:56.301579 2020] [ssl:warn] [pid 6020:tid 368] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 29 11:26:56.597970 2020] [ssl:warn] [pid 6020:tid 368] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Wed Jan 29 11:26:56.597970 2020] [ssl:warn] [pid 6020:tid 368] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 29 11:26:56.597970 2020] [ssl:warn] [pid 6020:tid 368] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 29 11:26:56.644768 2020] [mpm_winnt:notice] [pid 6020:tid 368] AH00354: Child: Starting 64 worker threads.
+[Wed Jan 29 12:16:43.491074 2020] [mpm_winnt:notice] [pid 8044:tid 356] AH00428: Parent: child process 6020 exited with status 1073807364 -- Restarting.
+[Wed Jan 27 09:57:28.508456 2021] [ssl:warn] [pid 11940:tid 744] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 27 09:57:28.525659 2021] [ssl:warn] [pid 11940:tid 744] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 27 09:57:28.712733 2021] [core:warn] [pid 11940:tid 744] AH00098: pid file H:/PRE-TPI/02-uWamp/bin/apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Wed Jan 27 09:57:28.812466 2021] [ssl:warn] [pid 11940:tid 744] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Wed Jan 27 09:57:28.831359 2021] [ssl:warn] [pid 11940:tid 744] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 27 09:57:28.831359 2021] [ssl:warn] [pid 11940:tid 744] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 27 09:57:29.931912 2021] [mpm_winnt:notice] [pid 11940:tid 744] AH00455: Apache/2.4.18 (Win32) OpenSSL/1.0.2f PHP/5.6.18 configured -- resuming normal operations
+[Wed Jan 27 09:57:29.931912 2021] [mpm_winnt:notice] [pid 11940:tid 744] AH00456: Server built: Jan 28 2016 09:58:25
+[Wed Jan 27 09:57:29.932909 2021] [core:notice] [pid 11940:tid 744] AH00094: Command line: 'H:\\PRE-TPI\\02-uWamp\\bin\\apache\\bin\\httpd.exe -d H:/PRE-TPI/02-uWamp/bin/apache -f H:\\PRE-TPI\\02-uWamp\\bin\\apache\\conf\\httpd.conf'
+[Wed Jan 27 09:57:29.938893 2021] [mpm_winnt:notice] [pid 11940:tid 744] AH00418: Parent: Created child process 8776
+[Wed Jan 27 09:57:30.743086 2021] [ssl:warn] [pid 8776:tid 836] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 27 09:57:30.744083 2021] [ssl:warn] [pid 8776:tid 836] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 27 09:57:30.883982 2021] [ssl:warn] [pid 8776:tid 836] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Wed Jan 27 09:57:30.885023 2021] [ssl:warn] [pid 8776:tid 836] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Jan 27 09:57:30.886055 2021] [ssl:warn] [pid 8776:tid 836] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 27 09:57:30.963675 2021] [mpm_winnt:notice] [pid 8776:tid 836] AH00354: Child: Starting 64 worker threads.
+[Wed Jan 27 09:58:42.363209 2021] [mpm_winnt:crit] [pid 8776:tid 836] AH02538: Child: Parent process exited abruptly. Child process is ending
+[Wed Jan 27 09:58:42.363209 2021] [mpm_winnt:warn] [pid 8776:tid 2904] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 27 09:58:42.363209 2021] [mpm_winnt:warn] [pid 8776:tid 2912] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 27 09:58:42.363209 2021] [mpm_winnt:warn] [pid 8776:tid 2908] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Jan 27 09:58:42.363209 2021] [mpm_winnt:warn] [pid 8776:tid 2852] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.

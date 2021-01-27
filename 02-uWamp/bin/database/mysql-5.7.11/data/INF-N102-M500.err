@@ -1,0 +1,128 @@
+2020-01-29T10:23:49.948952Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2020-01-29T10:23:49.948952Z 0 [Warning] 'NO_ZERO_DATE', 'NO_ZERO_IN_DATE' and 'ERROR_FOR_DIVISION_BY_ZERO' sql modes should be used with strict mode. They will be merged with strict mode in a future release.
+2020-01-29T10:23:49.948952Z 0 [Warning] 'NO_AUTO_CREATE_USER' sql mode was not set.
+2020-01-29T10:23:49.948952Z 0 [Warning] Insecure configuration for --secure-file-priv: Current value does not restrict location of generated files. Consider setting it to a valid, non-empty path.
+2020-01-29T10:23:49.948952Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2020-01-29T10:23:49.948952Z 0 [Note] K:\INF\Maitres-Eleves\Outils\_APP-Portables\03-developpement\04-srv-wamp\02-uWamp\bin\database\mysql-5.7.11\bin\mysqld.exe (mysqld 5.7.11) starting as process 4508 ...
+2020-01-29T10:23:49.980151Z 0 [ERROR] Can't open shared library 'K:\INF\Maitres-Eleves\Outils\_APP-Portables\03-developpement\04-srv-wamp\02-uWamp\bin\database\mysql-5.7.11\lib\plugin\keyring_file.dll' (errno: 126 Le module spécifié est introuvable.)
+2020-01-29T10:23:49.980151Z 0 [ERROR] Couldn't load plugin named 'keyring_file' with soname 'keyring_file.dll'.
+2020-01-29T10:23:49.980151Z 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2020-01-29T10:23:49.980151Z 0 [Note] InnoDB: Uses event mutexes
+2020-01-29T10:23:49.980151Z 0 [Note] InnoDB: Memory barrier is not used
+2020-01-29T10:23:49.980151Z 0 [Note] InnoDB: Compressed tables use zlib 1.2.3
+2020-01-29T10:23:49.980151Z 0 [Note] InnoDB: Number of pools: 1
+2020-01-29T10:23:49.980151Z 0 [Note] InnoDB: Not using CPU crc32 instructions
+2020-01-29T10:23:50.042549Z 0 [Note] InnoDB: Initializing buffer pool, total size = 128M, instances = 1, chunk size = 128M
+2020-01-29T10:23:50.042549Z 0 [Note] InnoDB: Completed initialization of buffer pool
+2020-01-29T10:23:50.292141Z 0 [Note] InnoDB: Highest supported file format is Barracuda.
+2020-01-29T10:23:51.602499Z 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2020-01-29T10:23:51.618099Z 0 [Note] InnoDB: Setting file '.\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2020-01-29T10:23:51.867691Z 0 [Note] InnoDB: File '.\ibtmp1' size is now 12 MB.
+2020-01-29T10:23:51.898890Z 0 [Note] InnoDB: 96 redo rollback segment(s) found. 96 redo rollback segment(s) are active.
+2020-01-29T10:23:51.898890Z 0 [Note] InnoDB: 32 non-redo rollback segment(s) are active.
+2020-01-29T10:23:51.898890Z 0 [Note] InnoDB: Waiting for purge to start
+2020-01-29T10:23:51.961288Z 0 [Note] InnoDB: 5.7.11 started; log sequence number 4279420
+2020-01-29T10:23:51.961288Z 0 [Note] Plugin 'FEDERATED' is disabled.
+2020-01-29T10:23:51.976887Z 0 [Note] InnoDB: Loading buffer pool(s) from K:\INF\Maitres-Eleves\Outils\_APP-Portables\03-developpement\04-srv-wamp\02-uWamp\bin\database\mysql-5.7.11\data\ib_buffer_pool
+2020-01-29T10:23:52.070484Z 0 [Warning] Failed to set up SSL because of the following SSL library error: SSL context is not usable without certificate and private key
+2020-01-29T10:23:52.070484Z 0 [Note] Server hostname (bind-address): '*'; port: 3306
+2020-01-29T10:23:52.070484Z 0 [Note] IPv6 is available.
+2020-01-29T10:23:52.070484Z 0 [Note]   - '::' resolves to '::';
+2020-01-29T10:23:52.070484Z 0 [Note] Server socket created on IP: '::'.
+2020-01-29T10:23:52.444872Z 0 [Note] InnoDB: Buffer pool(s) load completed at 200129 11:23:52
+2020-01-29T10:23:52.538469Z 0 [Note] Event Scheduler: Loaded 0 events
+2020-01-29T10:23:52.538469Z 0 [Note] K:\INF\Maitres-Eleves\Outils\_APP-Portables\03-developpement\04-srv-wamp\02-uWamp\bin\database\mysql-5.7.11\bin\mysqld.exe: ready for connections.
+Version: '5.7.11'  socket: ''  port: 3306  MySQL Community Server (GPL)
+2020-01-29T10:23:53.708432Z 0 [Note] K:\INF\Maitres-Eleves\Outils\_APP-Portables\03-developpement\04-srv-wamp\02-uWamp\bin\database\mysql-5.7.11\bin\mysqld.exe: Normal shutdown
+
+2020-01-29T10:23:53.708432Z 0 [Note] Giving 0 client threads a chance to die gracefully
+2020-01-29T10:23:53.708432Z 0 [Note] Shutting down slave threads
+2020-01-29T10:23:53.708432Z 0 [Note] Forcefully disconnecting 0 remaining clients
+2020-01-29T10:23:53.708432Z 0 [Note] Event Scheduler: Purging the queue. 0 events
+2020-01-29T10:23:53.708432Z 0 [Note] Binlog end
+2020-01-29T10:23:53.708432Z 0 [Note] Shutting down plugin 'ngram'
+2020-01-29T10:23:53.708432Z 0 [Note] Shutting down plugin 'partition'
+2020-01-29T10:23:53.708432Z 0 [Note] Shutting down plugin 'BLACKHOLE'
+2020-01-29T10:23:53.708432Z 0 [Note] Shutting down plugin 'ARCHIVE'
+2020-01-29T10:23:53.708432Z 0 [Note] Shutting down plugin 'PERFORMANCE_SCHEMA'
+2020-01-29T10:23:53.708432Z 0 [Note] Shutting down plugin 'MRG_MYISAM'
+2020-01-29T10:23:53.708432Z 0 [Note] Shutting down plugin 'MyISAM'
+2020-01-29T10:23:53.708432Z 0 [Note] Shutting down plugin 'INNODB_SYS_VIRTUAL'
+2020-01-29T10:23:53.708432Z 0 [Note] Shutting down plugin 'INNODB_SYS_DATAFILES'
+2020-01-29T10:23:53.708432Z 0 [Note] Shutting down plugin 'INNODB_SYS_TABLESPACES'
+2020-01-29T10:23:53.708432Z 0 [Note] Shutting down plugin 'INNODB_SYS_FOREIGN_COLS'
+2020-01-29T10:23:53.708432Z 0 [Note] Shutting down plugin 'INNODB_SYS_FOREIGN'
+2020-01-29T10:23:53.708432Z 0 [Note] Shutting down plugin 'INNODB_SYS_FIELDS'
+2020-01-29T10:23:53.708432Z 0 [Note] Shutting down plugin 'INNODB_SYS_COLUMNS'
+2020-01-29T10:23:53.708432Z 0 [Note] Shutting down plugin 'INNODB_SYS_INDEXES'
+2020-01-29T10:23:53.708432Z 0 [Note] Shutting down plugin 'INNODB_SYS_TABLESTATS'
+2020-01-29T10:23:53.708432Z 0 [Note] Shutting down plugin 'INNODB_SYS_TABLES'
+2020-01-29T10:23:53.708432Z 0 [Note] Shutting down plugin 'INNODB_FT_INDEX_TABLE'
+2020-01-29T10:23:53.708432Z 0 [Note] Shutting down plugin 'INNODB_FT_INDEX_CACHE'
+2020-01-29T10:23:53.708432Z 0 [Note] Shutting down plugin 'INNODB_FT_CONFIG'
+2020-01-29T10:23:53.724031Z 0 [Note] Shutting down plugin 'INNODB_FT_BEING_DELETED'
+2020-01-29T10:23:53.724031Z 0 [Note] Shutting down plugin 'INNODB_FT_DELETED'
+2020-01-29T10:23:53.724031Z 0 [Note] Shutting down plugin 'INNODB_FT_DEFAULT_STOPWORD'
+2020-01-29T10:23:53.724031Z 0 [Note] Shutting down plugin 'INNODB_METRICS'
+2020-01-29T10:23:53.724031Z 0 [Note] Shutting down plugin 'INNODB_TEMP_TABLE_INFO'
+2020-01-29T10:23:53.724031Z 0 [Note] Shutting down plugin 'INNODB_BUFFER_POOL_STATS'
+2020-01-29T10:23:53.724031Z 0 [Note] Shutting down plugin 'INNODB_BUFFER_PAGE_LRU'
+2020-01-29T10:23:53.724031Z 0 [Note] Shutting down plugin 'INNODB_BUFFER_PAGE'
+2020-01-29T10:23:53.724031Z 0 [Note] Shutting down plugin 'INNODB_CMP_PER_INDEX_RESET'
+2020-01-29T10:23:53.724031Z 0 [Note] Shutting down plugin 'INNODB_CMP_PER_INDEX'
+2020-01-29T10:23:53.724031Z 0 [Note] Shutting down plugin 'INNODB_CMPMEM_RESET'
+2020-01-29T10:23:53.724031Z 0 [Note] Shutting down plugin 'INNODB_CMPMEM'
+2020-01-29T10:23:53.724031Z 0 [Note] Shutting down plugin 'INNODB_CMP_RESET'
+2020-01-29T10:23:53.724031Z 0 [Note] Shutting down plugin 'INNODB_CMP'
+2020-01-29T10:23:53.724031Z 0 [Note] Shutting down plugin 'INNODB_LOCK_WAITS'
+2020-01-29T10:23:53.724031Z 0 [Note] Shutting down plugin 'INNODB_LOCKS'
+2020-01-29T10:23:53.724031Z 0 [Note] Shutting down plugin 'INNODB_TRX'
+2020-01-29T10:23:53.724031Z 0 [Note] Shutting down plugin 'InnoDB'
+2020-01-29T10:23:53.724031Z 0 [Note] InnoDB: FTS optimize thread exiting.
+2020-01-29T10:23:53.739631Z 0 [Note] InnoDB: Starting shutdown...
+2020-01-29T10:23:53.848827Z 0 [Note] InnoDB: Dumping buffer pool(s) to K:\INF\Maitres-Eleves\Outils\_APP-Portables\03-developpement\04-srv-wamp\02-uWamp\bin\database\mysql-5.7.11\data\ib_buffer_pool
+2020-01-29T10:23:53.848827Z 0 [Note] InnoDB: Buffer pool(s) dump completed at 200129 11:23:53
+2020-01-29T10:23:54.332412Z 0 [Note] InnoDB: Shutdown completed; log sequence number 4279439
+2020-01-29T10:23:54.332412Z 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2020-01-29T10:23:54.332412Z 0 [Note] Shutting down plugin 'MEMORY'
+2020-01-29T10:23:54.332412Z 0 [Note] Shutting down plugin 'CSV'
+2020-01-29T10:23:54.332412Z 0 [Note] Shutting down plugin 'sha256_password'
+2020-01-29T10:23:54.332412Z 0 [Note] Shutting down plugin 'mysql_native_password'
+2020-01-29T10:23:54.348011Z 0 [Note] Shutting down plugin 'binlog'
+2020-01-29T10:23:54.348011Z 0 [Note] K:\INF\Maitres-Eleves\Outils\_APP-Portables\03-developpement\04-srv-wamp\02-uWamp\bin\database\mysql-5.7.11\bin\mysqld.exe: Shutdown complete
+
+2020-01-29T10:26:54.180047Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2020-01-29T10:26:54.180047Z 0 [Warning] 'NO_ZERO_DATE', 'NO_ZERO_IN_DATE' and 'ERROR_FOR_DIVISION_BY_ZERO' sql modes should be used with strict mode. They will be merged with strict mode in a future release.
+2020-01-29T10:26:54.180047Z 0 [Warning] 'NO_AUTO_CREATE_USER' sql mode was not set.
+2020-01-29T10:26:54.180047Z 0 [Warning] Insecure configuration for --secure-file-priv: Current value does not restrict location of generated files. Consider setting it to a valid, non-empty path.
+2020-01-29T10:26:54.180047Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2020-01-29T10:26:54.180047Z 0 [Note] K:\INF\Maitres-Eleves\Outils\_APP-Portables\03-developpement\04-srv-wamp\02-uWamp\bin\database\mysql-5.7.11\bin\mysqld.exe (mysqld 5.7.11) starting as process 4576 ...
+2020-01-29T10:26:54.211246Z 0 [ERROR] Can't open shared library 'K:\INF\Maitres-Eleves\Outils\_APP-Portables\03-developpement\04-srv-wamp\02-uWamp\bin\database\mysql-5.7.11\lib\plugin\keyring_file.dll' (errno: 126 Le module spécifié est introuvable.)
+2020-01-29T10:26:54.211246Z 0 [ERROR] Couldn't load plugin named 'keyring_file' with soname 'keyring_file.dll'.
+2020-01-29T10:26:54.211246Z 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2020-01-29T10:26:54.211246Z 0 [Note] InnoDB: Uses event mutexes
+2020-01-29T10:26:54.211246Z 0 [Note] InnoDB: Memory barrier is not used
+2020-01-29T10:26:54.211246Z 0 [Note] InnoDB: Compressed tables use zlib 1.2.3
+2020-01-29T10:26:54.211246Z 0 [Note] InnoDB: Number of pools: 1
+2020-01-29T10:26:54.211246Z 0 [Note] InnoDB: Not using CPU crc32 instructions
+2020-01-29T10:26:54.273644Z 0 [Note] InnoDB: Initializing buffer pool, total size = 128M, instances = 1, chunk size = 128M
+2020-01-29T10:26:54.273644Z 0 [Note] InnoDB: Completed initialization of buffer pool
+2020-01-29T10:26:54.601234Z 0 [Note] InnoDB: Highest supported file format is Barracuda.
+2020-01-29T10:26:55.864793Z 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2020-01-29T10:26:55.864793Z 0 [Note] InnoDB: Setting file '.\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2020-01-29T10:26:56.036388Z 0 [Note] InnoDB: File '.\ibtmp1' size is now 12 MB.
+2020-01-29T10:26:56.067587Z 0 [Note] InnoDB: 96 redo rollback segment(s) found. 96 redo rollback segment(s) are active.
+2020-01-29T10:26:56.067587Z 0 [Note] InnoDB: 32 non-redo rollback segment(s) are active.
+2020-01-29T10:26:56.067587Z 0 [Note] InnoDB: Waiting for purge to start
+2020-01-29T10:26:56.129985Z 0 [Note] InnoDB: 5.7.11 started; log sequence number 4279439
+2020-01-29T10:26:56.129985Z 0 [Note] Plugin 'FEDERATED' is disabled.
+2020-01-29T10:26:56.129985Z 0 [Note] InnoDB: Loading buffer pool(s) from K:\INF\Maitres-Eleves\Outils\_APP-Portables\03-developpement\04-srv-wamp\02-uWamp\bin\database\mysql-5.7.11\data\ib_buffer_pool
+2020-01-29T10:26:56.301579Z 0 [Warning] Failed to set up SSL because of the following SSL library error: SSL context is not usable without certificate and private key
+2020-01-29T10:26:56.301579Z 0 [Note] Server hostname (bind-address): '*'; port: 3306
+2020-01-29T10:26:56.301579Z 0 [Note] IPv6 is available.
+2020-01-29T10:26:56.301579Z 0 [Note]   - '::' resolves to '::';
+2020-01-29T10:26:56.301579Z 0 [Note] Server socket created on IP: '::'.
+2020-01-29T10:26:56.785164Z 0 [Note] InnoDB: Buffer pool(s) load completed at 200129 11:26:56
+2020-01-29T10:26:57.097154Z 0 [Note] Event Scheduler: Loaded 0 events
+2020-01-29T10:26:57.097154Z 0 [Note] K:\INF\Maitres-Eleves\Outils\_APP-Portables\03-developpement\04-srv-wamp\02-uWamp\bin\database\mysql-5.7.11\bin\mysqld.exe: ready for connections.
+Version: '5.7.11'  socket: ''  port: 3306  MySQL Community Server (GPL)
