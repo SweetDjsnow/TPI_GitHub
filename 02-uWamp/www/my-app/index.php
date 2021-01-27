@@ -19,15 +19,9 @@
                 </form>
 
                 <form class="login-form">
-                    <div class="select">
-                    <select name="slct" id="slct">
-                        <option value="1">Lausanne</option>
-                        <option value="2">Morges</option>
-                        <option value="3">Nyon</option>
-                    </select>
-                    </div>
-                    <input type="password" placeholder="password"/>
-                    <button>login</button>
+                    <input type="username" placeholder="Nom d'utilisateur"/>
+                    <input type="password" placeholder="Mot de passe"/>
+                    <button>Se connecter</button>
                     <p class="message">Not registered? <a href="#">Create an account</a></p>
                 </form>
             </div>
