@@ -1,16 +1,16 @@
-date/time         : 2021-01-28, 08:14:48, 389ms
+date/time         : 2021-01-28, 10:59:35, 145ms
 computer name     : INF-N512B-M815
 user name         : micdossantos
 operating system  : Windows NT New x64 build 9200
 system language   : French
-system up time    : 11 minutes 54 seconds
-program up time   : 72 milliseconds
+system up time    : 2 hours 56 minutes
+program up time   : 82 milliseconds
 processors        : 8x Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
-physical memory   : 27073/32632 MB (free/total)
-free disk space   : (C:) 405,48 GB (H:) 39,28 GB
+physical memory   : 26204/32632 MB (free/total)
+free disk space   : (C:) 405,16 GB (H:) 38,66 GB
 display mode      : 1920x1080, 32 bit
-process id        : $1820
-allocated memory  : 25,24 MB
+process id        : $285c
+allocated memory  : 25,46 MB
 command line      : H:\PRE-TPI\TPI_GitHub\02-uWamp\sendmail.exe -t -i
 executable        : sendmail.exe
 exec. date/time   : 2021-01-27 16:29
@@ -21,17 +21,17 @@ exception number  : 1
 exception class   : Exception
 exception message : Message is missing sender's address.
 
-main thread ($214):
+main thread ($3870):
 004b59c5 +b11 sendmail.exe sendmail 686 +204 initialization
 75546357 +017 KERNEL32.DLL                   BaseThreadInitThunk
 
-thread $3dc:
+thread $2530:
 75546357 +17 KERNEL32.DLL  BaseThreadInitThunk
 
-thread $1ba0:
+thread $31ac:
 75546357 +17 KERNEL32.DLL  BaseThreadInitThunk
 
-thread $2904:
+thread $32cc:
 75546357 +17 KERNEL32.DLL  BaseThreadInitThunk
 
 stack dump:
@@ -40,7 +40,7 @@ stack dump:
 0019fdd4  b4 4e 4b 00 b4 4e 4b 00 - 70 ff 19 00 e4 fd 19 00  .NK..NK.p.......
 0019fde4  f0 fd 19 00 c8 4b 40 00 - 70 ff 19 00 fc fd 19 00  .....K@.p.......
 0019fdf4  5f 4d 40 00 70 ff 19 00 - 64 ff 19 00 c8 4b 40 00  _M@.p...d....K@.
-0019fe04  70 ff 19 00 b4 4e 4b 00 - b4 4e 4b 00 00 30 23 00  p....NK..NK..0#.
+0019fe04  70 ff 19 00 b4 4e 4b 00 - b4 4e 4b 00 00 00 23 00  p....NK..NK...#.
 0019fe14  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
 0019fe24  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
 0019fe34  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
