@@ -1,18 +1,11 @@
 <?php
 
+$msg = "First line of text\nSecond line of text";
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+// use wordwrap() if lines are longer than 70 characters
+$msg = wordwrap($msg,70);
 
-/* Exception class. */
-require '../../../phpapps/phpmailer/src/Exception.php';
-
-/* The main PHPMailer class. */
-require '../../../phpapps/phpmailer/src/PHPMailer.php';
-
-/* SMTP class, needed if you want to use SMTP. */
-require '../../../phpapps/phpmailer/src/SMTP.php';
-
-$email = new PHPMailer(TRUE);
+// send email
+mail("m.dsc@outlook.fr","My subject",$msg);
 
 ?>
