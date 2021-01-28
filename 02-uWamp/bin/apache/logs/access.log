@@ -821,3 +821,17 @@
 ::1 - - [28/Jan/2021:10:59:34 +0100] "POST /my-app/controllers/sendMailRequest.php HTTP/1.1" 200 1809
 ::1 - - [28/Jan/2021:11:00:27 +0100] "POST /my-app/controllers/sendMailRequest.php HTTP/1.1" 200 1809
 ::1 - - [28/Jan/2021:11:00:47 +0100] "POST /my-app/controllers/sendMailRequest.php HTTP/1.1" 200 1809
+::1 - - [28/Jan/2021:11:08:47 +0100] "POST /my-app/controllers/sendMailRequest.php HTTP/1.1" 200 1809
+::1 - - [28/Jan/2021:11:12:48 +0100] "POST /my-app/controllers/sendMailRequest.php HTTP/1.1" 200 1809
+::1 - - [28/Jan/2021:11:16:23 +0100] "POST /my-app/controllers/sendMailRequest.php HTTP/1.1" 200 1809
+::1 - - [28/Jan/2021:11:21:24 +0100] "POST /my-app/controllers/sendMailRequest.php HTTP/1.1" 200 1809
+::1 - - [28/Jan/2021:11:22:34 +0100] "POST /my-app/controllers/sendMailRequest.php HTTP/1.1" 200 1809
+::1 - - [28/Jan/2021:11:24:49 +0100] "POST /my-app/controllers/sendMailRequest.php HTTP/1.1" 200 1809
+::1 - - [28/Jan/2021:11:26:57 +0100] "GET /my-app/views/inscription.php HTTP/1.1" 200 1155
+::1 - - [28/Jan/2021:11:27:08 +0100] "POST /my-app/controllers/sendMailRequest.php HTTP/1.1" 200 1809
+::1 - - [28/Jan/2021:11:50:26 +0100] "GET /my-app/views/inscription.php HTTP/1.1" 200 95304
+::1 - - [28/Jan/2021:11:50:54 +0100] "GET /my-app/controllers/getAllBikes.php HTTP/1.1" 200 2274
+::1 - - [28/Jan/2021:11:51:20 +0100] "GET /my-app/controllers/getAllBikes.php HTTP/1.1" 200 49
+::1 - - [28/Jan/2021:11:51:23 +0100] "GET /my-app/views/inscription.php HTTP/1.1" 200 111474
+::1 - - [28/Jan/2021:12:00:17 +0100] "GET /my-app/views/inscription.php HTTP/1.1" 200 4646
+::1 - - [28/Jan/2021:12:01:51 +0100] "GET /my-app/views/inscription.php HTTP/1.1" 200 125807
