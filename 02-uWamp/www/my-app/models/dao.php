@@ -76,6 +76,13 @@ class Database
         return $result;
     }
 
+    function CreateCity($firstName, $lastName, $email, $phone, $cityName, $officeLocation, $npa)
+    {
+        $query = "INSERT INTO t_city (citContactFirstName, citContactLastName, citContactEmail, citContactPhone, citName, citNPA, citOfficeLocation)
+        VALUES ({$firstName}, {$lastName}, {$email}, {$phone}, {$cityName}, {$officeLocation}, {$npa});";
+        $this->ExecuteSetRequest($query);
+    }
+
 }
 
 

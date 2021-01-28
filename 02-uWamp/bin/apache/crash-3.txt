@@ -1,77 +1,72 @@
-date/time         : 2021-01-28, 10:40:00, 672ms
+date/time         : 2021-01-28, 10:46:55, 757ms
 computer name     : INF-N512B-M815
 user name         : micdossantos
 operating system  : Windows NT New x64 build 9200
 system language   : French
-system up time    : 2 hours 37 minutes
-program up time   : 2 seconds
+system up time    : 2 hours 44 minutes
+program up time   : 66 milliseconds
 processors        : 8x Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
-physical memory   : 26279/32632 MB (free/total)
-free disk space   : (C:) 405,18 GB (H:) 38,70 GB
+physical memory   : 26405/32632 MB (free/total)
+free disk space   : (C:) 405,17 GB (H:) 38,70 GB
 display mode      : 1920x1080, 32 bit
-process id        : $2c70
-allocated memory  : 25,60 MB
+process id        : $2f00
+allocated memory  : 25,39 MB
 command line      : H:\PRE-TPI\TPI_GitHub\02-uWamp\sendmail.exe -t -i
 executable        : sendmail.exe
 exec. date/time   : 2021-01-27 16:29
 compiled with     : Delphi 2006/07
 madExcept version : 3.0l
-callstack crc     : $fecf9b34, $512dedff, $512dedff
+callstack crc     : $e1790c4a, $af3ee640, $af3ee640
 exception number  : 1
-exception class   : EIdSMTPReplyError
-exception message : STOREDRV.Submission.Exception:SendAsDeniedException.MapiExceptionSendAsDenied; Failed to process message due to a permanent exception with message Cannot submit message. 0.35250:0A000381, 1.36674:0A000000, 1.61250:00000000, 1.45378:02000000, 1.44866:B31A0000, 1.36674:0E000000, 1.61250:00000000, 1.45378:B81A0000, 1.44866:FE000000, 16.55847:DE0C0000, 17.43559:0000000024020000000000000000000000000000, 20.52176:140FDD8E1100103100000000, 20.50032:140FDD8E8117000000000000, 0.35180:140FDD8E, 255.23226:0A000981, 255.27962:0A000000, 255.27962:0E000000, 255.31418:0A000A81, 0.35250:1F001432, 1.36674:0A000000, 1.61250:00000000, 1.45378:02000000, 1.44866:24000000, 1.36674:32000000, 1.61250:00000000, 1.45378:29000000, 1.44866:01000000, 16.55847:90000000, 17.43559:0000000078030000000000000100000000000000, 20.52176:140FDD8E1100101053000000, 20.50032:140FDD8E811700001B200000, 0.35180:58000000, 255.23226:4800D13D, 255.27962:0A000000, 255.27962:32000000, 255.17082:DC040000, 0.27745:25200000, 4.21921:DC040000, 255.27962:FA000000, 255.1494:2A200000, 0.38698:00000000, 0.37692:02000000, 0.37948:0F010480, 5.33852:00000000534D545000000100, 7.36354:010000000000010933000100, 4.56248:DC040000, 7.40748:010000000000010B37384D42, 7.57132:0000000000000000612D6532, 1.63016:32000000, 4.39640:DC040000, 8.45434:A3CAFB13086F914C8BF90FC8641464BDC0675895, 1.46798:04000000, 5.10786:0000000031352E32302E333830352E3031373A475630503237384D42303031383A63383736396330612D653235342D343237372D386633322D3637656637323362323535623A333339323400, 7.51330:392A8DAE70C3D80818000000, 0.39570:18000000, 1.55954:0A000000, 0.49266:02000000, 1.33010:0A000000, 2.54258:00000000, 0.40002:00000000, 1.56562:00000000, 1.64146:32000000, 1.33010:32000000, 2.54258:DC040000, 255.1750:0A005D36, 255.31418:54220000, 0.22753:B4000000, 255.21817:DC040000, 0.64418:85220000, 4.39842:DC040000, 0.41586:0A005636, 4.60547:DC040000, 0.21966:BE000000, 4.30158:DC040000 [Hostname=GV0P278MB0018.CHEP278.PROD.OUTLOOK.COM].
+exception class   : Exception
+exception message : Message is missing sender's address.
 
-main thread ($b50):
-0045918a +003e sendmail.exe IdReplySMTP     501   +1 TIdReplySMTP.RaiseReplyError
-0043ff28 +0008 sendmail.exe IdTCPConnection 576   +0 TIdTCPConnection.RaiseExceptionForLastCmdResult
-004402f4 +003c sendmail.exe IdTCPConnection 751  +10 TIdTCPConnection.CheckResponse
-0043feba +002a sendmail.exe IdTCPConnection 565   +2 TIdTCPConnection.GetResponse
-0043ff87 +005b sendmail.exe IdTCPConnection 585   +4 TIdTCPConnection.SendCmd
-004b6613 +175f sendmail.exe sendmail        893 +411 initialization
-75546357 +0017 KERNEL32.DLL                          BaseThreadInitThunk
+main thread ($734):
+004b59c5 +b11 sendmail.exe sendmail 686 +204 initialization
+75546357 +017 KERNEL32.DLL                   BaseThreadInitThunk
 
-thread $678:
+thread $2998:
 75546357 +17 KERNEL32.DLL  BaseThreadInitThunk
 
-thread $a6c:
+thread $242c:
 75546357 +17 KERNEL32.DLL  BaseThreadInitThunk
 
-thread $2178:
+thread $2d00:
 75546357 +17 KERNEL32.DLL  BaseThreadInitThunk
 
 stack dump:
-0019fd24  8f 91 45 00 de fa ed 0e - 01 00 00 00 07 00 00 00  ..E.............
-0019fd34  38 fd 19 00 8f 91 45 00 - 98 cc 95 02 48 1d 97 02  8.....E.....H...
-0019fd44  00 00 00 00 2a 02 00 00 - 68 fd 19 00 54 fd 19 00  ....*...h...T...
-0019fd54  a8 fd 19 00 c8 4b 40 00 - 68 fd 19 00 34 a5 45 00  .....K@.h...4.E.
-0019fd64  00 00 00 00 84 fd 19 00 - 2b ff 43 00 f7 02 44 00  ........+.C...D.
-0019fd74  00 00 00 00 8c fe 19 00 - 8c fe 19 00 80 66 8f 02  .............f..
-0019fd84  9c fd 19 00 bd fe 43 00 - 00 00 00 00 94 34 46 00  ......C......4F.
-0019fd94  00 00 00 00 34 a5 45 00 - c8 fd 19 00 8a ff 43 00  ....4.E.......C.
-0019fda4  00 00 00 00 d8 fd 19 00 - c8 4b 40 00 c8 fd 19 00  .........K@.....
-0019fdb4  94 34 46 00 00 00 00 00 - 34 a5 45 00 8c fe 19 00  .4F.....4.E.....
-0019fdc4  00 00 00 00 70 ff 19 00 - 19 66 4b 00 00 00 00 00  ....p....fK.....
-0019fdd4  00 00 00 00 e4 fd 19 00 - c8 4b 40 00 70 ff 19 00  .........K@.p...
+0019fdb4  ca 59 4b 00 de fa ed 0e - 01 00 00 00 07 00 00 00  .YK.............
+0019fdc4  c8 fd 19 00 ca 59 4b 00 - 40 4f 98 02 bc c2 41 00  .....YK.@O....A.
+0019fdd4  b4 4e 4b 00 b4 4e 4b 00 - 70 ff 19 00 e4 fd 19 00  .NK..NK.p.......
 0019fde4  f0 fd 19 00 c8 4b 40 00 - 70 ff 19 00 fc fd 19 00  .....K@.p.......
 0019fdf4  5f 4d 40 00 70 ff 19 00 - 64 ff 19 00 c8 4b 40 00  _M@.p...d....K@.
-0019fe04  70 ff 19 00 b4 4e 4b 00 - b4 4e 4b 00 00 b0 39 00  p....NK..NK...9.
+0019fe04  70 ff 19 00 b4 4e 4b 00 - b4 4e 4b 00 00 c0 39 00  p....NK..NK...9.
 0019fe14  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
 0019fe24  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
 0019fe34  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
 0019fe44  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
 0019fe54  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
+0019fe64  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
+0019fe74  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
+0019fe84  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
+0019fe94  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
+0019fea4  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
+0019feb4  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
+0019fec4  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
+0019fed4  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
+0019fee4  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
 
 disassembling:
 [...]
-00459177       call    -$1f480 ($439cfc)      ; IdReply.TIdReply.GetNumericCode
-0045917c       mov     ecx, eax
-0045917e       mov     dl, 1
-00459180       mov     eax, [$458844]
-00459185       call    +$182 ($45930c)        ; IdReplySMTP.EIdSMTPReplyError.CreateError
-0045918a     > call    -$544a3 ($404cec)      ; System.@RaiseExcept
-0045918f 502   xor     eax, eax
-00459191       pop     edx
-00459192       pop     ecx
-00459193       pop     ecx
-00459194       mov     fs:[eax], edx
+004b59b2       jnz     loc_4b59ca
+004b59b4 686   mov     ecx, $4b6bc8           ; 'Message is missing sender's address'
+004b59b9       mov     dl, 1
+004b59bb       mov     eax, [$4085b0]
+004b59c0       call    -$a8031 ($40d994)      ; SysUtils.Exception.Create
+004b59c5     > call    -$b0cde ($404cec)      ; System.@RaiseExcept
+004b59ca 687   cmp     dword ptr [$4c3f48], 0
+004b59d1       jnz     loc_4b5a1f
+004b59d3       mov     eax, [$4c3f78]
+004b59d8       mov     eax, [eax+$98]
+004b59de       call    -$a007f ($415964)      ; Classes.TCollection.GetCount
 [...]

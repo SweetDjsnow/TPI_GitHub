@@ -23,31 +23,27 @@
         </div>
 
         <?php
-            $mbox = imap_open("{outlook.office365.com:993/imap/ssl}", "michel.dossantos@eduvaud.ch", "1qay2wsxRex998...!?");
+            $mbox = imap_open("{outlook.office365.com:993/imap/ssl}", "found.your.bike@outlook.fr", "Pass4ETML_tpi_2021");
 
-            echo "<h1>Mailboxes</h1>\n";
-            $folders = imap_listmailbox($mbox, "{outlook.office365.com:993/imap/ssl}", "*");
-            
-            if ($folders == false) {
-                echo "Appel échoué<br />\n";
-            } else {
-                foreach ($folders as $val) {
-                    echo $val . "<br />\n";
-                }
+            $emails = imap_search($mbox, 'From "found.your.bike@outlook.fr"');
+
+            $num = imap_num_msg($mbox);
+
+            $result = imap_body($mbox,$num);
+
+            $splits = explode("\r\n",$result);
+
+
+            $array = count($splits);
+
+            for($i = 0; $i < $array; $i++)
+            {
+                if($i % 2 != 0)
+                    echo "[{$i}]".$splits[$i]."\r\n";
+                
             }
+
             
-            echo "<h1>en-têtes dans INBOX</h1>\n";
-            $headers = imap_headers($mbox);
-            
-            if ($headers == false) {
-                echo "Appel échoué<br />\n";
-            } else {
-                foreach ($headers as $val) {
-                    echo $val . "<br />\n";
-                }
-            }
-            
-            imap_close($mbox);
             echo phpinfo();
         ?>
 

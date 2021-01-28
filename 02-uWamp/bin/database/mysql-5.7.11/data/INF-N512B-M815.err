@@ -1622,3 +1622,190 @@ Version: '5.7.11'  socket: ''  port: 3306  MySQL Community Server (GPL)
 2021-01-28T10:53:01.270260Z 0 [Note] Event Scheduler: Loaded 0 events
 2021-01-28T10:53:01.270260Z 0 [Note] H:\PRE-TPI\TPI_GitHub\02-uWamp\bin\database\mysql-5.7.11\bin\mysqld.exe: ready for connections.
 Version: '5.7.11'  socket: ''  port: 3306  MySQL Community Server (GPL)
+2021-01-28T11:16:46.910858Z 0 [Note] H:\PRE-TPI\TPI_GitHub\02-uWamp\bin\database\mysql-5.7.11\bin\mysqld.exe: Normal shutdown
+
+2021-01-28T11:16:46.912853Z 0 [Note] Giving 0 client threads a chance to die gracefully
+2021-01-28T11:16:46.913850Z 0 [Note] Shutting down slave threads
+2021-01-28T11:16:46.914847Z 0 [Note] Forcefully disconnecting 0 remaining clients
+2021-01-28T11:16:46.916842Z 0 [Note] Event Scheduler: Purging the queue. 0 events
+2021-01-28T11:16:46.917839Z 0 [Note] Binlog end
+2021-01-28T11:16:46.923823Z 0 [Note] Shutting down plugin 'ngram'
+2021-01-28T11:16:46.924820Z 0 [Note] Shutting down plugin 'partition'
+2021-01-28T11:16:46.925818Z 0 [Note] Shutting down plugin 'BLACKHOLE'
+2021-01-28T11:16:46.926813Z 0 [Note] Shutting down plugin 'ARCHIVE'
+2021-01-28T11:16:46.927811Z 0 [Note] Shutting down plugin 'PERFORMANCE_SCHEMA'
+2021-01-28T11:16:46.928810Z 0 [Note] Shutting down plugin 'MRG_MYISAM'
+2021-01-28T11:16:46.929807Z 0 [Note] Shutting down plugin 'MyISAM'
+2021-01-28T11:16:46.930805Z 0 [Note] Shutting down plugin 'INNODB_SYS_VIRTUAL'
+2021-01-28T11:16:46.931801Z 0 [Note] Shutting down plugin 'INNODB_SYS_DATAFILES'
+2021-01-28T11:16:46.932798Z 0 [Note] Shutting down plugin 'INNODB_SYS_TABLESPACES'
+2021-01-28T11:16:46.932798Z 0 [Note] Shutting down plugin 'INNODB_SYS_FOREIGN_COLS'
+2021-01-28T11:16:46.933796Z 0 [Note] Shutting down plugin 'INNODB_SYS_FOREIGN'
+2021-01-28T11:16:46.934793Z 0 [Note] Shutting down plugin 'INNODB_SYS_FIELDS'
+2021-01-28T11:16:46.935790Z 0 [Note] Shutting down plugin 'INNODB_SYS_COLUMNS'
+2021-01-28T11:16:46.935790Z 0 [Note] Shutting down plugin 'INNODB_SYS_INDEXES'
+2021-01-28T11:16:46.936787Z 0 [Note] Shutting down plugin 'INNODB_SYS_TABLESTATS'
+2021-01-28T11:16:46.937785Z 0 [Note] Shutting down plugin 'INNODB_SYS_TABLES'
+2021-01-28T11:16:46.938782Z 0 [Note] Shutting down plugin 'INNODB_FT_INDEX_TABLE'
+2021-01-28T11:16:46.938782Z 0 [Note] Shutting down plugin 'INNODB_FT_INDEX_CACHE'
+2021-01-28T11:16:46.939780Z 0 [Note] Shutting down plugin 'INNODB_FT_CONFIG'
+2021-01-28T11:16:46.940777Z 0 [Note] Shutting down plugin 'INNODB_FT_BEING_DELETED'
+2021-01-28T11:16:46.940777Z 0 [Note] Shutting down plugin 'INNODB_FT_DELETED'
+2021-01-28T11:16:46.941775Z 0 [Note] Shutting down plugin 'INNODB_FT_DEFAULT_STOPWORD'
+2021-01-28T11:16:46.942770Z 0 [Note] Shutting down plugin 'INNODB_METRICS'
+2021-01-28T11:16:46.943769Z 0 [Note] Shutting down plugin 'INNODB_TEMP_TABLE_INFO'
+2021-01-28T11:16:46.943769Z 0 [Note] Shutting down plugin 'INNODB_BUFFER_POOL_STATS'
+2021-01-28T11:16:46.944764Z 0 [Note] Shutting down plugin 'INNODB_BUFFER_PAGE_LRU'
+2021-01-28T11:16:46.945761Z 0 [Note] Shutting down plugin 'INNODB_BUFFER_PAGE'
+2021-01-28T11:16:46.945761Z 0 [Note] Shutting down plugin 'INNODB_CMP_PER_INDEX_RESET'
+2021-01-28T11:16:46.946759Z 0 [Note] Shutting down plugin 'INNODB_CMP_PER_INDEX'
+2021-01-28T11:16:46.947759Z 0 [Note] Shutting down plugin 'INNODB_CMPMEM_RESET'
+2021-01-28T11:16:46.947759Z 0 [Note] Shutting down plugin 'INNODB_CMPMEM'
+2021-01-28T11:16:46.948786Z 0 [Note] Shutting down plugin 'INNODB_CMP_RESET'
+2021-01-28T11:16:46.948786Z 0 [Note] Shutting down plugin 'INNODB_CMP'
+2021-01-28T11:16:46.949752Z 0 [Note] Shutting down plugin 'INNODB_LOCK_WAITS'
+2021-01-28T11:16:46.949752Z 0 [Note] Shutting down plugin 'INNODB_LOCKS'
+2021-01-28T11:16:46.950782Z 0 [Note] Shutting down plugin 'INNODB_TRX'
+2021-01-28T11:16:46.950782Z 0 [Note] Shutting down plugin 'InnoDB'
+2021-01-28T11:16:46.951780Z 0 [Note] InnoDB: FTS optimize thread exiting.
+2021-01-28T11:16:46.952743Z 0 [Note] InnoDB: Starting shutdown...
+2021-01-28T11:16:47.055301Z 0 [Note] InnoDB: Dumping buffer pool(s) to H:\PRE-TPI\TPI_GitHub\02-uWamp\bin\database\mysql-5.7.11\data\ib_buffer_pool
+2021-01-28T11:16:47.070260Z 0 [Note] InnoDB: Buffer pool(s) dump completed at 210128 12:16:47
+2021-01-28T11:16:48.030684Z 0 [Note] InnoDB: Shutdown completed; log sequence number 5060290
+2021-01-28T11:16:48.035670Z 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2021-01-28T11:16:48.036667Z 0 [Note] Shutting down plugin 'MEMORY'
+2021-01-28T11:16:48.037665Z 0 [Note] Shutting down plugin 'CSV'
+2021-01-28T11:16:48.037665Z 0 [Note] Shutting down plugin 'sha256_password'
+2021-01-28T11:16:48.038666Z 0 [Note] Shutting down plugin 'mysql_native_password'
+2021-01-28T11:16:48.039659Z 0 [Note] Shutting down plugin 'binlog'
+2021-01-28T11:16:48.044647Z 0 [Note] H:\PRE-TPI\TPI_GitHub\02-uWamp\bin\database\mysql-5.7.11\bin\mysqld.exe: Shutdown complete
+
+2021-01-28T12:17:21.861341Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-01-28T12:17:21.862338Z 0 [Warning] 'NO_ZERO_DATE', 'NO_ZERO_IN_DATE' and 'ERROR_FOR_DIVISION_BY_ZERO' sql modes should be used with strict mode. They will be merged with strict mode in a future release.
+2021-01-28T12:17:21.862338Z 0 [Warning] 'NO_AUTO_CREATE_USER' sql mode was not set.
+2021-01-28T12:17:21.862338Z 0 [Warning] Insecure configuration for --secure-file-priv: Current value does not restrict location of generated files. Consider setting it to a valid, non-empty path.
+2021-01-28T12:17:21.866327Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-01-28T12:17:21.866327Z 0 [Note] H:\PRE-TPI\TPI_GitHub\02-uWamp\bin\database\mysql-5.7.11\bin\mysqld.exe (mysqld 5.7.11) starting as process 12136 ...
+2021-01-28T12:17:22.080603Z 0 [ERROR] Can't open shared library 'H:\PRE-TPI\TPI_GitHub\02-uWamp\bin\database\mysql-5.7.11\lib\plugin\keyring_file.dll' (errno: 126 Le module spécifié est introuvable.)
+2021-01-28T12:17:22.082597Z 0 [ERROR] Couldn't load plugin named 'keyring_file' with soname 'keyring_file.dll'.
+2021-01-28T12:17:22.124409Z 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2021-01-28T12:17:22.125445Z 0 [Note] InnoDB: Uses event mutexes
+2021-01-28T12:17:22.125445Z 0 [Note] InnoDB: Memory barrier is not used
+2021-01-28T12:17:22.125445Z 0 [Note] InnoDB: Compressed tables use zlib 1.2.3
+2021-01-28T12:17:22.140603Z 0 [Note] InnoDB: Number of pools: 1
+2021-01-28T12:17:22.155563Z 0 [Note] InnoDB: Not using CPU crc32 instructions
+2021-01-28T12:17:22.225644Z 0 [Note] InnoDB: Initializing buffer pool, total size = 128M, instances = 1, chunk size = 128M
+2021-01-28T12:17:22.235618Z 0 [Note] InnoDB: Completed initialization of buffer pool
+2021-01-28T12:17:22.508013Z 0 [Note] InnoDB: Highest supported file format is Barracuda.
+2021-01-28T12:17:23.926690Z 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2021-01-28T12:17:23.928714Z 0 [Note] InnoDB: Setting file '.\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2021-01-28T12:17:24.160652Z 0 [Note] InnoDB: File '.\ibtmp1' size is now 12 MB.
+2021-01-28T12:17:24.651403Z 0 [Note] InnoDB: 96 redo rollback segment(s) found. 96 redo rollback segment(s) are active.
+2021-01-28T12:17:24.652397Z 0 [Note] InnoDB: 32 non-redo rollback segment(s) are active.
+2021-01-28T12:17:24.653363Z 0 [Note] InnoDB: Waiting for purge to start
+2021-01-28T12:17:24.705225Z 0 [Note] InnoDB: Waiting for purge to start
+2021-01-28T12:17:24.764094Z 0 [Note] InnoDB: 5.7.11 started; log sequence number 5060290
+2021-01-28T12:17:24.771049Z 0 [Note] InnoDB: Loading buffer pool(s) from H:\PRE-TPI\TPI_GitHub\02-uWamp\bin\database\mysql-5.7.11\data\ib_buffer_pool
+2021-01-28T12:17:24.772046Z 0 [Note] Plugin 'FEDERATED' is disabled.
+2021-01-28T12:17:24.985476Z 0 [Warning] Failed to set up SSL because of the following SSL library error: SSL context is not usable without certificate and private key
+2021-01-28T12:17:24.988481Z 0 [Note] Server hostname (bind-address): '*'; port: 3306
+2021-01-28T12:17:24.989466Z 0 [Note] IPv6 is available.
+2021-01-28T12:17:24.990463Z 0 [Note]   - '::' resolves to '::';
+2021-01-28T12:17:24.990463Z 0 [Note] Server socket created on IP: '::'.
+2021-01-28T12:17:25.154024Z 0 [Note] InnoDB: Buffer pool(s) load completed at 210128 13:17:25
+2021-01-28T12:17:26.249300Z 0 [Note] Event Scheduler: Loaded 0 events
+2021-01-28T12:17:26.249300Z 0 [Note] H:\PRE-TPI\TPI_GitHub\02-uWamp\bin\database\mysql-5.7.11\bin\mysqld.exe: ready for connections.
+Version: '5.7.11'  socket: ''  port: 3306  MySQL Community Server (GPL)
+2021-01-28T13:24:44.008672Z 0 [Note] H:\PRE-TPI\TPI_GitHub\02-uWamp\bin\database\mysql-5.7.11\bin\mysqld.exe: Normal shutdown
+
+2021-01-28T13:24:44.009670Z 0 [Note] Giving 0 client threads a chance to die gracefully
+2021-01-28T13:24:44.010667Z 0 [Note] Shutting down slave threads
+2021-01-28T13:24:44.010667Z 0 [Note] Forcefully disconnecting 0 remaining clients
+2021-01-28T13:24:44.011665Z 0 [Note] Event Scheduler: Purging the queue. 0 events
+2021-01-28T13:24:44.012662Z 0 [Note] Binlog end
+2021-01-28T13:24:44.013659Z 0 [Note] Shutting down plugin 'ngram'
+2021-01-28T13:24:44.014657Z 0 [Note] Shutting down plugin 'partition'
+2021-01-28T13:24:44.014657Z 0 [Note] Shutting down plugin 'BLACKHOLE'
+2021-01-28T13:24:44.015653Z 0 [Note] Shutting down plugin 'ARCHIVE'
+2021-01-28T13:24:44.015653Z 0 [Note] Shutting down plugin 'PERFORMANCE_SCHEMA'
+2021-01-28T13:24:44.016651Z 0 [Note] Shutting down plugin 'MRG_MYISAM'
+2021-01-28T13:24:44.017648Z 0 [Note] Shutting down plugin 'MyISAM'
+2021-01-28T13:24:44.017648Z 0 [Note] Shutting down plugin 'INNODB_SYS_VIRTUAL'
+2021-01-28T13:24:44.018645Z 0 [Note] Shutting down plugin 'INNODB_SYS_DATAFILES'
+2021-01-28T13:24:44.018645Z 0 [Note] Shutting down plugin 'INNODB_SYS_TABLESPACES'
+2021-01-28T13:24:44.019643Z 0 [Note] Shutting down plugin 'INNODB_SYS_FOREIGN_COLS'
+2021-01-28T13:24:44.019643Z 0 [Note] Shutting down plugin 'INNODB_SYS_FOREIGN'
+2021-01-28T13:24:44.020640Z 0 [Note] Shutting down plugin 'INNODB_SYS_FIELDS'
+2021-01-28T13:24:44.020640Z 0 [Note] Shutting down plugin 'INNODB_SYS_COLUMNS'
+2021-01-28T13:24:44.021637Z 0 [Note] Shutting down plugin 'INNODB_SYS_INDEXES'
+2021-01-28T13:24:44.022635Z 0 [Note] Shutting down plugin 'INNODB_SYS_TABLESTATS'
+2021-01-28T13:24:44.022635Z 0 [Note] Shutting down plugin 'INNODB_SYS_TABLES'
+2021-01-28T13:24:44.023632Z 0 [Note] Shutting down plugin 'INNODB_FT_INDEX_TABLE'
+2021-01-28T13:24:44.024630Z 0 [Note] Shutting down plugin 'INNODB_FT_INDEX_CACHE'
+2021-01-28T13:24:44.025627Z 0 [Note] Shutting down plugin 'INNODB_FT_CONFIG'
+2021-01-28T13:24:44.025627Z 0 [Note] Shutting down plugin 'INNODB_FT_BEING_DELETED'
+2021-01-28T13:24:44.026624Z 0 [Note] Shutting down plugin 'INNODB_FT_DELETED'
+2021-01-28T13:24:44.026624Z 0 [Note] Shutting down plugin 'INNODB_FT_DEFAULT_STOPWORD'
+2021-01-28T13:24:44.027622Z 0 [Note] Shutting down plugin 'INNODB_METRICS'
+2021-01-28T13:24:44.027622Z 0 [Note] Shutting down plugin 'INNODB_TEMP_TABLE_INFO'
+2021-01-28T13:24:44.028618Z 0 [Note] Shutting down plugin 'INNODB_BUFFER_POOL_STATS'
+2021-01-28T13:24:44.029616Z 0 [Note] Shutting down plugin 'INNODB_BUFFER_PAGE_LRU'
+2021-01-28T13:24:44.029616Z 0 [Note] Shutting down plugin 'INNODB_BUFFER_PAGE'
+2021-01-28T13:24:44.030613Z 0 [Note] Shutting down plugin 'INNODB_CMP_PER_INDEX_RESET'
+2021-01-28T13:24:44.030613Z 0 [Note] Shutting down plugin 'INNODB_CMP_PER_INDEX'
+2021-01-28T13:24:44.031611Z 0 [Note] Shutting down plugin 'INNODB_CMPMEM_RESET'
+2021-01-28T13:24:44.032608Z 0 [Note] Shutting down plugin 'INNODB_CMPMEM'
+2021-01-28T13:24:44.032608Z 0 [Note] Shutting down plugin 'INNODB_CMP_RESET'
+2021-01-28T13:24:44.033605Z 0 [Note] Shutting down plugin 'INNODB_CMP'
+2021-01-28T13:24:44.033605Z 0 [Note] Shutting down plugin 'INNODB_LOCK_WAITS'
+2021-01-28T13:24:44.034602Z 0 [Note] Shutting down plugin 'INNODB_LOCKS'
+2021-01-28T13:24:44.034602Z 0 [Note] Shutting down plugin 'INNODB_TRX'
+2021-01-28T13:24:44.035600Z 0 [Note] Shutting down plugin 'InnoDB'
+2021-01-28T13:24:44.035600Z 0 [Note] InnoDB: FTS optimize thread exiting.
+2021-01-28T13:24:44.036599Z 0 [Note] InnoDB: Starting shutdown...
+2021-01-28T13:24:44.139334Z 0 [Note] InnoDB: Dumping buffer pool(s) to H:\PRE-TPI\TPI_GitHub\02-uWamp\bin\database\mysql-5.7.11\data\ib_buffer_pool
+2021-01-28T13:24:44.157492Z 0 [Note] InnoDB: Buffer pool(s) dump completed at 210128 14:24:44
+2021-01-28T13:24:45.528793Z 0 [Note] InnoDB: Shutdown completed; log sequence number 5060318
+2021-01-28T13:24:45.533780Z 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2021-01-28T13:24:45.534777Z 0 [Note] Shutting down plugin 'MEMORY'
+2021-01-28T13:24:45.534777Z 0 [Note] Shutting down plugin 'CSV'
+2021-01-28T13:24:45.535774Z 0 [Note] Shutting down plugin 'sha256_password'
+2021-01-28T13:24:45.535774Z 0 [Note] Shutting down plugin 'mysql_native_password'
+2021-01-28T13:24:45.536772Z 0 [Note] Shutting down plugin 'binlog'
+2021-01-28T13:24:45.547527Z 0 [Note] H:\PRE-TPI\TPI_GitHub\02-uWamp\bin\database\mysql-5.7.11\bin\mysqld.exe: Shutdown complete
+
+2021-01-28T13:24:49.383166Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-01-28T13:24:49.384163Z 0 [Warning] 'NO_ZERO_DATE', 'NO_ZERO_IN_DATE' and 'ERROR_FOR_DIVISION_BY_ZERO' sql modes should be used with strict mode. They will be merged with strict mode in a future release.
+2021-01-28T13:24:49.384163Z 0 [Warning] 'NO_AUTO_CREATE_USER' sql mode was not set.
+2021-01-28T13:24:49.384163Z 0 [Warning] Insecure configuration for --secure-file-priv: Current value does not restrict location of generated files. Consider setting it to a valid, non-empty path.
+2021-01-28T13:24:49.385160Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-01-28T13:24:49.385160Z 0 [Note] H:\PRE-TPI\TPI_GitHub\02-uWamp\bin\database\mysql-5.7.11\bin\mysqld.exe (mysqld 5.7.11) starting as process 12104 ...
+2021-01-28T13:24:49.466942Z 0 [ERROR] Can't open shared library 'H:\PRE-TPI\TPI_GitHub\02-uWamp\bin\database\mysql-5.7.11\lib\plugin\keyring_file.dll' (errno: 126 Le module spécifié est introuvable.)
+2021-01-28T13:24:49.470931Z 0 [ERROR] Couldn't load plugin named 'keyring_file' with soname 'keyring_file.dll'.
+2021-01-28T13:24:49.484894Z 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2021-01-28T13:24:49.485891Z 0 [Note] InnoDB: Uses event mutexes
+2021-01-28T13:24:49.485891Z 0 [Note] InnoDB: Memory barrier is not used
+2021-01-28T13:24:49.486889Z 0 [Note] InnoDB: Compressed tables use zlib 1.2.3
+2021-01-28T13:24:49.494867Z 0 [Note] InnoDB: Number of pools: 1
+2021-01-28T13:24:49.499854Z 0 [Note] InnoDB: Not using CPU crc32 instructions
+2021-01-28T13:24:49.569667Z 0 [Note] InnoDB: Initializing buffer pool, total size = 128M, instances = 1, chunk size = 128M
+2021-01-28T13:24:49.578644Z 0 [Note] InnoDB: Completed initialization of buffer pool
+2021-01-28T13:24:49.856900Z 0 [Note] InnoDB: Highest supported file format is Barracuda.
+2021-01-28T13:24:50.817365Z 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2021-01-28T13:24:50.819329Z 0 [Note] InnoDB: Setting file '.\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2021-01-28T13:24:51.093492Z 0 [Note] InnoDB: File '.\ibtmp1' size is now 12 MB.
+2021-01-28T13:24:51.613652Z 0 [Note] InnoDB: 96 redo rollback segment(s) found. 96 redo rollback segment(s) are active.
+2021-01-28T13:24:51.613652Z 0 [Note] InnoDB: 32 non-redo rollback segment(s) are active.
+2021-01-28T13:24:51.615647Z 0 [Note] InnoDB: Waiting for purge to start
+2021-01-28T13:24:51.666511Z 0 [Note] InnoDB: 5.7.11 started; log sequence number 5060318
+2021-01-28T13:24:51.672495Z 0 [Note] Plugin 'FEDERATED' is disabled.
+2021-01-28T13:24:51.673492Z 0 [Note] InnoDB: Loading buffer pool(s) from H:\PRE-TPI\TPI_GitHub\02-uWamp\bin\database\mysql-5.7.11\data\ib_buffer_pool
+2021-01-28T13:24:51.769237Z 0 [Warning] Failed to set up SSL because of the following SSL library error: SSL context is not usable without certificate and private key
+2021-01-28T13:24:51.772228Z 0 [Note] Server hostname (bind-address): '*'; port: 3306
+2021-01-28T13:24:51.773226Z 0 [Note] IPv6 is available.
+2021-01-28T13:24:51.774234Z 0 [Note]   - '::' resolves to '::';
+2021-01-28T13:24:51.775221Z 0 [Note] Server socket created on IP: '::'.
+2021-01-28T13:24:52.184128Z 0 [Note] InnoDB: Buffer pool(s) load completed at 210128 14:24:52
+2021-01-28T13:24:52.860056Z 0 [Note] Event Scheduler: Loaded 0 events
+2021-01-28T13:24:52.861054Z 0 [Note] H:\PRE-TPI\TPI_GitHub\02-uWamp\bin\database\mysql-5.7.11\bin\mysqld.exe: ready for connections.
+Version: '5.7.11'  socket: ''  port: 3306  MySQL Community Server (GPL)

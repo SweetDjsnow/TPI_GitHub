@@ -1,16 +1,16 @@
-date/time         : 2021-01-28, 10:46:55, 757ms
+date/time         : 2021-01-28, 10:57:26, 414ms
 computer name     : INF-N512B-M815
 user name         : micdossantos
 operating system  : Windows NT New x64 build 9200
 system language   : French
-system up time    : 2 hours 44 minutes
-program up time   : 66 milliseconds
+system up time    : 2 hours 54 minutes
+program up time   : 74 milliseconds
 processors        : 8x Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
-physical memory   : 26405/32632 MB (free/total)
-free disk space   : (C:) 405,17 GB (H:) 38,70 GB
+physical memory   : 26120/32632 MB (free/total)
+free disk space   : (C:) 405,17 GB (H:) 38,66 GB
 display mode      : 1920x1080, 32 bit
-process id        : $2f00
-allocated memory  : 25,39 MB
+process id        : $c8c
+allocated memory  : 25,42 MB
 command line      : H:\PRE-TPI\TPI_GitHub\02-uWamp\sendmail.exe -t -i
 executable        : sendmail.exe
 exec. date/time   : 2021-01-27 16:29
@@ -21,26 +21,26 @@ exception number  : 1
 exception class   : Exception
 exception message : Message is missing sender's address.
 
-main thread ($734):
+main thread ($bd8):
 004b59c5 +b11 sendmail.exe sendmail 686 +204 initialization
 75546357 +017 KERNEL32.DLL                   BaseThreadInitThunk
 
-thread $2998:
+thread $3ae4:
 75546357 +17 KERNEL32.DLL  BaseThreadInitThunk
 
-thread $242c:
+thread $1f60:
 75546357 +17 KERNEL32.DLL  BaseThreadInitThunk
 
-thread $2d00:
+thread $16f8:
 75546357 +17 KERNEL32.DLL  BaseThreadInitThunk
 
 stack dump:
 0019fdb4  ca 59 4b 00 de fa ed 0e - 01 00 00 00 07 00 00 00  .YK.............
-0019fdc4  c8 fd 19 00 ca 59 4b 00 - 40 4f 98 02 bc c2 41 00  .....YK.@O....A.
+0019fdc4  c8 fd 19 00 ca 59 4b 00 - 40 4f a0 02 bc c2 41 00  .....YK.@O....A.
 0019fdd4  b4 4e 4b 00 b4 4e 4b 00 - 70 ff 19 00 e4 fd 19 00  .NK..NK.p.......
 0019fde4  f0 fd 19 00 c8 4b 40 00 - 70 ff 19 00 fc fd 19 00  .....K@.p.......
 0019fdf4  5f 4d 40 00 70 ff 19 00 - 64 ff 19 00 c8 4b 40 00  _M@.p...d....K@.
-0019fe04  70 ff 19 00 b4 4e 4b 00 - b4 4e 4b 00 00 c0 39 00  p....NK..NK...9.
+0019fe04  70 ff 19 00 b4 4e 4b 00 - b4 4e 4b 00 00 b0 33 00  p....NK..NK...3.
 0019fe14  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
 0019fe24  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
 0019fe34  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
