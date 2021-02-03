@@ -8,20 +8,11 @@
     <body>
 
         <div class="login-page">
-
             <div class="form">
-                <form class="register-form">
-                    <input type="text" placeholder="name"/>
-                    <input type="password" placeholder="password"/>
-                    <input type="text" placeholder="email address"/>
-                    <button>create</button>
-                    <p class="message">Already registered? <a href="#">Sign In</a></p>
-                </form>
-
-                <form class="login-form">
-                    <input type="username" placeholder="Nom d'utilisateur"/>
-                    <input type="password" placeholder="Mot de passe"/>
-                    <button>Se connecter</button>
+                <form class="login-form" action="../controllers/login.php" method="post">
+                    <input type="username" placeholder="Nom d'utilisateur" name="username"/>
+                    <input type="password" placeholder="Mot de passe" name="password"/>
+                    <button type="submit" name="submitBtn" value="submit">Se connecter</button>
                     <p class="message">Vous n'avez pas de compte ? <a href="./inscription.php">Faites une demande !</a></p>
                 </form>
             </div>
@@ -29,7 +20,5 @@
         
 
     </body>
-
-    <a href="../controllers/getAllBikes.php">TEST</a>
 
 </html>

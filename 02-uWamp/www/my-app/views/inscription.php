@@ -22,31 +22,6 @@
                 </form>
         </div>
 
-        <?php
-            $mbox = imap_open("{outlook.office365.com:993/imap/ssl}", "found.your.bike@outlook.fr", "Pass4ETML_tpi_2021");
-
-            $emails = imap_search($mbox, 'From "found.your.bike@outlook.fr"');
-
-            $num = imap_num_msg($mbox);
-
-            $result = imap_body($mbox,$num);
-
-            $splits = explode("\r\n",$result);
-
-
-            $array = count($splits);
-
-            for($i = 0; $i < $array; $i++)
-            {
-                if($i % 2 != 0)
-                    echo "[{$i}]".$splits[$i]."\r\n";
-                
-            }
-
-            
-            echo phpinfo();
-        ?>
-
     </body>
 
 </html>

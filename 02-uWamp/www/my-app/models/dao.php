@@ -76,11 +76,78 @@ class Database
         return $result;
     }
 
+    function GetNumberOfBikes()
+    {
+        $query = "SELECT COUNT(*) FROM t_bikes;";
+        return $this->ExecuteGetRequest($query);
+    }
+
     function CreateCity($firstName, $lastName, $email, $phone, $cityName, $officeLocation, $npa)
     {
         $query = "INSERT INTO t_city (citContactFirstName, citContactLastName, citContactEmail, citContactPhone, citName, citNPA, citOfficeLocation)
-        VALUES ({$firstName}, {$lastName}, {$email}, {$phone}, {$cityName}, {$officeLocation}, {$npa});";
+        VALUES ('{$firstName}', '{$lastName}', '{$email}', '{$phone}', '{$cityName}', '{$npa}', '{$officeLocation}');";
         $this->ExecuteSetRequest($query);
+
+        $cityId = $this->GetCityId($cityName);
+        return $cityId;
+    }
+
+    function CreateUserAdmin($username, $hashedPassword, $cityId)
+    {
+        $query = "INSERT INTO t_user (useUsername, usePassword, useIsAdmin, useIsSuperAdmin, idCity) VALUES ('{$username}','{$hashedPassword}', 1, 0, {$cityId});";
+        $this->ExecuteSetRequest($query);
+    }
+
+    function GetCityId($cityName)
+    {
+        $query = "SELECT idCity FROM t_city WHERE citName = '{$cityName}'";
+        return $this->ExecuteGetRequest($query);
+    }
+
+    function SearchUser($username)
+    {
+        $query = "SELECT useUsername, usePassword, useIsAdmin, useIsSuperAdmin from t_user where useUsername = ?";
+
+        $this->Connect();
+
+        $req = $this->connector->prepare($query);
+        $req->bindValue(1,$username, PDO::PARAM_STR);
+        $req->execute();
+
+        $result = $req->fetchAll(PDO::FETCH_ASSOC);
+
+        $this->dbUnconnect();
+
+
+        return $result;
+    }
+
+    function GetBikeBrand($bikBrand)
+    {
+        $query = "SELECT bikBrand from t_bikes WHERE bikBrand = '{$bikBrand}';";
+
+        return $this->ExecuteGetRequest($query);
+    }
+
+    function GetBikeColor($bikColor)
+    {
+        $query = "SELECT bikColor from t_bikes WHERE bikColor = '{$bikColor}';";
+
+        return $this->ExecuteGetRequest($query);
+    }
+
+    function GetBikeHeight($bikHeight)
+    {
+        $query = "SELECT bikHeight from t_bikes WHERE bikHeight = '{$bikHeight}';";
+
+        return $this->ExecuteGetRequest($query);
+    }
+
+    function GetBikeSerialNumber($bikSerialNumber)
+    {
+        $query = "SELECT bikSerialNumber from t_bikes WHERE bikSerialNumber = '{$bikSerialNumber}';";
+
+        return $this->ExecuteGetRequest($query);
     }
 
 }

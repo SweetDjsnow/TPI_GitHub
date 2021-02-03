@@ -1,16 +1,16 @@
-date/time         : 2021-01-28, 14:25:18, 726ms
+date/time         : 2021-01-29, 14:38:24, 535ms
 computer name     : INF-N512B-M815
 user name         : micdossantos
 operating system  : Windows NT New x64 build 9200
 system language   : French
-system up time    : 6 hours 22 minutes
-program up time   : 3 seconds
+system up time    : 6 hours 42 minutes
+program up time   : 2 seconds
 processors        : 8x Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
-physical memory   : 25987/32632 MB (free/total)
-free disk space   : (C:) 405,03 GB (H:) 26,64 GB
+physical memory   : 26202/32632 MB (free/total)
+free disk space   : (C:) 405,35 GB (H:) 25,21 GB
 display mode      : 1920x1080, 32 bit
-process id        : $498
-allocated memory  : 25,89 MB
+process id        : $21a8
+allocated memory  : 25,69 MB
 command line      : H:\PRE-TPI\TPI_GitHub\02-uWamp\sendmail.exe -t -i
 executable        : sendmail.exe
 exec. date/time   : 2021-01-27 16:29
@@ -19,33 +19,33 @@ madExcept version : 3.0l
 callstack crc     : $fecf9b34, $512dedff, $512dedff
 exception number  : 1
 exception class   : EIdSMTPReplyError
-exception message : STOREDRV.Submission.Exception:OutboundSpamException; Failed to process message due to a permanent exception with message WASCL UserAction verdict is not None. Actual verdict is HipNotify, ShowTierUpgrade. OutboundSpamException: WASCL UserAction verdict is not None. Actual verdict is HipNotify, ShowTierUpgrade. [Hostname=AM6PR03MB3799.eurprd03.prod.outlook.com].
+exception message : STOREDRV.Submission.Exception:OutboundSpamException; Failed to process message due to a permanent exception with message WASCL UserAction verdict is not None. Actual verdict is RefuseQuota, ShowTierUpgrade. OutboundSpamException: WASCL UserAction verdict is not None. Actual verdict is RefuseQuota, ShowTierUpgrade. [Hostname=AM6PR03MB3799.eurprd03.prod.outlook.com].
 
-main thread ($2d74):
+main thread ($1fc0):
 0045918a +003e sendmail.exe IdReplySMTP     501   +1 TIdReplySMTP.RaiseReplyError
 0043ff28 +0008 sendmail.exe IdTCPConnection 576   +0 TIdTCPConnection.RaiseExceptionForLastCmdResult
 004402f4 +003c sendmail.exe IdTCPConnection 751  +10 TIdTCPConnection.CheckResponse
 0043feba +002a sendmail.exe IdTCPConnection 565   +2 TIdTCPConnection.GetResponse
 0043ff87 +005b sendmail.exe IdTCPConnection 585   +4 TIdTCPConnection.SendCmd
 004b6613 +175f sendmail.exe sendmail        893 +411 initialization
-75546357 +0017 KERNEL32.DLL                          BaseThreadInitThunk
+76d46357 +0017 KERNEL32.DLL                          BaseThreadInitThunk
 
-thread $321c:
-75546357 +17 KERNEL32.DLL  BaseThreadInitThunk
+thread $36e8:
+76d46357 +17 KERNEL32.DLL  BaseThreadInitThunk
 
-thread $2ac0:
-75546357 +17 KERNEL32.DLL  BaseThreadInitThunk
+thread $5c:
+76d46357 +17 KERNEL32.DLL  BaseThreadInitThunk
 
-thread $20e8:
-75546357 +17 KERNEL32.DLL  BaseThreadInitThunk
+thread $33f0:
+76d46357 +17 KERNEL32.DLL  BaseThreadInitThunk
 
 stack dump:
 0019fd24  8f 91 45 00 de fa ed 0e - 01 00 00 00 07 00 00 00  ..E.............
-0019fd34  38 fd 19 00 8f 91 45 00 - 60 ce 9f 02 70 1d a1 02  8.....E.`...p...
+0019fd34  38 fd 19 00 8f 91 45 00 - 60 ce 9a 02 70 1d 9c 02  8.....E.`...p...
 0019fd44  00 00 00 00 2a 02 00 00 - 68 fd 19 00 54 fd 19 00  ....*...h...T...
 0019fd54  a8 fd 19 00 c8 4b 40 00 - 68 fd 19 00 34 a5 45 00  .....K@.h...4.E.
 0019fd64  00 00 00 00 84 fd 19 00 - 2b ff 43 00 f7 02 44 00  ........+.C...D.
-0019fd74  00 00 00 00 8c fe 19 00 - 8c fe 19 00 d0 99 9c 02  ................
+0019fd74  00 00 00 00 8c fe 19 00 - 8c fe 19 00 50 f3 93 02  ............P...
 0019fd84  9c fd 19 00 bd fe 43 00 - 00 00 00 00 94 34 46 00  ......C......4F.
 0019fd94  00 00 00 00 34 a5 45 00 - c8 fd 19 00 8a ff 43 00  ....4.E.......C.
 0019fda4  00 00 00 00 d8 fd 19 00 - c8 4b 40 00 c8 fd 19 00  .........K@.....
@@ -54,7 +54,7 @@ stack dump:
 0019fdd4  00 00 00 00 e4 fd 19 00 - c8 4b 40 00 70 ff 19 00  .........K@.p...
 0019fde4  f0 fd 19 00 c8 4b 40 00 - 70 ff 19 00 fc fd 19 00  .....K@.p.......
 0019fdf4  5f 4d 40 00 70 ff 19 00 - 64 ff 19 00 c8 4b 40 00  _M@.p...d....K@.
-0019fe04  70 ff 19 00 b4 4e 4b 00 - b4 4e 4b 00 00 40 3c 00  p....NK..NK..@<.
+0019fe04  70 ff 19 00 b4 4e 4b 00 - b4 4e 4b 00 00 90 31 00  p....NK..NK...1.
 0019fe14  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
 0019fe24  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
 0019fe34  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
