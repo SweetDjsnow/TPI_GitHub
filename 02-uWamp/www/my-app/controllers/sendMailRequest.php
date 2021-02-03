@@ -32,7 +32,7 @@ Accepter la demande ? : http://localhost/my-app/controllers/createCity.php?first
 $name = "Found Your Bike";
 $from = "found.your.bike@outlook.fr";
 $to = "found.your.bike@outlook.fr";
-$subject = "Demande d'ajout pour ".$_POST['cityName'];
+$subject = "Demande d'inscription de commune pour ".$_POST['cityName'];
 
 $headers  = "MIME-Version: 1.0\r\n";
 $headers .= "Content-type: text/plain; charset=utf-8\r\n";

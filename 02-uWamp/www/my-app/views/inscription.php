@@ -7,10 +7,11 @@
     <body>
         <h1>INSCRIPTION</h1>
 
-        <div class="login-page">
+        <div class="signup-page">
 
             <div class="form">
                 <form class="login-form" action="../controllers/sendMailRequest.php" method="POST">
+                    <p>Si la commune est déjà inscrite au site, cliquez <a href="./inscriptionUser.php">ici</a></p>
                     <input type="text" name="cityName" placeholder="Nom de la commune" required/>
                     <input type="text" name="firstName" placeholder="Prénom" required/>
                     <input type="text" name="lastName" placeholder="Nom" required/>
@@ -20,6 +21,12 @@
                     <input type="text" name="npa" placeholder="Code postal" required/>
                     <button>Envoyer demande</button>
                 </form>
+        </div>
+
+        <div class="back-btn-div">
+        <a href="../views/index.php">
+            <button class="back-btn"><img src="../img/left-arrow.png" alt="Back Arrow"></button>
+            </
         </div>
 
     </body>

@@ -1,0 +1,72 @@
+
+CREATE TABLE `t_city`
+(
+ `idCity`              int NOT NULL AUTO_INCREMENT ,
+ `citName`             varchar(45) NOT NULL ,
+ `citNPA`              varchar(10) NOT NULL ,
+ `citContactPhone`     varchar(25) NOT NULL ,
+ `citContactEmail`     varchar(45) NOT NULL ,
+ `citContactFirstName` varchar(50) NOT NULL ,
+ `citContactLastName`  varchar(50) NOT NULL ,
+ `citOfficeLocation`   varchar(100) NOT NULL ,
+
+PRIMARY KEY (`idCity`)
+);
+
+CREATE TABLE `t_brand`
+(
+ `idBrand` int NOT NULL ,
+ `braName` varchar(50) NOT NULL ,
+
+PRIMARY KEY (`idBrand`)
+);
+
+CREATE TABLE `t_photo`
+(
+ `idPhoto` int NOT NULL ,
+ `phoPath` varchar(500) NOT NULL ,
+
+PRIMARY KEY (`idPhoto`)
+);
+
+CREATE TABLE `t_bikes`
+(
+ `idBike`              int NOT NULL AUTO_INCREMENT ,
+ `bikeFoundDate`       date NOT NULL ,
+ `bikFoundLocation`    varchar(100) NOT NULL ,
+ `bikBrand`            varchar(50) NOT NULL ,
+ `bikColor`            varchar(45) NOT NULL ,
+ `bikSerialNumber`     varchar(50) NOT NULL ,
+ `bikHeight`           int NOT NULL ,
+ `bikIsElectric`       tinyint NOT NULL ,
+ `bikHasBeenRetrieved` tinyint NOT NULL ,
+ `bikRetrievedBy`      varchar(150) NOT NULL ,
+ `bikGivenBy`          varchar(150) NOT NULL ,
+ `idCity`              int NOT NULL ,
+ `idPhoto`             int NOT NULL ,
+
+PRIMARY KEY (`idBike`),
+KEY `fkIdx_26` (`idCity`),
+CONSTRAINT `FK_25` FOREIGN KEY `fkIdx_26` (`idCity`) REFERENCES `t_city` (`idCity`),
+KEY `fkIdx_51` (`idPhoto`),
+CONSTRAINT `FK_50` FOREIGN KEY `fkIdx_51` (`idPhoto`) REFERENCES `t_photo` (`idPhoto`)
+);
+
+
+CREATE TABLE `t_user`
+(
+ `idUser`          int NOT NULL AUTO_INCREMENT ,
+ `useUsername`     varchar(45) NOT NULL ,
+ `usePassword`     varchar(45) NOT NULL ,
+ `useIsAdmin`      tinyint NOT NULL ,
+ `useIsSuperAdmin` tinyint NOT NULL ,
+ `useFirstName`    varchar(50) NOT NULL ,
+ `useLastName`     varchar(100) NOT NULL ,
+ `usePhoneNumber`  varchar(30) NOT NULL ,
+ `useEmail`        varchar(50) NOT NULL ,
+ `idCity`          int NOT NULL ,
+
+PRIMARY KEY (`idUser`),
+KEY `fkIdx_32` (`idCity`),
+CONSTRAINT `FK_31` FOREIGN KEY `fkIdx_32` (`idCity`) REFERENCES `t_city` (`idCity`)
+);

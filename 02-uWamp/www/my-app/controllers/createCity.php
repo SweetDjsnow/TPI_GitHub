@@ -53,7 +53,7 @@
     $passwordPlain = random_password(8);
     $hashedPwd = password_hash($passwordPlain, PASSWORD_DEFAULT);
 
-    $dao->CreateUserAdmin($usernameFull, $hashedPwd, $cityId[0]['idCity']);
+    $dao->CreateUserAdmin($usernameFull, $hashedPwd, $cityId[0]['idCity'], $firstName, $lastName, $phoneNumber, $email);
 
     //////////////Contenu du mail + headers////////////////
     $msg = "Votre demande d'ouverture de compte pour la commune {$cityName} a été acceptée !\r\n
@@ -88,7 +88,7 @@
 
     ////Fonction qui génére un password aléatoire avec comme param la longueur du MDP////
     function random_password($length) {
-        $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$";
+        $chars = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789!@#$";
         $password = substr( str_shuffle( $chars ), 0, $length );
         return $password;
     }

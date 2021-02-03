@@ -92,10 +92,11 @@ class Database
         return $cityId;
     }
 
-    function CreateUserAdmin($username, $hashedPassword, $cityId)
+    function CreateUserAdmin($username, $hashedPassword, $cityId, $firstName, $lastName, $phoneNumber, $email)
     {
-        $query = "INSERT INTO t_user (useUsername, usePassword, useIsAdmin, useIsSuperAdmin, idCity) VALUES ('{$username}','{$hashedPassword}', 1, 0, {$cityId});";
+        $query = "INSERT INTO t_user (useUsername, usePassword, useIsAdmin, useIsSuperAdmin, useFirstName, useLastName, usePhoneNumber, useEmail, idCity) VALUES ('{$username}','{$hashedPassword}', 1, 0, '{$firstName}', '{$lastName}', '{$phoneNumber}', '{$email}' , {$cityId});";
         $this->ExecuteSetRequest($query);
+        echo $query;
     }
 
     function GetCityId($cityName)
@@ -146,6 +147,13 @@ class Database
     function GetBikeSerialNumber($bikSerialNumber)
     {
         $query = "SELECT bikSerialNumber from t_bikes WHERE bikSerialNumber = '{$bikSerialNumber}';";
+
+        return $this->ExecuteGetRequest($query);
+    }
+
+    function GetAllCities()
+    {
+        $query = "SELECT citName from t_city;";
 
         return $this->ExecuteGetRequest($query);
     }

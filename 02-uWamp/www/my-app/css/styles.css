@@ -5,12 +5,23 @@
   padding: 8% 0 0;
   margin: auto;
 }
+.signup-page
+{
+  width: 360px;
+  padding: 0 0 0;
+  margin: auto;
+}
 .main-page-form {
   width: 50%;
   padding: 8% 0 0;
   margin: auto;
   text-align: center;
   position: relative;
+}
+h3{
+  font-family: "Roboto";
+  margin-top: 0px;
+  margin-bottom: 30px;
 }
 .main-page-title
 {
@@ -63,7 +74,7 @@
   z-index: 1;
   background: #FFFFFF;
   /*max-width: 360px;*/
-  margin: 0 auto 100px;
+  margin: 0 auto 30px;
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -141,6 +152,76 @@
 .container .info span .fa {
   color: #EF3B3A;
 }
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #F2F2F2;
+  background-image: none;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select */
+.select {
+  position: relative;
+  display: flex;
+  width: 17em;
+  height: 3em;
+  line-height: 3;
+  background: #F2F2F2;
+  overflow: hidden;
+  border-radius: .25em;
+  margin-bottom: 15px;
+}
+select {
+  flex: 1;
+  padding: 0 .5em;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+.back-btn
+{
+  background-color: #289446;
+  width: 66%;
+  margin: 0 auto;
+  border: 0;
+}
+.back-btn-div
+{
+  text-align: center;
+  margin: 0 auto;
+}
+
+.back-btn-div img
+{
+  width: 25px;
+  margin: 7px;
+}
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #F2F2F2;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+/* Transition */
+.select:hover::after {
+  color: #f39c12;
+}
+
 body {
   background: #76b852; /* fallback for old browsers */
   background: -webkit-linear-gradient(right, #76b852, #8DC26F);
