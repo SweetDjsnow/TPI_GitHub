@@ -158,6 +158,13 @@ class Database
         return $this->ExecuteGetRequest($query);
     }
 
+    function GetAllBrands()
+    {
+        $query = "SELECT braName FROM t_brand;";
+
+        return $this->ExecuteGetRequest($query);
+    }
+
 }
 
 

@@ -1,3 +1,10 @@
+<?php
+include '../models/dao.php';
+
+$dao = new Database();
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,8 +19,51 @@
             <div class="form">
                 <form class="login-form" action="#" method="POST" enctype="multipart/form-data">
                     <label for="image">Image:</label>
-                    <input type="file" name="image" id="image" /><br />
-                    <input type="submit" name="submit" value="Submit" />
+                    <input type="file" name="image" id="image" multiple/>
+                    <label for="dateInput">Trouvé le :</label>
+                    <input type="date" name="bikFoundDate" id="dateInput" />
+                    <label for="locationFound">Lieu de la trouvaille :</label>
+                    <input type="text" name="bikFoundLocation" id="locationFound" />
+                    
+                    <label for="slct">Marque:</label>
+                    <div class="select">
+                        <select name="brand" id="slct">
+                            <?php
+                                $brands = $dao->GetAllBrands();
+                                foreach($brands as $key => $value)
+                                {
+                                    echo '<option value = "'.$value['braName'].'">'.$value['braName'].'</option>';
+                                }
+                            ?>
+                        </select>
+                    </div>
+                    
+                    <label for="color">Couleur:</label>
+                    <input type="text" name="bikColor" id="color">
+
+                    <label for="serialNumber">Numero de série:</label>
+                    <input type="text" name="bikSerialNumber" id="serialNumber">
+
+                    <label for="height">Taille du cadre:</label>
+                    <input type="text" name="bikHeight" id="height">
+
+                    <label for="electric">Electrique ?</label>
+                    <input type="checkbox" name="bikIsElectric">
+
+                    <label for="slct">Retrouvé par la commune:</label>
+                    <div class="select">
+                        <select name="city" id="slct">
+                            <?php
+                                $cities = $dao->GetAllCities();
+                                foreach($cities as $key => $value)
+                                {
+                                    echo '<option value = "'.$value['citName'].'">'.$value['citName'].'</option>';
+                                }
+                            ?>
+                        </select>
+                    </div>
+
+                    <button type="submit" name="submitBtn" value="submit">Annoncer</button>
                 </form>
             </div>
                 

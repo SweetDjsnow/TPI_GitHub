@@ -2113,3 +2113,40 @@ sendmail: Error during delivery: STOREDRV.ClientSubmit; sender thread limit exce
 [Wed Feb 03 12:13:09.236990 2021] [mpm_winnt:warn] [pid 9260:tid 3036] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
 [Wed Feb 03 12:13:09.236990 2021] [mpm_winnt:warn] [pid 9260:tid 756] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
 [Wed Feb 03 12:13:09.236990 2021] [mpm_winnt:warn] [pid 9260:tid 2064] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Wed Feb 03 13:35:04.853733 2021] [ssl:warn] [pid 3040:tid 752] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Feb 03 13:35:04.889767 2021] [ssl:warn] [pid 3040:tid 752] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Feb 03 13:35:05.060173 2021] [core:warn] [pid 3040:tid 752] AH00098: pid file H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Wed Feb 03 13:35:05.144664 2021] [ssl:warn] [pid 3040:tid 752] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Wed Feb 03 13:35:05.150683 2021] [ssl:warn] [pid 3040:tid 752] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Feb 03 13:35:05.150683 2021] [ssl:warn] [pid 3040:tid 752] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+PHP Warning:  PHP Startup: Unable to load dynamic library 'H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/php/php-5.6.18/ext\\php_mailparse.dll' - %1 n\xef\xbf\xbdest pas une application Win32 valide.\r\n in Unknown on line 0
+[Wed Feb 03 13:35:16.615203 2021] [mpm_winnt:notice] [pid 3040:tid 752] AH00455: Apache/2.4.18 (Win32) OpenSSL/1.0.2f PHP/5.6.18 configured -- resuming normal operations
+[Wed Feb 03 13:35:16.616203 2021] [mpm_winnt:notice] [pid 3040:tid 752] AH00456: Server built: Jan 28 2016 09:58:25
+[Wed Feb 03 13:35:16.616203 2021] [core:notice] [pid 3040:tid 752] AH00094: Command line: 'H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\bin\\apache\\bin\\httpd.exe -d H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/apache -f H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\bin\\apache\\conf\\httpd.conf'
+[Wed Feb 03 13:35:16.644099 2021] [mpm_winnt:notice] [pid 3040:tid 752] AH00418: Parent: Created child process 3672
+[Wed Feb 03 13:35:17.439300 2021] [ssl:warn] [pid 3672:tid 824] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Feb 03 13:35:17.440297 2021] [ssl:warn] [pid 3672:tid 824] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Feb 03 13:35:17.573940 2021] [ssl:warn] [pid 3672:tid 824] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Wed Feb 03 13:35:17.574967 2021] [ssl:warn] [pid 3672:tid 824] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Feb 03 13:35:17.574967 2021] [ssl:warn] [pid 3672:tid 824] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+PHP Warning:  PHP Startup: Unable to load dynamic library 'H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/php/php-5.6.18/ext\\php_mailparse.dll' - %1 n\xef\xbf\xbdest pas une application Win32 valide.\r\n in Unknown on line 0
+[Wed Feb 03 13:35:17.625352 2021] [mpm_winnt:notice] [pid 3672:tid 824] AH00354: Child: Starting 64 worker threads.
+[Wed Feb 03 14:02:49.049861 2021] [:error] [pid 3672:tid 1488] [client ::1:49298] PHP Notice:  Undefined variable: dao in H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\views\\addPage.php on line 29, referer: http://localhost/my-app/views/mainPage.php
+[Wed Feb 03 14:02:49.049861 2021] [:error] [pid 3672:tid 1488] [client ::1:49298] PHP Stack trace:, referer: http://localhost/my-app/views/mainPage.php
+[Wed Feb 03 14:02:49.050858 2021] [:error] [pid 3672:tid 1488] [client ::1:49298] PHP   1. {main}() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\views\\addPage.php:0, referer: http://localhost/my-app/views/mainPage.php
+[Wed Feb 03 14:02:49.050858 2021] [:error] [pid 3672:tid 1488] [client ::1:49298] PHP Fatal error:  Call to a member function GetAllBrands() on null in H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\views\\addPage.php on line 29, referer: http://localhost/my-app/views/mainPage.php
+[Wed Feb 03 14:02:49.050858 2021] [:error] [pid 3672:tid 1488] [client ::1:49298] PHP Stack trace:, referer: http://localhost/my-app/views/mainPage.php
+[Wed Feb 03 14:02:49.050858 2021] [:error] [pid 3672:tid 1488] [client ::1:49298] PHP   1. {main}() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\views\\addPage.php:0, referer: http://localhost/my-app/views/mainPage.php
+[Wed Feb 03 14:02:53.725772 2021] [:error] [pid 3672:tid 1488] [client ::1:49298] PHP Notice:  Undefined variable: dao in H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\views\\addPage.php on line 29, referer: http://localhost/my-app/views/mainPage.php
+[Wed Feb 03 14:02:53.725772 2021] [:error] [pid 3672:tid 1488] [client ::1:49298] PHP Stack trace:, referer: http://localhost/my-app/views/mainPage.php
+[Wed Feb 03 14:02:53.726770 2021] [:error] [pid 3672:tid 1488] [client ::1:49298] PHP   1. {main}() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\views\\addPage.php:0, referer: http://localhost/my-app/views/mainPage.php
+[Wed Feb 03 14:02:53.726770 2021] [:error] [pid 3672:tid 1488] [client ::1:49298] PHP Fatal error:  Call to a member function GetAllBrands() on null in H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\views\\addPage.php on line 29, referer: http://localhost/my-app/views/mainPage.php
+[Wed Feb 03 14:02:53.726770 2021] [:error] [pid 3672:tid 1488] [client ::1:49298] PHP Stack trace:, referer: http://localhost/my-app/views/mainPage.php
+[Wed Feb 03 14:02:53.727767 2021] [:error] [pid 3672:tid 1488] [client ::1:49298] PHP   1. {main}() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\views\\addPage.php:0, referer: http://localhost/my-app/views/mainPage.php
+[Wed Feb 03 14:03:15.942792 2021] [:error] [pid 3672:tid 1488] [client ::1:49308] PHP Notice:  Undefined index: citName in H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\views\\addPage.php on line 34, referer: http://localhost/my-app/views/mainPage.php
+[Wed Feb 03 14:03:15.942792 2021] [:error] [pid 3672:tid 1488] [client ::1:49308] PHP Stack trace:, referer: http://localhost/my-app/views/mainPage.php
+[Wed Feb 03 14:03:15.943790 2021] [:error] [pid 3672:tid 1488] [client ::1:49308] PHP   1. {main}() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\views\\addPage.php:0, referer: http://localhost/my-app/views/mainPage.php
+[Wed Feb 03 14:03:33.037615 2021] [:error] [pid 3672:tid 1488] [client ::1:49309] PHP Notice:  Undefined index: citName in H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\views\\addPage.php on line 34, referer: http://localhost/my-app/views/mainPage.php
+[Wed Feb 03 14:03:33.037615 2021] [:error] [pid 3672:tid 1488] [client ::1:49309] PHP Stack trace:, referer: http://localhost/my-app/views/mainPage.php
+[Wed Feb 03 14:03:33.038623 2021] [:error] [pid 3672:tid 1488] [client ::1:49309] PHP   1. {main}() H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\www\\my-app\\views\\addPage.php:0, referer: http://localhost/my-app/views/mainPage.php
+[Wed Feb 03 16:34:00.886907 2021] [mpm_winnt:crit] [pid 3672:tid 824] AH02538: Child: Parent process exited abruptly. Child process is ending

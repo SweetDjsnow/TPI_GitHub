@@ -191,11 +191,23 @@ select {
   width: 66%;
   margin: 0 auto;
   border: 0;
+  transition: 0.5s;
+}
+.back-btn :hover
+{
+  background-color: #1a632f;
+  transition: 0.5s;
 }
 .back-btn-div
 {
   text-align: center;
   margin: 0 auto;
+}
+
+.back-btn-div :hover
+{
+  background-color: #1a632f;
+  transition: 0.5s;
 }
 
 .back-btn-div img

@@ -19,7 +19,7 @@
                     <input type="text" name="phoneNumber" placeholder="Numéro de téléphone" required/>
                     <input type="text" name="officeAddress" placeholder="Addresse du bureau" required/>
                     <input type="text" name="npa" placeholder="Code postal" required/>
-                    <button>Envoyer demande</button>
+                    <button type="submit" name="submitBtn" value="submit">Envoyer</button>
                 </form>
         </div>
 
