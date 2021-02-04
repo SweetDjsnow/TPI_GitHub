@@ -17,11 +17,11 @@ $dao = new Database();
         <div class="signup-page">
 
             <div class="form">
-                <form class="login-form" action="#" method="POST" enctype="multipart/form-data">
+                <form class="login-form" action="../controllers/addBike.php" method="POST" enctype="multipart/form-data">
                     <label for="image">Image:</label>
-                    <input type="file" name="image" id="image" multiple/>
+                    <input type="file" name="fileToUpload[]" id="fileToUpload" multiple/>
                     <label for="dateInput">Trouvé le :</label>
-                    <input type="date" name="bikFoundDate" id="dateInput" />
+                    <input type="date" name="bikeFoundDate" id="dateInput" />
                     <label for="locationFound">Lieu de la trouvaille :</label>
                     <input type="text" name="bikFoundLocation" id="locationFound" />
                     

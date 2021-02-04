@@ -23,10 +23,13 @@ PRIMARY KEY (`idBrand`)
 
 CREATE TABLE `t_photo`
 (
- `idPhoto` int NOT NULL ,
+ `idPhoto` int NOT NULL AUTO_INCREMENT ,
  `phoPath` varchar(500) NOT NULL ,
+ `idBike`  int NOT NULL ,
 
-PRIMARY KEY (`idPhoto`)
+PRIMARY KEY (`idPhoto`),
+KEY `fkIdx_66` (`idBike`),
+CONSTRAINT `FK_65` FOREIGN KEY `fkIdx_66` (`idBike`) REFERENCES `t_bikes` (`idBike`)
 );
 
 CREATE TABLE `t_bikes`
@@ -38,18 +41,15 @@ CREATE TABLE `t_bikes`
  `bikColor`            varchar(45) NOT NULL ,
  `bikSerialNumber`     varchar(50) NOT NULL ,
  `bikHeight`           int NOT NULL ,
- `bikIsElectric`       tinyint NOT NULL ,
- `bikHasBeenRetrieved` tinyint NOT NULL ,
+ `bikIsElectric`       bit NOT NULL ,
+ `bikHasBeenRetrieved` bit NOT NULL ,
  `bikRetrievedBy`      varchar(150) NOT NULL ,
  `bikGivenBy`          varchar(150) NOT NULL ,
  `idCity`              int NOT NULL ,
- `idPhoto`             int NOT NULL ,
 
 PRIMARY KEY (`idBike`),
 KEY `fkIdx_26` (`idCity`),
-CONSTRAINT `FK_25` FOREIGN KEY `fkIdx_26` (`idCity`) REFERENCES `t_city` (`idCity`),
-KEY `fkIdx_51` (`idPhoto`),
-CONSTRAINT `FK_50` FOREIGN KEY `fkIdx_51` (`idPhoto`) REFERENCES `t_photo` (`idPhoto`)
+CONSTRAINT `FK_25` FOREIGN KEY `fkIdx_26` (`idCity`) REFERENCES `t_city` (`idCity`)
 );
 
 

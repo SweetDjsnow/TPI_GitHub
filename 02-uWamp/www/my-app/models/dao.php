@@ -165,6 +165,25 @@ class Database
         return $this->ExecuteGetRequest($query);
     }
 
+    function AddBikeToDatabase($bikeFoundDate, $bikFoundLocation, $bikBrand, $bikColor, $bikSerialNumber, $bikHeight, $bikIsElectric, $idCity)
+    {
+        $query = "INSERT INTO t_bikes (bikeFoundDate, bikFoundLocation, bikBrand, bikColor, bikSerialNumber, bikHeight, bikIsElectric, bikHasBeenRetrieved, bikRetrievedBy, bikGivenBy, idCity) VALUES ('{$bikeFoundDate}', '{$bikFoundLocation}', '{$bikBrand}', '{$bikColor}', '{$bikSerialNumber}', '{$bikHeight}', {$bikIsElectric}, 0, 'null', 'null', {$idCity});";
+
+        $this->ExecuteSetRequest($query);
+
+        $query = "SELECT MAX(idBike) FROM t_bikes";
+
+        return $this->ExecuteGetRequest($query);
+    }
+
+    function AddPhotoToDatabase($imagePath, $idBike)
+    {
+        $query = "INSERT INTO t_photo (phoPath, idBike) VALUES ('{$imagePath}', {$idBike});";
+
+        $this->ExecuteSetRequest($query);
+    }
+
+
 }
 
 
