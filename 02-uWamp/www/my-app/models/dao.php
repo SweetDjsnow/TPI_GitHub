@@ -183,6 +183,46 @@ class Database
         $this->ExecuteSetRequest($query);
     }
 
+    function SearchInDatabase()
+    {
+        $isFirstParameter = true;
+
+        $query = "SELECT * FROM t_bikes WHERE";
+
+        $bikBrand = $_POST['bikBrand'];
+        $bikColor = $_POST['bikColor'];
+        $bikSerialNumber = $_POST['bikSerialNumber'];
+        $bikHeight = $_POST['bikHeight'];
+
+        if(isset($_POST['bikIsElectric']))
+        {
+            $_POST['bikIsElectric'] = 1;
+        }
+
+
+        foreach($_POST as $key => $value)
+        {
+            if($isFirstParameter)
+            {
+                if($value != '')
+                {
+                    $query .= " {$key} = '{$value}'";
+                    $isFirstParameter = false;
+                }
+            }
+            else
+            {
+                if($value != '')
+                    $query .= " AND {$key} = '{$value}'";
+            }
+
+            var_dump($key);
+        }
+        $query .= ";";
+        var_dump($query);
+
+        return $this->ExecuteGetRequest($query);
+    }
 
 }
 

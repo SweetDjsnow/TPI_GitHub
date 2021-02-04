@@ -76,20 +76,33 @@ if(isset($_POST))
         $bikColor = $_POST['bikColor'];
         $bikSerialNumber = $_POST['bikSerialNumber'];
         $bikHeight = $_POST['bikHeight'];
-        $bikIsElectric = $_POST['bikIsElectric'];
+
+        $bikIsElectric = 0;
+        if(isset($_POST['bikIsElectric']))
+        {
+            $bikIsElectric = 1;
+        }
+        else
+        {
+            $bikIsElectric = 0;
+        }
+
+        echo $bikIsElectric."<br><br><br>";
+
         $cityName = $_POST['city'];
 
         $cityId = $dao->GetCityId($cityName);
 
-        $lastId = $dao->AddBikeToDatabase($bikeFoundDate, $bikFoundLocation, $bikBrand, $bikColor, $bikSerialNumber, $bikHeight, $bikIsElectric, $cityId);
+        $lastId = $dao->AddBikeToDatabase($bikeFoundDate, $bikFoundLocation, $bikBrand, $bikColor, $bikSerialNumber, $bikHeight, $bikIsElectric, $cityId[0]['idCity']);
 
         for($i = 0; $i<count($_FILES['fileToUpload']['name']); $i++)
         {
 
             $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"][$i]);
 
-            $dao->AddPhotoToDatabase($target_file, $lastId);
+            $dao->AddPhotoToDatabase($target_file, $lastId[0]['MAX(idBike)']);
         }
+        
     }
 }
 

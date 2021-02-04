@@ -5,9 +5,7 @@ include '../models/dao.php';
 
 $dao = new Database();
 
-$isFirstParameter = true;
-
-
-
+$result = $dao->SearchInDatabase();
+var_dump($result);
 
 ?>

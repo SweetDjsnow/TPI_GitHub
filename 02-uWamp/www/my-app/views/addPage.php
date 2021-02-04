@@ -27,7 +27,7 @@ $dao = new Database();
                     
                     <label for="slct">Marque:</label>
                     <div class="select">
-                        <select name="brand" id="slct">
+                        <select name="bikBrand" id="slct">
                             <?php
                                 $brands = $dao->GetAllBrands();
                                 foreach($brands as $key => $value)
