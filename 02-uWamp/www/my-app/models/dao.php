@@ -183,30 +183,32 @@ class Database
         $this->ExecuteSetRequest($query);
     }
 
-    function SearchInDatabase()
+    function SearchInDatabase($POST)
     {
         $isFirstParameter = true;
 
-        $query = "SELECT * FROM t_bikes WHERE";
+        $query = "SELECT * FROM t_bikes";
 
-        $bikBrand = $_POST['bikBrand'];
-        $bikColor = $_POST['bikColor'];
-        $bikSerialNumber = $_POST['bikSerialNumber'];
-        $bikHeight = $_POST['bikHeight'];
+        $bikBrand = '';
+        if(isset($POST['bikBrand']))
+            $bikBrand = $POST['bikBrand'];
+        $bikColor = $POST['bikColor'];
+        $bikSerialNumber = $POST['bikSerialNumber'];
+        $bikHeight = $POST['bikHeight'];
 
-        if(isset($_POST['bikIsElectric']))
+        if(isset($POST['bikIsElectric']))
         {
-            $_POST['bikIsElectric'] = 1;
+            $POST['bikIsElectric'] = 1;
         }
 
 
-        foreach($_POST as $key => $value)
+        foreach($POST as $key => $value)
         {
             if($isFirstParameter)
             {
                 if($value != '')
                 {
-                    $query .= " {$key} = '{$value}'";
+                    $query .= " WHERE {$key} = '{$value}'";
                     $isFirstParameter = false;
                 }
             }
@@ -220,6 +222,13 @@ class Database
         }
         $query .= ";";
         var_dump($query);
+
+        return $this->ExecuteGetRequest($query);
+    }
+
+    function GetPhotosLinkedToBike($idBike)
+    {
+        $query = "SELECT phoPath FROM t_photo WHERE idBike = {$idBike};";
 
         return $this->ExecuteGetRequest($query);
     }

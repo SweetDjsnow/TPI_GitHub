@@ -5,14 +5,58 @@
   padding: 8% 0 0;
   margin: auto;
 }
+.search-page {
+  width: 360px;
+  padding: 3% 0 0;
+  margin: auto;
+}
+.all-result-div
+{
+
+  height: 100%;
+  padding-left: 10%;
+}
+.img-result-page
+{
+  width: 75%;
+  margin: 10%;
+}
+
+.icon-result-page
+{
+  width:16px;
+  margin-left: 5px;
+}
 .signup-page
 {
   width: 360px;
   padding: 0 0 0;
   margin: auto;
 }
+.result-page
+{
+  width: 360px;
+  padding: 0 0 0;
+  float: left;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.form-result
+{
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  margin: 0 auto 0px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  min-height: 22em;
+  max-height: 22em;
+}
+
 .main-page-form {
-  width: 50%;
+  max-width: 50%;
   padding: 8% 0 0;
   margin: auto;
   text-align: center;

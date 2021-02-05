@@ -1,4 +1,5 @@
 <?php
+include '../controllers/checkIfConnected.php';
 include '../models/dao.php';
 
 $dao = new Database();

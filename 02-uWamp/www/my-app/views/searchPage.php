@@ -1,3 +1,11 @@
+<?php
+include '../controllers/checkIfConnected.php';
+include '../models/dao.php';
+
+$dao = new Database();
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,7 +19,19 @@
 
             <div class="form">
                 <form class="login-form" action="../controllers/searchDatabase.php" method="POST">
-                    <input type="text" name="bikBrand" placeholder="Marque du vélo" />
+                <label for="slct">Marque:</label>
+                    <div class="select">
+                        <select name="bikBrand" id="slct">
+                            <option disabled selected value> -- select an option -- </option>
+                            <?php
+                                $brands = $dao->GetAllBrands();
+                                foreach($brands as $key => $value)
+                                {
+                                    echo '<option value = "'.$value['braName'].'">'.$value['braName'].'</option>';
+                                }
+                            ?>
+                        </select>
+                    </div>
                     <input type="text" name="bikColor" placeholder="Couleur" />
                     <input type="text" name="bikSerialNumber" placeholder="Numéro de série" />
                     <input type="text" name="bikHeight" placeholder="Taille du vélo (cm)" />
@@ -20,12 +40,14 @@
                 </form>
 
             
-        </div>
-        <div class="back-btn-div">
+            </div>
+            <div class="back-btn-div">
                 <a href="../views/mainPage.php">
                     <button class="back-btn"><img src="../img/left-arrow.png" alt="Back Arrow"></button>
                 </a>
-            </div>
+        </div>
+        </div>
+        
     </body>
 
 </html>
