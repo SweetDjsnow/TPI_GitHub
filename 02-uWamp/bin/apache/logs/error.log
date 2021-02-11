@@ -2606,3 +2606,64 @@ PHP Warning:  PHP Startup: Unable to load dynamic library 'H:/PRE-TPI/TPI_GitHub
 [Wed Feb 10 13:17:56.006194 2021] [ssl:warn] [pid 5784:tid 776] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
 PHP Warning:  PHP Startup: Unable to load dynamic library 'H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/php/php-5.6.18/ext\\php_mailparse.dll' - %1 n\xef\xbf\xbdest pas une application Win32 valide.\r\n in Unknown on line 0
 [Wed Feb 10 13:17:56.053047 2021] [mpm_winnt:notice] [pid 5784:tid 776] AH00354: Child: Starting 64 worker threads.
+[Thu Feb 11 08:17:14.119820 2021] [ssl:warn] [pid 6812:tid 812] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Feb 11 08:17:14.119820 2021] [ssl:warn] [pid 6812:tid 812] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Feb 11 08:17:14.204267 2021] [core:warn] [pid 6812:tid 812] AH00098: pid file H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Thu Feb 11 08:17:14.288736 2021] [ssl:warn] [pid 6812:tid 812] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Thu Feb 11 08:17:14.304337 2021] [ssl:warn] [pid 6812:tid 812] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Feb 11 08:17:14.304337 2021] [ssl:warn] [pid 6812:tid 812] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+PHP Warning:  PHP Startup: Unable to load dynamic library 'H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/php/php-5.6.18/ext\\php_mailparse.dll' - %1 n\xef\xbf\xbdest pas une application Win32 valide.\r\n in Unknown on line 0
+[Thu Feb 11 08:17:16.421124 2021] [mpm_winnt:notice] [pid 6812:tid 812] AH00455: Apache/2.4.18 (Win32) OpenSSL/1.0.2f PHP/5.6.18 configured -- resuming normal operations
+[Thu Feb 11 08:17:16.421124 2021] [mpm_winnt:notice] [pid 6812:tid 812] AH00456: Server built: Jan 28 2016 09:58:25
+[Thu Feb 11 08:17:16.422281 2021] [core:notice] [pid 6812:tid 812] AH00094: Command line: 'H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\bin\\apache\\bin\\httpd.exe -d H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/apache -f H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\bin\\apache\\conf\\httpd.conf'
+[Thu Feb 11 08:17:16.431241 2021] [mpm_winnt:notice] [pid 6812:tid 812] AH00418: Parent: Created child process 2528
+[Thu Feb 11 08:17:17.249971 2021] [ssl:warn] [pid 2528:tid 816] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Feb 11 08:17:17.254131 2021] [ssl:warn] [pid 2528:tid 816] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Feb 11 08:17:17.384561 2021] [ssl:warn] [pid 2528:tid 816] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Thu Feb 11 08:17:17.385557 2021] [ssl:warn] [pid 2528:tid 816] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Feb 11 08:17:17.385557 2021] [ssl:warn] [pid 2528:tid 816] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+PHP Warning:  PHP Startup: Unable to load dynamic library 'H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/php/php-5.6.18/ext\\php_mailparse.dll' - %1 n\xef\xbf\xbdest pas une application Win32 valide.\r\n in Unknown on line 0
+[Thu Feb 11 08:17:17.461007 2021] [mpm_winnt:notice] [pid 2528:tid 816] AH00354: Child: Starting 64 worker threads.
+[Thu Feb 11 08:19:22.265821 2021] [mpm_winnt:crit] [pid 2528:tid 816] AH02538: Child: Parent process exited abruptly. Child process is ending
+[Thu Feb 11 08:19:22.265821 2021] [mpm_winnt:warn] [pid 2528:tid 864] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Thu Feb 11 08:19:22.265821 2021] [mpm_winnt:warn] [pid 2528:tid 1600] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Thu Feb 11 08:19:22.265821 2021] [mpm_winnt:warn] [pid 2528:tid 1612] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Thu Feb 11 08:19:22.265821 2021] [mpm_winnt:warn] [pid 2528:tid 1616] (OS 10038)Une opération a été tentée sur autre chose qu’un socket.  : AH00342: setsockopt(SO_UPDATE_ACCEPT_CONTEXT) failed.
+[Thu Feb 11 08:19:29.523110 2021] [ssl:warn] [pid 3012:tid 836] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Feb 11 08:19:29.524121 2021] [ssl:warn] [pid 3012:tid 836] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Feb 11 08:19:29.594250 2021] [core:warn] [pid 3012:tid 836] AH00098: pid file H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Thu Feb 11 08:19:29.683843 2021] [ssl:warn] [pid 3012:tid 836] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Thu Feb 11 08:19:29.689856 2021] [ssl:warn] [pid 3012:tid 836] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Feb 11 08:19:29.689856 2021] [ssl:warn] [pid 3012:tid 836] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+PHP Warning:  PHP Startup: Unable to load dynamic library 'H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/php/php-5.6.18/ext\\php_mailparse.dll' - %1 n\xef\xbf\xbdest pas une application Win32 valide.\r\n in Unknown on line 0
+[Thu Feb 11 08:19:31.038258 2021] [mpm_winnt:notice] [pid 3012:tid 836] AH00455: Apache/2.4.18 (Win32) OpenSSL/1.0.2f PHP/5.6.18 configured -- resuming normal operations
+[Thu Feb 11 08:19:31.038258 2021] [mpm_winnt:notice] [pid 3012:tid 836] AH00456: Server built: Jan 28 2016 09:58:25
+[Thu Feb 11 08:19:31.038258 2021] [core:notice] [pid 3012:tid 836] AH00094: Command line: 'H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\bin\\apache\\bin\\httpd.exe -d H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/apache -f H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\bin\\apache\\conf\\httpd.conf'
+[Thu Feb 11 08:19:31.045226 2021] [mpm_winnt:notice] [pid 3012:tid 836] AH00418: Parent: Created child process 10700
+[Thu Feb 11 08:19:31.801113 2021] [ssl:warn] [pid 10700:tid 828] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Feb 11 08:19:31.802108 2021] [ssl:warn] [pid 10700:tid 828] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Feb 11 08:19:31.962382 2021] [ssl:warn] [pid 10700:tid 828] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Thu Feb 11 08:19:31.963376 2021] [ssl:warn] [pid 10700:tid 828] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Feb 11 08:19:31.963376 2021] [ssl:warn] [pid 10700:tid 828] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+PHP Warning:  PHP Startup: Unable to load dynamic library 'H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/php/php-5.6.18/ext\\php_mailparse.dll' - %1 n\xef\xbf\xbdest pas une application Win32 valide.\r\n in Unknown on line 0
+[Thu Feb 11 08:19:32.006182 2021] [mpm_winnt:notice] [pid 10700:tid 828] AH00354: Child: Starting 64 worker threads.
+[Thu Feb 11 15:29:43.988066 2021] [mpm_winnt:crit] [pid 10700:tid 828] AH02538: Child: Parent process exited abruptly. Child process is ending
+[Thu Feb 11 15:29:43.992081 2021] [mpm_winnt:warn] [pid 10700:tid 2928] (OS 995)L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.  : AH00341: winnt_accept: Asynchronous AcceptEx failed.
+[Thu Feb 11 15:29:54.060697 2021] [ssl:warn] [pid 2980:tid 816] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Feb 11 15:29:54.061694 2021] [ssl:warn] [pid 2980:tid 816] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Feb 11 15:29:54.148777 2021] [core:warn] [pid 2980:tid 816] AH00098: pid file H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Thu Feb 11 15:29:54.233152 2021] [ssl:warn] [pid 2980:tid 816] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Thu Feb 11 15:29:54.240154 2021] [ssl:warn] [pid 2980:tid 816] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Feb 11 15:29:54.241166 2021] [ssl:warn] [pid 2980:tid 816] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+PHP Warning:  PHP Startup: Unable to load dynamic library 'H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/php/php-5.6.18/ext\\php_mailparse.dll' - %1 n\xef\xbf\xbdest pas une application Win32 valide.\r\n in Unknown on line 0
+[Thu Feb 11 15:29:55.877101 2021] [mpm_winnt:notice] [pid 2980:tid 816] AH00455: Apache/2.4.18 (Win32) OpenSSL/1.0.2f PHP/5.6.18 configured -- resuming normal operations
+[Thu Feb 11 15:29:55.877101 2021] [mpm_winnt:notice] [pid 2980:tid 816] AH00456: Server built: Jan 28 2016 09:58:25
+[Thu Feb 11 15:29:55.878099 2021] [core:notice] [pid 2980:tid 816] AH00094: Command line: 'H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\bin\\apache\\bin\\httpd.exe -d H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/apache -f H:\\PRE-TPI\\TPI_GitHub\\02-uWamp\\bin\\apache\\conf\\httpd.conf'
+[Thu Feb 11 15:29:55.884109 2021] [mpm_winnt:notice] [pid 2980:tid 816] AH00418: Parent: Created child process 15324
+[Thu Feb 11 15:29:56.938269 2021] [ssl:warn] [pid 15324:tid 784] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Feb 11 15:29:56.940264 2021] [ssl:warn] [pid 15324:tid 784] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Feb 11 15:29:57.192590 2021] [ssl:warn] [pid 15324:tid 784] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Thu Feb 11 15:29:57.193587 2021] [ssl:warn] [pid 15324:tid 784] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Feb 11 15:29:57.196581 2021] [ssl:warn] [pid 15324:tid 784] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+PHP Warning:  PHP Startup: Unable to load dynamic library 'H:/PRE-TPI/TPI_GitHub/02-uWamp/bin/php/php-5.6.18/ext\\php_mailparse.dll' - %1 n\xef\xbf\xbdest pas une application Win32 valide.\r\n in Unknown on line 0
+[Thu Feb 11 15:29:57.257417 2021] [mpm_winnt:notice] [pid 15324:tid 784] AH00354: Child: Starting 64 worker threads.
