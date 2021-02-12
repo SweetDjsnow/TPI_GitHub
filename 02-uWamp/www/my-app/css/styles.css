@@ -22,6 +22,24 @@
   margin: 10%;
 }
 
+.table-details th
+{
+  text-align: right;
+  padding-right: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.table-details td
+{
+  
+}
+
+.table-details tr
+{
+  padding-bottom: 20px;
+}
+
 .icon-result-page
 {
   width:16px;

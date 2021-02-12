@@ -233,6 +233,20 @@ class Database
         return $this->ExecuteGetRequest($query);
     }
 
+    function GetBikeInfos($idBike)
+    {
+        $query = "SELECT * from t_bikes WHERE idBike = {$idBike};";
+
+        return $this->ExecuteGetRequest($query);
+    }
+
+    function GetCityName($idCity)
+    {
+        $query = "SELECT citName FROM t_city WHERE idCity = {$idCity};";
+
+        return $this->ExecuteGetRequest($query);
+    }
+
 }
 
 

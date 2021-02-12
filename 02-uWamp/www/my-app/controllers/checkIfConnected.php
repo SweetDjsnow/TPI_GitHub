@@ -20,6 +20,12 @@ if(isset($_SESSION) && !empty($_SESSION))
             
         }
     }
+    else
+    {
+        session_destroy();
+    
+        header("location: ./index.php");
+    }
 }
 else
 {
