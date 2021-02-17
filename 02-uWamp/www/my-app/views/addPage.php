@@ -40,7 +40,17 @@ $dao = new Database();
                     </div>
                     
                     <label for="color">Couleur:</label>
-                    <input type="text" name="bikColor" id="color">
+                    <div class="select">
+                        <select name="color" id="slct">
+                            <?php
+                                $colors = $dao->GetAllColorNames();
+                                foreach($colors as $key => $value)
+                                {
+                                    echo '<option value = "'.$value['colName'].'">'.$value['colName'].'</option>';
+                                }
+                            ?>
+                        </select>
+                    </div>
 
                     <label for="serialNumber">Numero de série:</label>
                     <input type="text" name="bikSerialNumber" id="serialNumber">

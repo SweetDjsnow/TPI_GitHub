@@ -9,6 +9,10 @@ if(isset($_POST))
     $numberFilesUploaded = 0;
     $target_dir = "../img/bike_photos/";
 
+    $newName = array();
+
+    var_dump($_POST);
+
     for($i = 0; $i<count($_FILES['fileToUpload']['name']); $i++)
     {
 
@@ -28,17 +32,19 @@ if(isset($_POST))
         }
 
         echo "<br><br><br>";
+        ///////GENERATING NEW NAME FOR IMG
+        echo 'Generating new name for img';
+        do
+        {
+            $newNameString = RandomName(10);
+            $target_file = $target_dir.$newNameString.'.'.$imageFileType;
+        }while(file_exists($target_file));
 
-        // Check if file already exists
-        if (file_exists($target_file)) {
+        array_push($newName,$newNameString.'.'.$imageFileType);
 
-            echo "File already exists. Generating new name...";
-            do
-            {
-                $newName = RandomName(10);
-                $target_file = $target_dir.$newName.'.'.$imageFileType;
-            }while(file_exists($target_file));
-        }
+        var_dump($newName);
+        var_dump($target_file);
+
         // Check file size
         if ($_FILES["fileToUpload"]["size"][$i] > 50000000) {
             echo "Sorry, your file is too large.";
@@ -73,7 +79,7 @@ if(isset($_POST))
         $bikeFoundDate = $_POST['bikeFoundDate'];
         $bikFoundLocation = $_POST['bikFoundLocation'];
         $bikBrand = $_POST['bikBrand'];
-        $bikColor = $_POST['bikColor'];
+        $bikColor = $_POST['color'];
         $bikSerialNumber = $_POST['bikSerialNumber'];
         $bikHeight = $_POST['bikHeight'];
 
@@ -95,12 +101,9 @@ if(isset($_POST))
 
         $lastId = $dao->AddBikeToDatabase($bikeFoundDate, $bikFoundLocation, $bikBrand, $bikColor, $bikSerialNumber, $bikHeight, $bikIsElectric, $cityId[0]['idCity']);
 
-        for($i = 0; $i<count($_FILES['fileToUpload']['name']); $i++)
+        for($i=0;$i<count($newName);$i++)
         {
-
-            $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"][$i]);
-
-            $dao->AddPhotoToDatabase($target_file, $lastId[0]['MAX(idBike)']);
+            $dao->AddPhotoToDatabase($newName[$i], $lastId[0]['MAX(idBike)']);
         }
         
     }

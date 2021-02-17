@@ -167,8 +167,9 @@ class Database
 
     function AddBikeToDatabase($bikeFoundDate, $bikFoundLocation, $bikBrand, $bikColor, $bikSerialNumber, $bikHeight, $bikIsElectric, $idCity)
     {
-        $query = "INSERT INTO t_bikes (bikeFoundDate, bikFoundLocation, bikBrand, bikColor, bikSerialNumber, bikHeight, bikIsElectric, bikHasBeenRetrieved, bikRetrievedBy, bikGivenBy, idCity) VALUES ('{$bikeFoundDate}', '{$bikFoundLocation}', '{$bikBrand}', '{$bikColor}', '{$bikSerialNumber}', '{$bikHeight}', {$bikIsElectric}, 0, 'null', 'null', {$idCity});";
+        $query = "INSERT INTO t_bikes (bikeFoundDate, bikFoundLocation, bikBrand, bikColor, bikSerialNumber, bikHeight, bikIsElectric, bikHasBeenRetrieved, idCity) VALUES ('{$bikeFoundDate}', '{$bikFoundLocation}', '{$bikBrand}', '{$bikColor}', '{$bikSerialNumber}', '{$bikHeight}', {$bikIsElectric}, 0, {$idCity});";
 
+        var_dump($query);
         $this->ExecuteSetRequest($query);
 
         $query = "SELECT MAX(idBike) FROM t_bikes";
@@ -243,6 +244,13 @@ class Database
     function GetCityName($idCity)
     {
         $query = "SELECT citName FROM t_city WHERE idCity = {$idCity};";
+
+        return $this->ExecuteGetRequest($query);
+    }
+
+    function GetAllColorNames()
+    {
+        $query = "SELECT colName FROM t_color;";
 
         return $this->ExecuteGetRequest($query);
     }

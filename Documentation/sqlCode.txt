@@ -1,11 +1,12 @@
+-- ************************************** `t_city`
 
 CREATE TABLE `t_city`
 (
  `idCity`              int NOT NULL AUTO_INCREMENT ,
- `citName`             varchar(45) NOT NULL ,
+ `citName`             varchar(50) NOT NULL ,
  `citNPA`              varchar(10) NOT NULL ,
  `citContactPhone`     varchar(25) NOT NULL ,
- `citContactEmail`     varchar(45) NOT NULL ,
+ `citContactEmail`     varchar(100) NOT NULL ,
  `citContactFirstName` varchar(50) NOT NULL ,
  `citContactLastName`  varchar(50) NOT NULL ,
  `citOfficeLocation`   varchar(100) NOT NULL ,
@@ -13,13 +14,79 @@ CREATE TABLE `t_city`
 PRIMARY KEY (`idCity`)
 );
 
+-- ************************************** `t_color`
+
+CREATE TABLE `t_color`
+(
+ `idColor` int NOT NULL AUTO_INCREMENT ,
+ `colName` varchar(30) NOT NULL ,
+
+PRIMARY KEY (`idColor`)
+);
+
+-- ************************************** `t_brand`
+
 CREATE TABLE `t_brand`
 (
- `idBrand` int NOT NULL ,
+ `idBrand` int NOT NULL AUTO_INCREMENT ,
  `braName` varchar(50) NOT NULL ,
 
 PRIMARY KEY (`idBrand`)
 );
+
+-- ************************************** `t_receiver`
+
+CREATE TABLE `t_receiver`
+(
+ `idReceiver`     int NOT NULL AUTO_INCREMENT ,
+ `recFirstName`   varchar(100) NOT NULL ,
+ `recLastName`    varchar(100) NOT NULL ,
+ `recEmail`       varchar(150) NULL ,
+ `recPhoneNumber` varchar(30) NOT NULL ,
+
+PRIMARY KEY (`idReceiver`)
+);
+
+-- ************************************** `t_giver`
+
+CREATE TABLE `t_giver`
+(
+ `idGiver`        int NOT NULL AUTO_INCREMENT ,
+ `givFirstName`   varchar(100) NOT NULL ,
+ `givLastName`    varchar(100) NOT NULL ,
+ `givEmail`       varchar(150) NULL ,
+ `givPhoneNumber` varchar(30) NOT NULL ,
+
+PRIMARY KEY (`idGiver`)
+);
+
+-- ************************************** `t_bikes`
+
+CREATE TABLE `t_bikes`
+(
+ `idBike`              int NOT NULL AUTO_INCREMENT ,
+ `bikeFoundDate`       date NOT NULL ,
+ `bikFoundLocation`    varchar(100) NOT NULL ,
+ `bikBrand`            varchar(50) NOT NULL ,
+ `bikColor`            varchar(50) NOT NULL ,
+ `bikSerialNumber`     varchar(50) NOT NULL ,
+ `bikHeight`           varchar(50) NOT NULL ,
+ `bikIsElectric`       tinyint NOT NULL ,
+ `bikHasBeenRetrieved` tinyint NOT NULL ,
+ `idCity`              int NOT NULL ,
+ `idReceiver`          int NULL ,
+ `idGiver`             int NULL ,
+
+PRIMARY KEY (`idBike`),
+KEY `fkIdx_26` (`idCity`),
+CONSTRAINT `FK_25` FOREIGN KEY `fkIdx_26` (`idCity`) REFERENCES `t_city` (`idCity`),
+KEY `fkIdx_80` (`idReceiver`),
+CONSTRAINT `FK_79` FOREIGN KEY `fkIdx_80` (`idReceiver`) REFERENCES `t_receiver` (`idReceiver`),
+KEY `fkIdx_93` (`idGiver`),
+CONSTRAINT `FK_92` FOREIGN KEY `fkIdx_93` (`idGiver`) REFERENCES `t_giver` (`idGiver`)
+);
+
+-- ************************************** `t_photo`
 
 CREATE TABLE `t_photo`
 (
@@ -32,32 +99,13 @@ KEY `fkIdx_66` (`idBike`),
 CONSTRAINT `FK_65` FOREIGN KEY `fkIdx_66` (`idBike`) REFERENCES `t_bikes` (`idBike`)
 );
 
-CREATE TABLE `t_bikes`
-(
- `idBike`              int NOT NULL AUTO_INCREMENT ,
- `bikeFoundDate`       date NOT NULL ,
- `bikFoundLocation`    varchar(100) NOT NULL ,
- `bikBrand`            varchar(50) NOT NULL ,
- `bikColor`            varchar(45) NOT NULL ,
- `bikSerialNumber`     varchar(50) NOT NULL ,
- `bikHeight`           int NOT NULL ,
- `bikIsElectric`       bit NOT NULL ,
- `bikHasBeenRetrieved` bit NOT NULL ,
- `bikRetrievedBy`      varchar(150) NOT NULL ,
- `bikGivenBy`          varchar(150) NOT NULL ,
- `idCity`              int NOT NULL ,
-
-PRIMARY KEY (`idBike`),
-KEY `fkIdx_26` (`idCity`),
-CONSTRAINT `FK_25` FOREIGN KEY `fkIdx_26` (`idCity`) REFERENCES `t_city` (`idCity`)
-);
-
+-- ************************************** `t_user`
 
 CREATE TABLE `t_user`
 (
  `idUser`          int NOT NULL AUTO_INCREMENT ,
- `useUsername`     varchar(45) NOT NULL ,
- `usePassword`     varchar(45) NOT NULL ,
+ `useUsername`     varchar(50) NOT NULL ,
+ `usePassword`     varchar(300) NOT NULL ,
  `useIsAdmin`      tinyint NOT NULL ,
  `useIsSuperAdmin` tinyint NOT NULL ,
  `useFirstName`    varchar(50) NOT NULL ,
@@ -70,3 +118,4 @@ PRIMARY KEY (`idUser`),
 KEY `fkIdx_32` (`idCity`),
 CONSTRAINT `FK_31` FOREIGN KEY `fkIdx_32` (`idCity`) REFERENCES `t_city` (`idCity`)
 );
+

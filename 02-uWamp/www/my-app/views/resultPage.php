@@ -1,6 +1,7 @@
 <?php
 
 include '../controllers/checkIfConnected.php';
+$photosDir = '../img/bike_photos/';
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +32,7 @@ include '../controllers/checkIfConnected.php';
                                             else
                                                 echo "<p style='color: green;'>Le vélo a été récupéré</p>";
                                                 
-                                            echo "<img src='".$photoToShow[0]['phoPath']."' class='img-result-page'>
+                                            echo "<img src='{$photosDir}".$photoToShow[0]['phoPath']."' class='img-result-page'>
                                             <a href = '../views/bikeDetails.php?id={$id}'>Details</a><br>
                                         </div>
                                     </div>
