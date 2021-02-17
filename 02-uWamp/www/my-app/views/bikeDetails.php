@@ -146,7 +146,11 @@ function showSlides(n) {
 
                 </table>
 
-                
+                <div class="back-btn-div">
+        <a href="../views/retrievePage.php">
+            <button class="retrieve-btn">Rendre</button>
+        </a>
+        </div>
             </div>
             
         </div>

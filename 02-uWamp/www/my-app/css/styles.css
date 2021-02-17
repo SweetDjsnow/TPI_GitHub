@@ -250,7 +250,7 @@ h3{
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  height: 650px;
+  height: 700px;
 }
 .form input {
   font-family: "Roboto", sans-serif;
@@ -365,6 +365,17 @@ select {
   margin: 0 auto;
   border: 0;
   transition: 0.5s;
+}
+.retrieve-btn
+{
+  background-color: #289446;
+  width: 100%;
+  margin: 0 auto;
+  border: 0;
+  transition: 0.5s;
+  color: white;
+  font-size: large;
+  height: 40px;
 }
 .back-btn :hover
 {
