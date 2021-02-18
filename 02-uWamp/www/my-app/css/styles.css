@@ -29,6 +29,15 @@
   display: none;
 }
 
+.retrieve-page-form
+{
+  max-width: 50%;
+  padding: 0 0 0;
+  margin: auto;
+  text-align: center;
+  position: relative;
+}
+
 /* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
@@ -184,9 +193,10 @@ h3{
   margin-top: 0px;
   margin-bottom: 30px;
 }
-.main-page-title
+.retrieve-page-title
 {
   text-align: center;
+  padding: 8% 0 0;
 }
 .add-btn
 {
@@ -351,6 +361,13 @@ select::-ms-expand {
   overflow: hidden;
   border-radius: .25em;
   margin-bottom: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.retrieve-link
+{
+  margin-bottom: 45px;
 }
 select {
   flex: 1;

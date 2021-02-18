@@ -255,6 +255,27 @@ class Database
         return $this->ExecuteGetRequest($query);
     }
 
+    function GetAllReceiver()
+    {
+        $query = "SELECT recLastName, recFirstName, idReceiver FROM t_receiver";
+
+        return $this->ExecuteGetRequest($query);
+    }
+
+    function GetAllGiver()
+    {
+        $query = "SELECT givLastName, givFirstName, idGiver FROM t_giver";
+
+        return $this->ExecuteGetRequest($query);
+    }
+
+    function SetReceiverAndGiverOfBike($idBike, $idReceiver, $idGiver)
+    {
+        $query = "UPDATE t_bikes SET idReceiver, idGiver WHERE idBike = {$idBike};";
+
+        $this->ExecuteSetRequest($query);
+    }
+
 }
 
 

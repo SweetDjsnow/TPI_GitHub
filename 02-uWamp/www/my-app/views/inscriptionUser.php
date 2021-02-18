@@ -1,4 +1,5 @@
 <?php
+include '../controllers/checkIfConnected';
 include '../models/dao.php';
 
 $dao = new Database();
@@ -17,17 +18,17 @@ $dao = new Database();
 
             <div class="form">
                 <form class="login-form" action="../controllers/sendMailRequestUser.php" method="POST">
-                <div class="select">
-                    <select name="city" id="slct">
-                        <?php
-                            $cities = $dao->GetAllCities();
-                            foreach($cities as $key => $value)
-                            {
-                                echo '<option value = "'.$value['citName'].'">'.$value['citName'].'</option>';
-                            }
-                        ?>
-                    </select>
-                </div>
+                    <div class="select">
+                        <select name="city" id="slct">
+                            <?php
+                                $cities = $dao->GetAllCities();
+                                foreach($cities as $key => $value)
+                                {
+                                    echo '<option value = "'.$value['citName'].'">'.$value['citName'].'</option>';
+                                }
+                            ?>
+                        </select>
+                    </div>
                     <input type="text" name="firstName" placeholder="Prénom" required/>
                     <input type="text" name="lastName" placeholder="Nom" required/>
                     <input type="text" name="email" placeholder="Adresse email de contact" required/>
@@ -36,6 +37,7 @@ $dao = new Database();
                     <input type="text" name="npa" placeholder="Code postal" required/>
                     <button>Envoyer demande</button>
                 </form>
+            </div>
         </div>
 
         <div class="back-btn-div">
