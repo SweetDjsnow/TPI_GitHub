@@ -271,7 +271,39 @@ class Database
 
     function SetReceiverAndGiverOfBike($idBike, $idReceiver, $idGiver)
     {
-        $query = "UPDATE t_bikes SET idReceiver, idGiver WHERE idBike = {$idBike};";
+        $query = "UPDATE t_bikes SET idReceiver = {$idReceiver}, idGiver = {$idGiver}, bikHasBeenRetrieved = 1 WHERE idBike = {$idBike};";
+
+        var_dump($query);
+
+        $this->ExecuteSetRequest($query);
+    }
+
+    function GetReceiverInfos($idReceiver)
+    {
+        $query = "SELECT * FROM t_receiver WHERE idReceiver = {$idReceiver}";
+
+        return $this->ExecuteGetRequest($query);
+    }
+
+    function GetGiverInfos($idGiver)
+    {
+        $query = "SELECT * FROM t_giver WHERE idGiver = {$idGiver}";
+
+        return $this->ExecuteGetRequest($query);
+    }
+
+    function AddReceiverToDb($firstName, $lastName, $email, $phoneNumber)
+    {
+        $query = "INSERT INTO t_receiver (recFirstName, recLastName, recEmail, recPhoneNumber) VALUES ('{$firstName}','{$lastName}','{$email}','{$phoneNumber}');";
+
+        var_dump($query);
+
+        $this->ExecuteSetRequest($query);
+    }
+
+    function AddGiverToDb($firstName, $lastName, $email, $phoneNumber)
+    {
+        $query = "INSERT INTO t_giver (givFirstName, givLastName, givEmail, givPhoneNumber) VALUES ('{$firstName}','{$lastName}','{$email}','{$phoneNumber}');";
 
         $this->ExecuteSetRequest($query);
     }

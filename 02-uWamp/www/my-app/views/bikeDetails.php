@@ -52,11 +52,13 @@ function showSlides(n) {
         <title>Page Title</title>
     </head>
     <body>
+    <?php
+    ?>
         <h1>Détails</h1>
         <div class="main-page-form">
             <div class="form-details">
                 <h1>Stocké à la commune de <?php echo $cityName[0]['citName']; ?></h1>
-                                <!-- Slideshow container -->
+                <!-- Slideshow container -->
                 <div class="slideshow-container">
                     <!-- Full-width images with number and caption text -->
                     <?php
@@ -96,6 +98,10 @@ function showSlides(n) {
                     ?>
                 </div>
 
+                <?php
+
+                ?>
+
                 <table class="table-details" style="float: left;">
                     <tr>
                         <th>Trouvé le: </th>
@@ -130,8 +136,13 @@ function showSlides(n) {
                     </tr>
                     <tr>
                         <th>Recupéré par:  </th>
-                        <td><?php
-                            
+                        <td>
+                        <?php
+                            if(!empty($bikeInfos[0]['idReceiver']))
+                            {
+                                $receiverInfos = $dao->GetReceiverInfos($bikeInfos[0]['idReceiver']);
+                                echo $receiverInfos[0]['recFirstName'].' '.$receiverInfos[0]['recLastName'];
+                            }
                         ?>
                         </td>
                     </tr>
@@ -139,7 +150,11 @@ function showSlides(n) {
                         <th>Donné par:  </th>
                         <td>
                         <?php
-                            
+                            if(!empty($bikeInfos[0]['idGiver']))
+                            {
+                                $giverInfos = $dao->GetGiverInfos($bikeInfos[0]['idGiver']);
+                                echo $giverInfos[0]['givFirstName'].' '.$giverInfos[0]['givLastName'];
+                            }
                         ?>
                         </td>
                     </tr>
@@ -147,9 +162,16 @@ function showSlides(n) {
                 </table>
 
                 <div class="back-btn-div">
-        <a href="../views/retrievePage.php">
-            <button class="retrieve-btn">Rendre</button>
-        </a>
+
+        <?php 
+        
+            if($bikeInfos[0]['bikHasBeenRetrieved'] == 0)
+            {
+                echo    '<a href="../views/retrievePage.php?id='.$bikeInfos[0]['idBike'].'"> 
+                            <button class="retrieve-btn">Rendre</button>
+                        </a>';
+            }
+        ?>
         </div>
             </div>
             

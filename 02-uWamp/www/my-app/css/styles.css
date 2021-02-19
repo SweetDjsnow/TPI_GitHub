@@ -29,6 +29,11 @@
   display: none;
 }
 
+.table-results
+{
+  width: 100%;
+}
+
 .retrieve-page-form
 {
   max-width: 66%;

@@ -22,7 +22,7 @@
                         <th>Receveur</th>
                         <th>Donneur</th>
                     </tr>
-                    <form action="#" method="POST">
+                    <?php echo '<form action="../controllers/setReceiverAndGiverOfBike.php?id='.$_GET['id'].'" method="POST">'; ?>
                         <tr>
                             <td>
                                 <div class="select">
@@ -71,7 +71,7 @@
                     </tr>
                     <tr>
                         <td style="border-right: solid gray 2px;">
-                            <form action="../views/searchPage.php" method="POST" class="create-form">
+                            <form action="../controllers/addReceiver.php?id=<?php echo $_GET['id']; ?>" method="POST" class="create-form">
                                 <input type="text" placeholder="Prénom" name="firstName">
                                 <input type="text" placeholder="Nom de famille" name="lastName">
                                 <input type="text" placeholder="Adresse email" name="email">
@@ -80,7 +80,7 @@
                             </form>
                         </td>
                         <td>
-                            <form action="../views/searchPage.php" method="POST" class="create-form">
+                            <form action="../controllers/addGiver.php?id=<?php echo $_GET['id']; ?>" method="POST" class="create-form">
                                 <input type="text" placeholder="Prénom" name="firstName">
                                 <input type="text" placeholder="Nom de famille" name="lastName">
                                 <input type="text" placeholder="Adresse email" name="email">

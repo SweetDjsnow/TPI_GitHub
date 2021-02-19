@@ -20,6 +20,7 @@ $photosDir = '../img/bike_photos/';
                         $photoToShow = $dao->GetPhotosLinkedToBike($id);
 
                         if(isset($photoToShow) && !empty($photoToShow))
+                        {
                             echo "<div class='result-page'>
                                     <div class='search-page'>
                                         <div class='form-result'>
@@ -33,10 +34,20 @@ $photosDir = '../img/bike_photos/';
                                                 echo "<p style='color: green;'>Le vélo a été récupéré</p>";
                                                 
                                             echo "<img src='{$photosDir}".$photoToShow[0]['phoPath']."' class='img-result-page'>
-                                            <a href = '../views/bikeDetails.php?id={$id}'>Details</a><br>
+                                            <table class='table-results'>
+                                                <tr>
+                                                    <td style='float: left;'>
+                                                        <a href = '../views/bikeDetails.php?id={$id}'>Details</a><br>
+                                                    </td>
+                                                    <td style='float: right;'>
+                                                        <a href = '../views/modifyBike.php?id={$id}'>Modifier</a><br>
+                                                    </td>
+                                                </tr>
+                                            </table>
                                         </div>
                                     </div>
                                   </div>";
+                        }
                     }
                 ?>
             </div>
