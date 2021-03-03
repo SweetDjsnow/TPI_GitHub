@@ -12,6 +12,7 @@ if(isset($_POST))
     $newName = array();
 
     var_dump($_POST);
+    var_dump($_FILES);
 
     for($i = 0; $i<count($_FILES['fileToUpload']['name']); $i++)
     {
@@ -72,6 +73,7 @@ if(isset($_POST))
 
     if($numberFilesUploaded < count($_FILES['fileToUpload']['name']))
     {
+        var_dump($_FILES['fileToUpload']['name'][0]);
         echo "Erreur lors de l'upload d'une ou plusieurs des photos. Action annulée.";
     }
     else
