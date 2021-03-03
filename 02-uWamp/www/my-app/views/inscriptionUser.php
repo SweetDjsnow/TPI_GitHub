@@ -1,5 +1,4 @@
 <?php
-include '../controllers/checkIfConnected';
 include '../models/dao.php';
 
 $dao = new Database();
@@ -38,13 +37,13 @@ $dao = new Database();
                     <button>Envoyer demande</button>
                 </form>
             </div>
-        </div>
-
-        <div class="back-btn-div">
+            <div class="back-btn-div">
         <a href="../views/inscription.php">
             <button class="back-btn"><img src="../img/left-arrow.png" alt="Back Arrow"></button>
-            </
         </div>
+        </div>
+
+
 
         
 

@@ -18,6 +18,6 @@ $id = $_GET['id'];
 
 var_dump($id);
 
-//header("location: ../views/retrievePage.php?id={$id}");
+header("location: ../views/retrievePage.php?id={$id}");
 
 ?>

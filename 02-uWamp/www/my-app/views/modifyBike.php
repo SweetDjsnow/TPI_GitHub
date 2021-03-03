@@ -5,21 +5,19 @@ include '../models/dao.php';
 $dao = new Database();
 $idBike = $_GET['id'];
 $bikeInfos = $dao->GetBikeInfos($idBike);
-var_dump($bikeInfos);
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="../css/styles.css">
-        <link rel="stylesheet" href="../css/select.css">
         <title>Page Title</title>
     </head>
     <body>
 
         <div class="main-page-form">
             <h1 style="text-align: center;">Modifier le vélo</h1>
-            <div class="form-details">
-                <form action="../controllers/modifyBikeData.php" method="$_POST">
+            <div class="form-modify">
+                <form action="../controllers/modifyBikeData.php?id=<?php echo $idBike; ?>" method="POST">
                 <table class="table-details" style="float: left;">
                     <tr>
                         <th>Trouvé le: </th>
@@ -33,7 +31,7 @@ var_dump($bikeInfos);
                         <th>Marque: </th>
                         <td>
                             <div class="select">
-                                <select name="bikBrand" id="slct">
+                                <select name="bikBrand" id="slct" class="select-modify">
                                     <?php
                                         $brands = $dao->GetAllBrands();
                                         foreach($brands as $key => $value)
@@ -52,7 +50,7 @@ var_dump($bikeInfos);
                         <th>Couleur: </th>
                         <td>
                             <div class="select">
-                                <select name="color" id="slct">
+                                <select name="color" id="slct"  class="select-modify">
                                     <?php
                                         $colors = $dao->GetAllColorNames();
                                         foreach($colors as $key => $value)
@@ -82,13 +80,31 @@ var_dump($bikeInfos);
                         <th>Electrique: </th>
                         <td>
                             <div class="select">
-                                <select name="bikIsElectric" id="slct">
+                                <select name="bikIsElectric" id="slct"  class="select-modify">
                                     <option value="0" 
                                     <?php if($bikeInfos[0]['bikIsElectric'] == '0')
                                             echo 'selected="selected"';
                                      ?>>Non</option>
 
                                     <option value="1" <?php if($bikeInfos[0]['bikIsElectric'] == '1')
+                                            echo 'selected="selected"';
+                                     ?>
+                                     >Oui</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>A été rendu: </th>
+                        <td>
+                            <div class="select">
+                                <select name="bikHasBeenRetrieved" id="slct"  class="select-modify" disabled>
+                                    <option value="0" 
+                                    <?php if($bikeInfos[0]['bikHasBeenRetrieved'] == '0')
+                                            echo 'selected="selected"';
+                                     ?>>Non</option>
+
+                                    <option value="1" <?php if($bikeInfos[0]['bikHasBeenRetrieved'] == '1')
                                             echo 'selected="selected"';
                                      ?>
                                      >Oui</option>
@@ -123,10 +139,27 @@ var_dump($bikeInfos);
                         ?>
                         </td>
                     </tr>
+                    <tr>
+                        <td colspan="2">
+                            <?php if($bikeInfos[0]['bikHasBeenRetrieved'] == '1'){ echo '<a href="../controllers/resetGiverReceiver.php?id='.$idBike.'">Reset donneur/receveur</a>';} ?>
+                        </td>
+                    </tr>
 
                 </table>
+                
+                <button>Modifier</button>
+
                 </form>
+                
+
             </div>
+
+            <div class="back-btn-div">
+                    <a href="../views/mainPage.php">
+                        <button class="back-btn"><img src="../img/left-arrow.png" alt="Back Arrow"></button>
+                    </a>
+            </div>
+
         </div>
         
 

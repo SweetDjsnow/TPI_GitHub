@@ -218,11 +218,8 @@ class Database
                 if($value != '')
                     $query .= " AND {$key} = '{$value}'";
             }
-
-            var_dump($key);
         }
         $query .= ";";
-        var_dump($query);
 
         return $this->ExecuteGetRequest($query);
     }
@@ -269,9 +266,9 @@ class Database
         return $this->ExecuteGetRequest($query);
     }
 
-    function SetReceiverAndGiverOfBike($idBike, $idReceiver, $idGiver)
+    function SetReceiverAndGiverOfBike($idBike, $idReceiver, $idGiver, $actualDate)
     {
-        $query = "UPDATE t_bikes SET idReceiver = {$idReceiver}, idGiver = {$idGiver}, bikHasBeenRetrieved = 1 WHERE idBike = {$idBike};";
+        $query = "UPDATE t_bikes SET idReceiver = {$idReceiver}, idGiver = {$idGiver}, bikHasBeenRetrieved = 1, bikRetrieveDate = '{$actualDate}' WHERE idBike = {$idBike};";
 
         var_dump($query);
 
@@ -304,6 +301,20 @@ class Database
     function AddGiverToDb($firstName, $lastName, $email, $phoneNumber)
     {
         $query = "INSERT INTO t_giver (givFirstName, givLastName, givEmail, givPhoneNumber) VALUES ('{$firstName}','{$lastName}','{$email}','{$phoneNumber}');";
+
+        $this->ExecuteSetRequest($query);
+    }
+
+    function UpdateBike($idBike, $bikeFoundDate, $bikFoundLocation, $bikBrand, $bikColor, $bikSerialNumber, $bikHeight, $bikIsElectric)
+    {
+        $query = "UPDATE t_bikes SET bikeFoundDate = '{$bikeFoundDate}', bikFoundLocation = '{$bikFoundLocation}', bikBrand = '{$bikBrand}', bikColor = '{$bikColor}', bikSerialNumber = '{$bikSerialNumber}', bikHeight = '{$bikHeight}', bikIsElectric = {$bikIsElectric} WHERE idBike = {$idBike};";
+
+        $this->ExecuteSetRequest($query);
+    }
+
+    function ResetRecieverAndGiver($idBike)
+    {
+        $query = "UPDATE t_bikes SET idReceiver = NULL, idGiver = NULL, bikHasBeenRetrieved = 0, bikRetrieveDate = NULL WHERE idBike = {$idBike};";
 
         $this->ExecuteSetRequest($query);
     }

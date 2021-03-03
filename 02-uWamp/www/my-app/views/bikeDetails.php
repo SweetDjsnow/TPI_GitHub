@@ -135,36 +135,26 @@ function showSlides(n) {
                         <td><?php echo $bikeInfos[0]['bikIsElectric'];?></td>
                     </tr>
                     <tr>
-                        <th>Recupéré par:  </th>
+                        <th>Rendu le: </th>
+                        <td><?php echo $bikeInfos[0]['bikRetrieveDate'];?></td>
+                    </tr>
+                    <tr>
+                        <th>Recupéré par: </th>
                         <td>
-                        <?php
-                            if(!empty($bikeInfos[0]['idReceiver']))
-                            {
-                                $receiverInfos = $dao->GetReceiverInfos($bikeInfos[0]['idReceiver']);
-                                echo $receiverInfos[0]['recFirstName'].' '.$receiverInfos[0]['recLastName'];
-                            }
-                        ?>
+                            <?php if(!empty($bikeInfos[0]['idReceiver'])){$receiverInfos = $dao->GetReceiverInfos($bikeInfos[0]['idReceiver']);echo $receiverInfos[0]['recFirstName'].' '.$receiverInfos[0]['recLastName'];}?>
                         </td>
                     </tr>
                     <tr>
-                        <th>Donné par:  </th>
+                        <th>Donné par: </th>
                         <td>
-                        <?php
-                            if(!empty($bikeInfos[0]['idGiver']))
-                            {
-                                $giverInfos = $dao->GetGiverInfos($bikeInfos[0]['idGiver']);
-                                echo $giverInfos[0]['givFirstName'].' '.$giverInfos[0]['givLastName'];
-                            }
-                        ?>
+                            <?php if(!empty($bikeInfos[0]['idGiver'])){$giverInfos = $dao->GetGiverInfos($bikeInfos[0]['idGiver']);echo $giverInfos[0]['givFirstName'].' '.$giverInfos[0]['givLastName'];}?>
                         </td>
                     </tr>
-
                 </table>
 
                 <div class="back-btn-div">
 
         <?php 
-        
             if($bikeInfos[0]['bikHasBeenRetrieved'] == 0)
             {
                 echo    '<a href="../views/retrievePage.php?id='.$bikeInfos[0]['idBike'].'"> 

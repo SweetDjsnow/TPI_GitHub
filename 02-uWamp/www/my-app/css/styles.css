@@ -135,6 +135,39 @@
   margin: 10%;
 }
 
+.table-details
+{
+  margin-bottom: 25px;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
 .table-details th
 {
   text-align: right;
@@ -265,8 +298,22 @@ h3{
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  height: 700px;
+  min-height: 660px;
 }
+
+.form-modify
+{
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  /*max-width: 360px;*/
+  margin: 0 auto 30px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  /*min-height: 660px;*/
+}
+
 .form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
@@ -278,6 +325,30 @@ h3{
   box-sizing: border-box;
   font-size: 14px;
 }
+.form-details input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.form-modify input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
 .form button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
@@ -292,6 +363,38 @@ h3{
   transition: all 0.3 ease;
   cursor: pointer;
 }
+
+.form-details button
+{
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form-modify button
+{
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
 .form button:hover,.form button:active,.form button:focus {
   background: #43A047;
 }
@@ -351,6 +454,26 @@ select {
   background: #F2F2F2;
   background-image: none;
 }
+
+.select-modify
+{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #F2F2F2;
+  background-image: none;
+  color: #000000;
+}
+
+.select-modify::after
+{
+  background-color: #eaeaeafc;
+}
+
 /* Remove IE arrow */
 select::-ms-expand {
   display: none;
@@ -457,7 +580,7 @@ select {
   top: 0;
   right: 0;
   padding: 0 1em;
-  background: #F2F2F2;
+  background: #cfcfcf;
   cursor: pointer;
   pointer-events: none;
   -webkit-transition: .25s all ease;
