@@ -99,6 +99,13 @@ class Database
         echo $query;
     }
 
+    function CreateUser($username, $hashedPassword, $cityId, $firstName, $lastName, $phoneNumber, $email)
+    {
+        $query = "INSERT INTO t_user (useUsername, usePassword, useIsAdmin, useIsSuperAdmin, useFirstName, useLastName, usePhoneNumber, useEmail, idCity) VALUES ('{$username}','{$hashedPassword}', 0, 0, '{$firstName}', '{$lastName}', '{$phoneNumber}', '{$email}' , {$cityId});";
+        $this->ExecuteSetRequest($query);
+        echo $query;
+    }
+
     function GetCityId($cityName)
     {
         $query = "SELECT idCity FROM t_city WHERE citName = '{$cityName}'";
@@ -193,7 +200,8 @@ class Database
         $bikBrand = '';
         if(isset($POST['bikBrand']))
             $bikBrand = $POST['bikBrand'];
-        $bikColor = $POST['bikColor'];
+        if(isset($POST['bikColor']))
+            $bikColor = $POST['bikColor'];
         $bikSerialNumber = $POST['bikSerialNumber'];
         $bikHeight = $POST['bikHeight'];
 
@@ -220,6 +228,8 @@ class Database
             }
         }
         $query .= ";";
+
+        var_dump($query);
 
         return $this->ExecuteGetRequest($query);
     }
@@ -305,10 +315,10 @@ class Database
         $this->ExecuteSetRequest($query);
     }
 
-    function UpdateBike($idBike, $bikeFoundDate, $bikFoundLocation, $bikBrand, $bikColor, $bikSerialNumber, $bikHeight, $bikIsElectric)
+    function UpdateBike($idBike, $bikeFoundDate, $bikFoundLocation, $bikBrand, $bikColor, $bikSerialNumber, $bikHeight, $bikIsElectric, $bikRetrieveDate)
     {
-        $query = "UPDATE t_bikes SET bikeFoundDate = '{$bikeFoundDate}', bikFoundLocation = '{$bikFoundLocation}', bikBrand = '{$bikBrand}', bikColor = '{$bikColor}', bikSerialNumber = '{$bikSerialNumber}', bikHeight = '{$bikHeight}', bikIsElectric = {$bikIsElectric} WHERE idBike = {$idBike};";
-
+        $query = "UPDATE t_bikes SET bikeFoundDate = '{$bikeFoundDate}', bikFoundLocation = '{$bikFoundLocation}', bikBrand = '{$bikBrand}', bikColor = '{$bikColor}', bikSerialNumber = '{$bikSerialNumber}', bikHeight = '{$bikHeight}', bikIsElectric = {$bikIsElectric}, bikRetrieveDate = '{$bikRetrieveDate}' WHERE idBike = {$idBike};";
+        
         $this->ExecuteSetRequest($query);
     }
 
@@ -317,6 +327,23 @@ class Database
         $query = "UPDATE t_bikes SET idReceiver = NULL, idGiver = NULL, bikHasBeenRetrieved = 0, bikRetrieveDate = NULL WHERE idBike = {$idBike};";
 
         $this->ExecuteSetRequest($query);
+    }
+
+    function GetBikesRetrievedByQuarter()
+    {
+        $query = "SELECT YEAR(bikRetrieveDate) AS year, QUARTER(bikRetrieveDate) AS quarter, COUNT(idBike) AS numberOfBikes
+                    FROM t_bikes
+                    GROUP BY YEAR(bikRetrieveDate), QUARTER(bikRetrieveDate)
+                    ORDER BY YEAR(bikRetrieveDate), QUARTER(bikRetrieveDate)";
+
+        return $this->ExecuteGetRequest($query);
+    }
+
+    function GetBikesRetrievedByYear()
+    {
+        $query = "SELECT YEAR(bikRetrieveDate) AS year, COUNT(idBike) AS numberOfBikes FROM t_bikes WHERE bikHasBeenRetrieved = 1 GROUP BY YEAR(bikRetrieveDate) ORDER BY YEAR(bikRetrieveDate)";
+
+        return $this->ExecuteGetRequest($query);
     }
 
 }

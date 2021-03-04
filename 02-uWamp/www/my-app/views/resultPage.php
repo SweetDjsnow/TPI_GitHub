@@ -14,6 +14,7 @@ $photosDir = '../img/bike_photos/';
         <h1>Résultats</h1>
             <div class="all-result-div">
                 <?php
+                    $i = 0;
                     foreach($result as $key => $value)
                     {
                         $id = $value['idBike'];
@@ -23,8 +24,13 @@ $photosDir = '../img/bike_photos/';
                         {
                             echo "<div class='result-page'>
                                     <div class='search-page'>
-                                        <div class='form-result'>
-                                            <p>Marque: ".$value['bikBrand']."</p>
+                                        <div class='form-result' ";
+                                        if($i == $numberOfResults - 1)
+                                        {
+                                            echo "style = 'margin-bottom: 30px;'";
+                                        }
+                                        echo ">";
+                                            echo "<p>Marque: ".$value['bikBrand']."</p>
                                             <p>Couleur: ".$value['bikColor']."</p>
                                             <p>Serial: ".$value['bikSerialNumber']."</p>";
 
@@ -48,6 +54,7 @@ $photosDir = '../img/bike_photos/';
                                     </div>
                                   </div>";
                         }
+                        $i++;
                     }
                 ?>
             </div>

@@ -9,11 +9,12 @@ $bikColor = $_POST['color'];
 $bikSerialNumber = $_POST['bikSerialNumber'];
 $bikHeight = $_POST['bikHeight'];
 $bikIsElectric = $_POST['bikIsElectric'];
+$bikRetrieveDate = $_POST['bikRetrieveDate'];
 $idBike = $_GET['id'];
 
 $dao = new Database();
 
-$dao->UpdateBike($idBike, $bikeFoundDate, $bikFoundLocation, $bikBrand, $bikColor, $bikSerialNumber, $bikHeight, $bikIsElectric);
+$dao->UpdateBike($idBike, $bikeFoundDate, $bikFoundLocation, $bikBrand, $bikColor, $bikSerialNumber, $bikHeight, $bikIsElectric, $bikRetrieveDate);
 
 var_dump($_POST);
 

@@ -5,6 +5,7 @@ include '../models/dao.php';
 $dao = new Database();
 $idBike = $_GET['id'];
 $bikeInfos = $dao->GetBikeInfos($idBike);
+var_dump($bikeInfos);
 ?>
 <!DOCTYPE html>
 <html>
@@ -111,6 +112,10 @@ $bikeInfos = $dao->GetBikeInfos($idBike);
                                 </select>
                             </div>
                         </td>
+                    </tr>
+                    <tr>
+                        <th>Rendu le: </th>
+                        <td><input type="date" name="bikRetrieveDate" value="<?php echo $bikeInfos[0]['bikRetrieveDate']; ?>" <?php if($bikeInfos[0]['bikRetrieveDate'] == null){echo "disabled";} ?>></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="border-bottom: 2px solid gray;"></td>

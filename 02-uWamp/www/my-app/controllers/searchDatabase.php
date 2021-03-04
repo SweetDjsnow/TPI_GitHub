@@ -10,9 +10,10 @@ $dao = new Database();
 
 $result = $dao->SearchInDatabase($_POST);
 
+$numberOfResults = count($result);
+
+
 include '../views/resultPage.php';
 
-
-var_dump($result);
 
 ?>

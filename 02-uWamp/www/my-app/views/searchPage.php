@@ -32,7 +32,19 @@ $dao = new Database();
                             ?>
                         </select>
                     </div>
-                    <input type="text" name="bikColor" placeholder="Couleur" />
+                    <label for="bikColor">Couleur:</label>
+                    <div class="select">
+                        <select name="bikColor" id="slct">
+                        <option disabled selected value> -- select an option -- </option>
+                            <?php
+                                $colors = $dao->GetAllColorNames();
+                                foreach($colors as $key => $value)
+                                {
+                                    echo '<option value = "'.$value['colName'].'">'.$value['colName'].'</option>';
+                                }
+                            ?>
+                        </select>
+                    </div>
                     <input type="text" name="bikSerialNumber" placeholder="Numéro de série" />
                     <input type="text" name="bikHeight" placeholder="Taille du vélo (cm)" />
                     <label>Vélo electrique ?</label><input type="checkbox" name="bikIsElectric" placeholder="Vélo electrique ?"/>
