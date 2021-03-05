@@ -1,6 +1,7 @@
 <?php
 include '../controllers/checkIfConnected.php';
 include '../models/dao.php';
+include '../views/navBar.php';
 
 $dao = new Database();
 
@@ -13,11 +14,11 @@ $dao = new Database();
         <title>Recherche</title>
     </head>
     <body>
-        <h1>Recherche</h1>
 
         <div class="login-page">
-
+            <h1 class="title-forms">Rechercher</h1>
             <div class="form">
+                
                 <form class="login-form" action="../controllers/searchDatabase.php" method="POST">
                 <label for="slct">Marque:</label>
                     <div class="select">

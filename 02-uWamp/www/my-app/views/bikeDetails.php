@@ -1,6 +1,7 @@
 <?php
 include '../controllers/checkIfConnected.php';
 include '../models/dao.php';
+include '../views/navBar.php';
 
 $idBike = $_GET['id'];
 

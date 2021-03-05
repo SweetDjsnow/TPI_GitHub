@@ -2,6 +2,7 @@
 
     include '../controllers/checkIfConnected.php';
     include '../models/dao.php';
+    include './navBar.php';
 
     $dao = new Database();
 
@@ -10,8 +11,9 @@
 
     $statsQuarter = $dao->GetBikesRetrievedByQuarter();
     $statsYear = $dao->GetBikesRetrievedByYear();
-    var_dump($statsQuarter);
-    var_dump($_SESSION);
+
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +32,7 @@
                 ?>
             <div class="form-buttons">
                 <div>
+                <img src="../img/bicycle_icon.png" class="main-page-icon">
                     <form action="../views/searchPage.php">
                         <div class="search-btn" <?php if($_SESSION['useIsAdmin'] == '0'){echo 'style="float: none; width: 100%;"';} ?>>
                             <button>Rechercher</button>
@@ -110,6 +113,3 @@
 
 </html>
 
-<?php
-
-?>

@@ -1,6 +1,7 @@
 <?php
-include '../controllers/checkIfConnected.php';
+include '../controllers/checkIfConnectedAdmin.php';
 include '../models/dao.php';
+include '../views/navBar.php';
 
 $dao = new Database();
 
@@ -13,10 +14,10 @@ $dao = new Database();
         <title>Inscription</title>
     </head>
     <body>
-        <h1>ANNONCER</h1>
+        
 
         <div class="signup-page">
-
+            <h1 class="title-forms">Annoncer</h1>
             <div class="form">
                 <form class="login-form" action="../controllers/addBike.php" method="POST" enctype="multipart/form-data">
                     <label for="image">Image:</label>

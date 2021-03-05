@@ -2,6 +2,7 @@
 
     include '../controllers/checkIfConnected.php';
     include '../models/dao.php';
+    include '../views/navBar.php';
 
     $dao = new Database();
 

@@ -1,6 +1,8 @@
 <?php
 
+include '../controllers/checkIfConnectedAdmin.php';
 include '../models/dao.php';
+include '../views/navBar.php';
 
 $dao = new Database();
 $idBike = $_GET['id'];

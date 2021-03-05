@@ -1,6 +1,7 @@
 <?php
 
 include '../controllers/checkIfConnected.php';
+include '../views/navBar.php';
 $photosDir = '../img/bike_photos/';
 ?>
 
@@ -11,7 +12,7 @@ $photosDir = '../img/bike_photos/';
         <title>Résultats</title>
     </head>
     <body>
-        <h1>Résultats</h1>
+        <h1 class="title-forms-result"><?php echo $numberOfResults; ?> Résultats</h1>
             <div class="all-result-div">
                 <?php
                     $i = 0;
@@ -44,17 +45,22 @@ $photosDir = '../img/bike_photos/';
                                                 <tr>
                                                     <td style='float: left;'>
                                                         <a href = '../views/bikeDetails.php?id={$id}'>Details</a><br>
-                                                    </td>
-                                                    <td style='float: right;'>
-                                                        <a href = '../views/modifyBike.php?id={$id}'>Modifier</a><br>
-                                                    </td>
-                                                </tr>
+                                                    </td>";
+                                                    if($_SESSION['useIsAdmin'] == '1')
+                                                        echo "<td style='float: right;'>
+                                                            <a href = '../views/modifyBike.php?id={$id}'>Modifier</a><br>
+                                                        </td>";
+                                                echo "</tr>
                                             </table>
                                         </div>
                                     </div>
                                   </div>";
                         }
                         $i++;
+                    }
+                    if($i==0)
+                    {
+                        echo "<h1>Aucuns résultats trouvés...</h1>";
                     }
                 ?>
             </div>
