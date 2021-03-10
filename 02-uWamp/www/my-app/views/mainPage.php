@@ -9,6 +9,8 @@
     $numberOfBikes = $dao->GetNumberOfBikes();
     $numberOfBikes = $numberOfBikes[0]['COUNT(*)'];
 
+    var_dump($numberOfBikes);
+
     $statsQuarter = $dao->GetBikesRetrievedByQuarter();
     $statsYear = $dao->GetBikesRetrievedByYear();
 

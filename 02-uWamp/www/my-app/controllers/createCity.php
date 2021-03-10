@@ -16,6 +16,7 @@
     $officeAddress = urldecode($_GET['officeAddress']);
     //////////////////////////////////////////////////////
 
+
     ////Exécute la fonction du model pour créer la ville
     $cityId = $dao->CreateCity($firstName,$lastName,$email,$phoneNumber,$cityName,$officeAddress,$npa);
 

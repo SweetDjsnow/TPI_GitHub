@@ -2,13 +2,13 @@
 
 
 ///////////////////Données du formulaire////////////////////////
-$firstname = $_POST['firstName'];
-$lastName = $_POST['lastName'];
-$email = $_POST['email'];
-$phoneNumber = $_POST['phoneNumber'];
-$officeAddress = $_POST['officeAddress'];
-$npa = $_POST['npa'];
-$cityName = $_POST['cityName'];
+$firstname = htmlspecialchars($_POST['firstName']);
+$lastName = htmlspecialchars($_POST['lastName']);
+$email = htmlspecialchars($_POST['email']);
+$phoneNumber = htmlspecialchars($_POST['phoneNumber']);
+$officeAddress = htmlspecialchars($_POST['officeAddress']);
+$npa = htmlspecialchars($_POST['npa']);
+$cityName = htmlspecialchars($_POST['cityName']);
 ////////////////////////////////////////////////////////////////
 
 /////////////Encode les strings afin de permettre les caractères spéciaux dans l'url/////////////////////

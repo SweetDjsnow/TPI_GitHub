@@ -42,33 +42,42 @@ class Database
         }
     }
 
-    //Fonction prenant en paramètre la requete SQL puis l'exécute et retourne le résultat sous forme de tableau (utilisé uniquement pour les requêtes pour récupérer des données, pas de UPDATE ou INSERT INTO etc...)
-    function ExecuteGetRequest($query)
+    function BindRequestAndExecuteGet($query, $params)
     {
         $this->Connect();
 
         $req = $this->connector->prepare($query);
 
-        $req->execute();
+        if(isset($params) && $params != null)
+            $req->execute($params);
+        else
+            $req->execute();
+
 
         $result = $req->fetchAll(PDO::FETCH_ASSOC);
 
-        $this->dbUnconnect();
+        $req->debugDumpParams();
 
+        $this->dbUnconnect();
 
         return $result;
 
     }
 
-
-    ///Fonction prenant en paramètre la requête SQL pour exécuter une requête qui modifie ou ajoute du contenu dans la base de données
-    function ExecuteSetRequest($query)
+    function BindRequestAndExecuteSet($query, $params)
     {
         $this->Connect();
 
         $req = $this->connector->prepare($query);
 
-        $req->execute();
+        var_dump($req);
+
+        if(isset($params) && $params != null)
+            $req->execute($params);
+        else
+            $req->execute();
+
+        $req->debugDumpParams();
 
         $this->dbUnconnect();
 
@@ -77,7 +86,7 @@ class Database
     //Fonction qui récupére tous les vélos de la DB
     function GetAllBikes()
     {
-        $result = $this->ExecuteGetRequest("SELECT * FROM t_bikes");
+        $result = $this->BindRequestAndExecuteGet("SELECT * FROM t_bikes", $params = null);
 
         return $result;
     }
@@ -86,15 +95,29 @@ class Database
     function GetNumberOfBikes()
     {
         $query = "SELECT COUNT(*) FROM t_bikes;";
-        return $this->ExecuteGetRequest($query);
+
+        $params = null;
+
+        return $this->BindRequestAndExecuteGet($query, $params);
     }
 
     //Fonction qui ajoute une ville dans la table t_city et qui retourne l'ID de la ville qui vient d'être créée
     function CreateCity($firstName, $lastName, $email, $phone, $cityName, $officeLocation, $npa)
     {
         $query = "INSERT INTO t_city (citContactFirstName, citContactLastName, citContactEmail, citContactPhone, citName, citNPA, citOfficeLocation)
-        VALUES ('{$firstName}', '{$lastName}', '{$email}', '{$phone}', '{$cityName}', '{$npa}', '{$officeLocation}');";
-        $this->ExecuteSetRequest($query);
+        VALUES (:firstName, :lastName, :email, :phone, :cityName, :npa, :officeLocation);";
+
+        $params = array(
+            'firstName' => $firstName,
+            'lastName' => $lastName,
+            'email' => $email,
+            'phone' => $phone,
+            'cityName' => $cityName,
+            'npa' => $npa,
+            'officeLocation' => $officeLocation
+        );
+
+        $this->BindRequestAndExecuteSet($query, $params);
 
         //Recupère l'ID de la ville créée et la retourne
         $cityId = $this->GetCityId($cityName);
@@ -104,79 +127,80 @@ class Database
     //Création d'un utilisateur admin (utilisé lors de la création d'une ville dans la DB)
     function CreateUserAdmin($username, $hashedPassword, $cityId, $firstName, $lastName, $phoneNumber, $email)
     {
-        $query = "INSERT INTO t_user (useUsername, usePassword, useIsAdmin, useIsSuperAdmin, useFirstName, useLastName, usePhoneNumber, useEmail, idCity) VALUES ('{$username}','{$hashedPassword}', 1, 0, '{$firstName}', '{$lastName}', '{$phoneNumber}', '{$email}' , {$cityId});";
-        $this->ExecuteSetRequest($query);
+        $query = "INSERT INTO t_user (useUsername, usePassword, useIsAdmin, useIsSuperAdmin, useFirstName, useLastName, usePhoneNumber, useEmail, idCity) VALUES (:username,:hashedPassword, 1, 0, :firstName, :lastName, :phoneNumber, :email , :cityId);";
+
+        $params = array(
+            'username' => $username,
+            'hashedPassword' => $hashedPassword,
+            'cityId' => $cityId,
+            'firstName' => $firstName,
+            'lastName' => $lastName,
+            'phoneNumber' => $phoneNumber,
+            'email' => $email
+        );
+
+        $this->BindRequestAndExecuteSet($query, $params);
     }
 
     //Créer un utilisateur non-admin (uniquement les droits de recherche)
     function CreateUser($username, $hashedPassword, $cityId, $firstName, $lastName, $phoneNumber, $email)
     {
-        $query = "INSERT INTO t_user (useUsername, usePassword, useIsAdmin, useIsSuperAdmin, useFirstName, useLastName, usePhoneNumber, useEmail, idCity) VALUES ('{$username}','{$hashedPassword}', 0, 0, '{$firstName}', '{$lastName}', '{$phoneNumber}', '{$email}' , {$cityId});";
-        $this->ExecuteSetRequest($query);
+        $query = "INSERT INTO t_user (useUsername, usePassword, useIsAdmin, useIsSuperAdmin, useFirstName, useLastName, usePhoneNumber, useEmail, idCity) VALUES (:username,:hashedPassword, 0, 0, :firstName, :lastName, :phoneNumber, :email , :cityId);";
+
+        $params = array(
+            'username' => $username,
+            'hashedPassword' => $hashedPassword,
+            'cityId' => $cityId,
+            'firstName' => $firstName,
+            'lastName' => $lastName,
+            'phoneNumber' => $phoneNumber,
+            'email' => $email
+        );
+
+        $this->BindRequestAndExecuteSet($query, $params);
     }
 
     //Recupére l'ID de la commune à partir du nom passé en paramètre
     function GetCityId($cityName)
     {
-        $query = "SELECT idCity FROM t_city WHERE citName = '{$cityName}'";
-        return $this->ExecuteGetRequest($query);
+        $query = "SELECT idCity FROM t_city WHERE citName = :cityName";
+
+        $params = array(
+            ':cityName' => $cityName
+        );
+        
+        return $this->BindRequestAndExecuteGet($query, $params);
     }
 
     //Recherche un utilisateur à partir de son username et retourne son username, password(hashé), si il est admin et super admin
     function SearchUser($username)
     {
-        $query = "SELECT useUsername, usePassword, useIsAdmin, useIsSuperAdmin from t_user where useUsername = ?";
+        $query = "SELECT useUsername, usePassword, useIsAdmin, useIsSuperAdmin from t_user where useUsername = :username";
 
-        $this->Connect();
-
-        $req = $this->connector->prepare($query);
-        $req->bindValue(1,$username, PDO::PARAM_STR);
-        $req->execute();
-
-        $result = $req->fetchAll(PDO::FETCH_ASSOC);
-
-        $this->dbUnconnect();
-
-
-        return $result;
+        $params = array(
+            ':username' => $username
+        );
+        
+        return $this->BindRequestAndExecuteGet($query, $params);
     }
-
-    
-    /*function GetBikeBrand($bikBrand)
-    {
-        $query = "SELECT bikBrand from t_bikes WHERE bikBrand = '{$bikBrand}';";
-
-        return $this->ExecuteGetRequest($query);
-    }
-
-    
-    function GetBikeColor($bikColor)
-    {
-        $query = "SELECT bikColor from t_bikes WHERE bikColor = '{$bikColor}';";
-
-        return $this->ExecuteGetRequest($query);
-    }
-
-    function GetBikeHeight($bikHeight)
-    {
-        $query = "SELECT bikHeight from t_bikes WHERE bikHeight = '{$bikHeight}';";
-
-        return $this->ExecuteGetRequest($query);
-    }
-
-    function GetBikeSerialNumber($bikSerialNumber)
-    {
-        $query = "SELECT bikSerialNumber from t_bikes WHERE bikSerialNumber = '{$bikSerialNumber}';";
-
-        return $this->ExecuteGetRequest($query);
-    }*/
 
     //Retourne toutes les villes de la base de données
     function GetAllCities()
     {
         $query = "SELECT citName from t_city;";
 
-        return $this->ExecuteGetRequest($query);
+        $this->Connect();
+
+        $req = $this->connector->prepare($query);
+
+
+        $req->execute();
+
+        $result = $req->fetchAll(PDO::FETCH_ASSOC);
+
+        $this->dbUnconnect();
+
+        return $result;
     }
 
     //Retourne toutes les marques de vélos de la table t_brands
@@ -184,13 +208,25 @@ class Database
     {
         $query = "SELECT braName FROM t_brand;";
 
-        return $this->ExecuteGetRequest($query);
+        $this->Connect();
+
+        $req = $this->connector->prepare($query);
+
+        $req->execute();
+
+        $result = $req->fetchAll(PDO::FETCH_ASSOC);
+
+        $this->dbUnconnect();
+
+        return $result;
     }
 
     //Ajoute un vélo dans la base de données avec les informations fournies en paramètre et retourne l'ID du vélo qui vient d'être créé
     function AddBikeToDatabase($bikeFoundDate, $bikFoundLocation, $bikBrand, $bikColor, $bikSerialNumber, $bikHeight, $bikIsElectric, $idCity)
     {
-        $query = "INSERT INTO t_bikes (bikeFoundDate, bikFoundLocation, bikBrand, bikColor, bikSerialNumber, bikHeight, bikIsElectric, bikHasBeenRetrieved, idCity) VALUES ('{$bikeFoundDate}', '{$bikFoundLocation}', '{$bikBrand}', '{$bikColor}', '{$bikSerialNumber}', '{$bikHeight}', {$bikIsElectric}, 0, {$idCity});";
+        $query = "INSERT INTO t_bikes (bikeFoundDate, bikFoundLocation, bikBrand, bikColor, bikSerialNumber, bikHeight, bikIsElectric, bikHasBeenRetrieved, idCity) VALUES (:bikeFoundDate, :bikFoundLocation, :bikBrand, :bikColor, bikSerialNumber, :bikHeight, :bikHeight, 0, :idCity);";
+
+        $this->Connect();
 
         $this->ExecuteSetRequest($query);
 
@@ -198,7 +234,28 @@ class Database
 
         $query = "SELECT MAX(idBike) FROM t_bikes";
 
-        return $this->ExecuteGetRequest($query);
+        
+
+        $req = $this->connector->prepare($query);
+
+        $params = array(
+            ':bikeFoundDate' => $bikeFoundDate,
+            ':bikFoundLocation' => $bikFoundLocation,
+            ':bikBrand' => $bikBrand,
+            ':bikColor' => $bikColor,
+            ':bikSerialNumber' => $bikSerialNumber,
+            ':bikHeight' => $bikHeight,
+            ':bikIsElectric' => $bikIsElectric,
+            ':idCity' => $idCity
+        );
+        
+        $req->execute($params);
+
+        $result = $req->fetchAll(PDO::FETCH_ASSOC);
+
+        $this->dbUnconnect();
+
+        return $result;
     }
 
     //Ajoute une photo liée à un vélo dans la base de données
@@ -215,6 +272,8 @@ class Database
     {
         //bool pour savoir si c'est le premier paramètre
         $isFirstParameter = true;
+        $hasError = false;
+        $params = array();
 
         //début du string de la requête
         $query = "SELECT * FROM t_bikes";
@@ -222,59 +281,89 @@ class Database
         //Assigne les valeurs de $POST à des variables indépendantes
         $bikBrand = '';
         if(isset($POST['bikBrand']))
-            $bikBrand = $POST['bikBrand'];
+            $params['bikBrand'] = htmlspecialchars($POST['bikBrand'], ENT_QUOTES);
         if(isset($POST['bikColor']))
-            $bikColor = $POST['bikColor'];
-        $bikSerialNumber = $POST['bikSerialNumber'];
-        $bikHeight = $POST['bikHeight'];
+            $params['bikColor'] = htmlspecialchars($POST['bikColor'], ENT_QUOTES);
+        if(isset($POST['bikSerialNumber']))
+            $params['bikSerialNumber'] = htmlspecialchars($POST['bikSerialNumber'], ENT_QUOTES);
+        if(isset($POST['bikHeight']))
+            $params['bikHeight'] = htmlspecialchars($POST['bikHeight'], ENT_QUOTES);
         if(isset($POST['bikIsElectric']))
-            $POST['bikIsElectric'] = 1;
+            $params['bikIsElectric'] = 1;
         /////////////////////////////////////////////////////////////
 
 
+        var_dump($POST);
         //Boucle pour l'écriture de la requête
-        foreach($POST as $key => $value)
+        foreach($params as $key => $value)
         {
-            //Vérifie que le paramètre passé par le $POST n'est pas vide
-            if($value != '')
+            if($key == 'bikBrand' || $key == 'bikColor' || $key == 'bikSerialNumber' || $key == 'bikHeight' || $key == 'bikIsElectric')
             {
-                //Si le paramètre n'est pas vide et que c'est le tout premier
-                if($isFirstParameter)
+                echo $key." => ".$value."<br>";
+                //Vérifie que le paramètre passé par le $POST n'est pas vide
+                if($value != '')
                 {
-                    //Rajoute le "WHERE" + le nom de la clé du tableau $POST (qui correspond aux noms des colonnes de la base de données) et sa valeur
-                    $query .= " WHERE {$key} = '{$value}'";
-                    //Mets la variable à FALSE car il n'ya plus besoin d'ajouter "WHERE" au début de la requête
-                    $isFirstParameter = false;
+                    //Si le paramètre n'est pas vide et que c'est le tout premier
+                    if($isFirstParameter)
+                    {
+                        //Rajoute le "WHERE" + le nom de la clé du tableau $POST (qui correspond aux noms des colonnes de la base de données) et sa valeur
+                        $query .= " WHERE {$key} = '{$value}'";
+                        //Mets la variable à FALSE car il n'ya plus besoin d'ajouter "WHERE" au début de la requête
+                        $isFirstParameter = false;
+                    }
+                    //Si les autres paramètres ne sont pas vides et que le premier paramètre a été ajouté au string
+                    else
+                    {
+                        //Rajoute "AND" + le nom de la clé du tableau $POST et sa valeur
+                        $query .= " AND {$key} = '{$value}'";
+                    }
                 }
-                //Si les autres paramètres ne sont pas vides et que le premier paramètre a été ajouté au string
-                else
-                {
-                    //Rajoute "AND" + le nom de la clé du tableau $POST et sa valeur
-                    $query .= " AND {$key} = '{$value}'";
-                }
+            }
+            else
+            {
+                $hasError = true;
             }
         }
         $query .= ";";
 
-        //Exécute la requête et retourne le résultat
-        return $this->ExecuteGetRequest($query);
+        var_dump($query);
+
+        if(!$hasError)
+        {
+            //Exécute la requête et retourne le résultat
+            if($isFirstParameter == true)
+                return $this->BindRequestAndExecuteGet($query, $params = null);
+            else
+                return $this->BindRequestAndExecuteGet($query, $params);
+        }
+        else
+        {
+            echo "Il y'a eu une erreur lors de l'envoi de la requête, action annulée !";
+        }
     }
 
     //Récupère la(les) photos liés au vélo passé en paramètre
     function GetPhotosLinkedToBike($idBike)
     {
-        $query = "SELECT phoPath FROM t_photo WHERE idBike = {$idBike};";
+        $query = "SELECT phoPath FROM t_photo WHERE idBike = :idBike;";
 
-        return $this->ExecuteGetRequest($query);
+        $params = array(
+            'idBike' => $idBike
+        );
+
+        return $this->BindRequestAndExecuteGet($query, $params);
     }
 
     //Recupère toutes les infos sur un vélo à partir de l'ID
     function GetBikeInfos($idBike)
     {
-        $query = "SELECT * from t_bikes WHERE idBike = {$idBike};";
-        var_dump($query);
+        $query = "SELECT * from t_bikes WHERE idBike = :idBike;";
 
-        return $this->ExecuteGetRequest($query);
+        $params = array(
+            'idBike' => $idBike
+        );
+
+        return $this->BindRequestAndExecuteGet($query, $params);
     }
 
     //Récupère le nom 
@@ -282,28 +371,32 @@ class Database
     {
         $query = "SELECT citName FROM t_city WHERE idCity = {$idCity};";
 
-        return $this->ExecuteGetRequest($query);
+        $params = array(
+            'idCity' => $idCity
+        );
+
+        return $this->BindRequestAndExecuteGet($query, $params);
     }
 
     function GetAllColorNames()
     {
         $query = "SELECT colName FROM t_color;";
 
-        return $this->ExecuteGetRequest($query);
+        return $this->BindRequestAndExecuteGet($query, $params = null);
     }
 
     function GetAllReceiver()
     {
         $query = "SELECT recLastName, recFirstName, idReceiver FROM t_receiver";
 
-        return $this->ExecuteGetRequest($query);
+        return $this->BindRequestAndExecuteGet($query, $params = null);
     }
 
     function GetAllGiver()
     {
         $query = "SELECT givLastName, givFirstName, idGiver FROM t_giver";
 
-        return $this->ExecuteGetRequest($query);
+        return $this->BindRequestAndExecuteGet($query, $params = null);
     }
 
     function SetReceiverAndGiverOfBike($idBike, $idReceiver, $idGiver, $actualDate)
@@ -317,16 +410,24 @@ class Database
 
     function GetReceiverInfos($idReceiver)
     {
-        $query = "SELECT * FROM t_receiver WHERE idReceiver = {$idReceiver}";
+        $query = "SELECT * FROM t_receiver WHERE idReceiver = :idReceiver";
 
-        return $this->ExecuteGetRequest($query);
+        $params = array(
+            'idReceiver' => $idReceiver
+        );
+
+        return $this->BindRequestAndExecuteGet($query, $params);
     }
 
     function GetGiverInfos($idGiver)
     {
-        $query = "SELECT * FROM t_giver WHERE idGiver = {$idGiver}";
+        $query = "SELECT * FROM t_giver WHERE idGiver = :idGiver";
 
-        return $this->ExecuteGetRequest($query);
+        $params = array(
+            'idGiver' => $idGiver
+        );
+
+        return $this->BindRequestAndExecuteGet($query, $params);
     }
 
     function AddReceiverToDb($firstName, $lastName, $email, $phoneNumber)
@@ -366,14 +467,14 @@ class Database
                     GROUP BY YEAR(bikRetrieveDate), QUARTER(bikRetrieveDate)
                     ORDER BY YEAR(bikRetrieveDate), QUARTER(bikRetrieveDate)";
 
-        return $this->ExecuteGetRequest($query);
+        return $this->BindRequestAndExecuteGet($query, $params = null);
     }
 
     function GetBikesRetrievedByYear()
     {
         $query = "SELECT YEAR(bikRetrieveDate) AS year, COUNT(idBike) AS numberOfBikes FROM t_bikes WHERE bikHasBeenRetrieved = 1 GROUP BY YEAR(bikRetrieveDate) ORDER BY YEAR(bikRetrieveDate)";
 
-        return $this->ExecuteGetRequest($query);
+        return $this->BindRequestAndExecuteGet($query, $params = null);
     }
 
 }

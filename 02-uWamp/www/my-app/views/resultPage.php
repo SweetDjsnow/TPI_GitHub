@@ -16,47 +16,50 @@ $photosDir = '../img/bike_photos/';
             <div class="all-result-div">
                 <?php
                     $i = 0;
-                    foreach($result as $key => $value)
+                    if(isset($result))
                     {
-                        $id = $value['idBike'];
-                        $photoToShow = $dao->GetPhotosLinkedToBike($id);
-
-                        if(isset($photoToShow) && !empty($photoToShow))
+                        foreach($result as $key => $value)
                         {
-                            echo "<div class='result-page'>
-                                    <div class='search-page'>
-                                        <div class='form-result' ";
-                                        if($i == $numberOfResults - 1)
-                                        {
-                                            echo "style = 'margin-bottom: 30px;'";
-                                        }
-                                        echo ">";
-                                            echo "<p>Marque: ".$value['bikBrand']."</p>
-                                            <p>Couleur: ".$value['bikColor']."</p>
-                                            <p>Serial: ".$value['bikSerialNumber']."</p>";
+                            $id = $value['idBike'];
+                            $photoToShow = $dao->GetPhotosLinkedToBike($id);
 
-                                            if($value['bikHasBeenRetrieved'] == '0')
-                                                echo "<p style='color: red;'>Le vélo n'a pas été rendu</p>";
-                                            else
-                                                echo "<p style='color: green;'>Le vélo a été récupéré</p>";
-                                                
-                                            echo "<img src='{$photosDir}".$photoToShow[0]['phoPath']."' class='img-result-page'>
-                                            <table class='table-results'>
-                                                <tr>
-                                                    <td style='float: left;'>
-                                                        <a href = '../views/bikeDetails.php?id={$id}'>Details</a><br>
-                                                    </td>";
-                                                    if($_SESSION['useIsAdmin'] == '1')
-                                                        echo "<td style='float: right;'>
-                                                            <a href = '../views/modifyBike.php?id={$id}'>Modifier</a><br>
+                            if(isset($photoToShow) && !empty($photoToShow))
+                            {
+                                echo "<div class='result-page'>
+                                        <div class='search-page'>
+                                            <div class='form-result' ";
+                                            if($i == $numberOfResults - 1)
+                                            {
+                                                echo "style = 'margin-bottom: 30px;'";
+                                            }
+                                            echo ">";
+                                                echo "<p>Marque: ".$value['bikBrand']."</p>
+                                                <p>Couleur: ".$value['bikColor']."</p>
+                                                <p>Serial: ".$value['bikSerialNumber']."</p>";
+
+                                                if($value['bikHasBeenRetrieved'] == '0')
+                                                    echo "<p style='color: red;'>Le vélo n'a pas été rendu</p>";
+                                                else
+                                                    echo "<p style='color: green;'>Le vélo a été récupéré</p>";
+                                                    
+                                                echo "<img src='{$photosDir}".$photoToShow[0]['phoPath']."' class='img-result-page'>
+                                                <table class='table-results'>
+                                                    <tr>
+                                                        <td style='float: left;'>
+                                                            <a href = '../views/bikeDetails.php?id={$id}'>Details</a><br>
                                                         </td>";
-                                                echo "</tr>
-                                            </table>
+                                                        if($_SESSION['useIsAdmin'] == '1')
+                                                            echo "<td style='float: right;'>
+                                                                <a href = '../views/modifyBike.php?id={$id}'>Modifier</a><br>
+                                                            </td>";
+                                                    echo "</tr>
+                                                </table>
+                                            </div>
                                         </div>
-                                    </div>
-                                  </div>";
+                                    </div>";
+                            }
+                            $i++;
                         }
-                        $i++;
                     }
                     if($i==0)
                     {
