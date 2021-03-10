@@ -95,16 +95,18 @@ if(isset($_POST))
             $bikIsElectric = 0;
         }
 
-        echo $bikIsElectric."<br><br><br>";
-
         $cityName = $_POST['city'];
 
         $cityId = $dao->GetCityId($cityName);
 
         $lastId = $dao->AddBikeToDatabase($bikeFoundDate, $bikFoundLocation, $bikBrand, $bikColor, $bikSerialNumber, $bikHeight, $bikIsElectric, $cityId[0]['idCity']);
 
+        echo "<br><br><br><br><br><br><br><br><br><br>";
+
         for($i=0;$i<count($newName);$i++)
         {
+            var_dump($newName);
+            var_dump($lastId[0]['MAX(idBike)']);
             $dao->AddPhotoToDatabase($newName[$i], $lastId[0]['MAX(idBike)']);
         }
         

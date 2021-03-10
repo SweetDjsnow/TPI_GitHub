@@ -56,8 +56,6 @@ class Database
 
         $result = $req->fetchAll(PDO::FETCH_ASSOC);
 
-        $req->debugDumpParams();
-
         $this->dbUnconnect();
 
         return $result;
@@ -70,14 +68,10 @@ class Database
 
         $req = $this->connector->prepare($query);
 
-        var_dump($req);
-
         if(isset($params) && $params != null)
             $req->execute($params);
         else
             $req->execute();
-
-        $req->debugDumpParams();
 
         $this->dbUnconnect();
 
@@ -224,46 +218,39 @@ class Database
     //Ajoute un vélo dans la base de données avec les informations fournies en paramètre et retourne l'ID du vélo qui vient d'être créé
     function AddBikeToDatabase($bikeFoundDate, $bikFoundLocation, $bikBrand, $bikColor, $bikSerialNumber, $bikHeight, $bikIsElectric, $idCity)
     {
-        $query = "INSERT INTO t_bikes (bikeFoundDate, bikFoundLocation, bikBrand, bikColor, bikSerialNumber, bikHeight, bikIsElectric, bikHasBeenRetrieved, idCity) VALUES (:bikeFoundDate, :bikFoundLocation, :bikBrand, :bikColor, bikSerialNumber, :bikHeight, :bikHeight, 0, :idCity);";
+        $query = "INSERT INTO t_bikes (bikeFoundDate, bikFoundLocation, bikBrand, bikColor, bikSerialNumber, bikHeight, bikIsElectric, bikHasBeenRetrieved, idCity) VALUES (:bikeFoundDate, :bikFoundLocation, :bikBrand, :bikColor, :bikSerialNumber, :bikHeight, :bikIsElectric, 0, :idCity);";
 
-        $this->Connect();
+        $params = array(
+            'bikeFoundDate' => $bikeFoundDate,
+            'bikFoundLocation' => $bikFoundLocation,
+            'bikBrand' => $bikBrand,
+            'bikColor' => $bikColor,
+            'bikSerialNumber' => $bikSerialNumber,
+            'bikHeight' => $bikHeight,
+            'bikIsElectric' => strval($bikIsElectric),
+            'idCity' => $idCity
+        );
 
-        $this->ExecuteSetRequest($query);
-
-        var_dump($query);
+        $this->BindRequestAndExecuteSet($query, $params);
 
         $query = "SELECT MAX(idBike) FROM t_bikes";
 
-        
+        $lastId = $this->BindRequestAndExecuteGet($query, $params = null);
 
-        $req = $this->connector->prepare($query);
-
-        $params = array(
-            ':bikeFoundDate' => $bikeFoundDate,
-            ':bikFoundLocation' => $bikFoundLocation,
-            ':bikBrand' => $bikBrand,
-            ':bikColor' => $bikColor,
-            ':bikSerialNumber' => $bikSerialNumber,
-            ':bikHeight' => $bikHeight,
-            ':bikIsElectric' => $bikIsElectric,
-            ':idCity' => $idCity
-        );
-        
-        $req->execute($params);
-
-        $result = $req->fetchAll(PDO::FETCH_ASSOC);
-
-        $this->dbUnconnect();
-
-        return $result;
+        return $lastId;
     }
 
     //Ajoute une photo liée à un vélo dans la base de données
     function AddPhotoToDatabase($imagePath, $idBike)
     {
-        $query = "INSERT INTO t_photo (phoPath, idBike) VALUES ('{$imagePath}', {$idBike});";
+        $query = "INSERT INTO t_photo (phoPath, idBike) VALUES (:imagePath, :idBike);";
 
-        $this->ExecuteSetRequest($query);
+        $params = array(
+            'imagePath' => $imagePath,
+            'idBike' => $idBike
+        );
+
+        $this->BindRequestAndExecuteSet($query, $params);
     }
 
     //Fonction utilisée lors de la recherche des vélos dans la DB, la variable $_POST est passée en paramètre
@@ -284,22 +271,20 @@ class Database
             $params['bikBrand'] = htmlspecialchars($POST['bikBrand'], ENT_QUOTES);
         if(isset($POST['bikColor']))
             $params['bikColor'] = htmlspecialchars($POST['bikColor'], ENT_QUOTES);
-        if(isset($POST['bikSerialNumber']))
+        if(isset($POST['bikSerialNumber']) && $POST['bikSerialNumber'] != '')
             $params['bikSerialNumber'] = htmlspecialchars($POST['bikSerialNumber'], ENT_QUOTES);
-        if(isset($POST['bikHeight']))
+        if(isset($POST['bikHeight']) && $POST['bikHeight'] != '')
             $params['bikHeight'] = htmlspecialchars($POST['bikHeight'], ENT_QUOTES);
         if(isset($POST['bikIsElectric']))
             $params['bikIsElectric'] = 1;
         /////////////////////////////////////////////////////////////
 
 
-        var_dump($POST);
         //Boucle pour l'écriture de la requête
         foreach($params as $key => $value)
         {
             if($key == 'bikBrand' || $key == 'bikColor' || $key == 'bikSerialNumber' || $key == 'bikHeight' || $key == 'bikIsElectric')
             {
-                echo $key." => ".$value."<br>";
                 //Vérifie que le paramètre passé par le $POST n'est pas vide
                 if($value != '')
                 {
@@ -307,7 +292,7 @@ class Database
                     if($isFirstParameter)
                     {
                         //Rajoute le "WHERE" + le nom de la clé du tableau $POST (qui correspond aux noms des colonnes de la base de données) et sa valeur
-                        $query .= " WHERE {$key} = '{$value}'";
+                        $query .= " WHERE {$key} = :$key";
                         //Mets la variable à FALSE car il n'ya plus besoin d'ajouter "WHERE" au début de la requête
                         $isFirstParameter = false;
                     }
@@ -315,18 +300,20 @@ class Database
                     else
                     {
                         //Rajoute "AND" + le nom de la clé du tableau $POST et sa valeur
-                        $query .= " AND {$key} = '{$value}'";
+                        $query .= " AND {$key} = :$key";
                     }
                 }
             }
             else
             {
                 $hasError = true;
+                break;
             }
         }
         $query .= ";";
 
         var_dump($query);
+
 
         if(!$hasError)
         {
@@ -369,7 +356,7 @@ class Database
     //Récupère le nom 
     function GetCityName($idCity)
     {
-        $query = "SELECT citName FROM t_city WHERE idCity = {$idCity};";
+        $query = "SELECT citName FROM t_city WHERE idCity = :idCity;";
 
         $params = array(
             'idCity' => $idCity
@@ -401,11 +388,16 @@ class Database
 
     function SetReceiverAndGiverOfBike($idBike, $idReceiver, $idGiver, $actualDate)
     {
-        $query = "UPDATE t_bikes SET idReceiver = {$idReceiver}, idGiver = {$idGiver}, bikHasBeenRetrieved = 1, bikRetrieveDate = '{$actualDate}' WHERE idBike = {$idBike};";
+        $query = "UPDATE t_bikes SET idReceiver = :idReceiver, idGiver = :idGiver, bikHasBeenRetrieved = 1, bikRetrieveDate = :actualDate WHERE idBike = :idBike;";
 
-        var_dump($query);
+        $params = array(
+            'idBike' => $idBike,
+            'idReceiver' => $idReceiver,
+            'idGiver' => $idGiver,
+            'actualDate' => $actualDate,
+        );
 
-        $this->ExecuteSetRequest($query);
+        $this->BindRequestAndExecuteSet($query, $params);
     }
 
     function GetReceiverInfos($idReceiver)
@@ -432,32 +424,60 @@ class Database
 
     function AddReceiverToDb($firstName, $lastName, $email, $phoneNumber)
     {
-        $query = "INSERT INTO t_receiver (recFirstName, recLastName, recEmail, recPhoneNumber) VALUES ('{$firstName}','{$lastName}','{$email}','{$phoneNumber}');";
+        $query = "INSERT INTO t_receiver (recFirstName, recLastName, recEmail, recPhoneNumber) VALUES (:firstName,:lastName,:email,:phoneNumber);";
 
-        var_dump($query);
+        $params = array(
+            'firstName' => $firstName,
+            'lastName' => $lastName,
+            'email' => $email,
+            'phoneNumber' => $phoneNumber,
+        );
 
-        $this->ExecuteSetRequest($query);
+        $this->BindRequestAndExecuteSet($query, $params);
     }
 
     function AddGiverToDb($firstName, $lastName, $email, $phoneNumber)
     {
-        $query = "INSERT INTO t_giver (givFirstName, givLastName, givEmail, givPhoneNumber) VALUES ('{$firstName}','{$lastName}','{$email}','{$phoneNumber}');";
+        $query = "INSERT INTO t_giver (givFirstName, givLastName, givEmail, givPhoneNumber) VALUES (:firstName,:lastName,:email,:phoneNumber);";
 
-        $this->ExecuteSetRequest($query);
+        $params = array(
+            'firstName' => $firstName,
+            'lastName' => $lastName,
+            'email' => $email,
+            'phoneNumber' => $phoneNumber
+        );
+
+        $this->BindRequestAndExecuteSet($query, $params);
     }
 
     function UpdateBike($idBike, $bikeFoundDate, $bikFoundLocation, $bikBrand, $bikColor, $bikSerialNumber, $bikHeight, $bikIsElectric, $bikRetrieveDate)
     {
-        $query = "UPDATE t_bikes SET bikeFoundDate = '{$bikeFoundDate}', bikFoundLocation = '{$bikFoundLocation}', bikBrand = '{$bikBrand}', bikColor = '{$bikColor}', bikSerialNumber = '{$bikSerialNumber}', bikHeight = '{$bikHeight}', bikIsElectric = {$bikIsElectric}, bikRetrieveDate = '{$bikRetrieveDate}' WHERE idBike = {$idBike};";
+        $query = "UPDATE t_bikes SET bikeFoundDate = :bikeFoundDate, bikFoundLocation = :bikFoundLocation, bikBrand = :bikBrand, bikColor = :bikColor, bikSerialNumber = :bikSerialNumber, bikHeight = :bikHeight, bikIsElectric = :bikIsElectric, bikRetrieveDate = :bikRetrieveDate WHERE idBike = :idBike;";
         
-        $this->ExecuteSetRequest($query);
+        $params = array(
+            'idBike' => $idBike,
+            'bikeFoundDate' => $bikeFoundDate,
+            'bikFoundLocation' => $bikFoundLocation,
+            'bikBrand' => $bikBrand,
+            'bikColor' => $bikColor,
+            'bikSerialNumber' => $bikSerialNumber,
+            'bikHeight' => $bikHeight,
+            'bikIsElectric' => $bikIsElectric,
+            'bikRetrieveDate' => $bikRetrieveDate
+        );
+
+        $this->BindRequestAndExecuteSet($query, $params);
     }
 
     function ResetRecieverAndGiver($idBike)
     {
-        $query = "UPDATE t_bikes SET idReceiver = NULL, idGiver = NULL, bikHasBeenRetrieved = 0, bikRetrieveDate = NULL WHERE idBike = {$idBike};";
+        $query = "UPDATE t_bikes SET idReceiver = NULL, idGiver = NULL, bikHasBeenRetrieved = 0, bikRetrieveDate = NULL WHERE idBike = :idBike;";
 
-        $this->ExecuteSetRequest($query);
+        $params = array(
+            'idBike' => $idBike
+        );
+
+        $this->BindRequestAndExecuteSet($query, $params);
     }
 
     function GetBikesRetrievedByQuarter()
