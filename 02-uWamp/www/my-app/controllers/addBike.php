@@ -87,13 +87,13 @@ if(isset($_POST) && !empty($_POST))
                 }
                 else
                 {
-                    $bikeFoundDate = $_POST['bikeFoundDate'];
-                    $bikFoundLocation = $_POST['bikFoundLocation'];
-                    $bikBrand = $_POST['bikBrand'];
-                    $bikColor = $_POST['color'];
-                    $bikSerialNumber = $_POST['bikSerialNumber'];
-                    $bikHeight = $_POST['bikHeight'];
-
+                    //Variables du vélo
+                    $bikeFoundDate = htmlspecialchars($_POST['bikeFoundDate']);
+                    $bikFoundLocation = htmlspecialchars($_POST['bikFoundLocation']);
+                    $bikBrand = htmlspecialchars($_POST['bikBrand']);
+                    $bikColor = htmlspecialchars($_POST['color']);
+                    $bikSerialNumber = htmlspecialchars($_POST['bikSerialNumber']);
+                    $bikHeight = htmlspecialchars($_POST['bikHeight']);
                     $bikIsElectric = 0;
                     if(isset($_POST['bikIsElectric']))
                     {
@@ -104,13 +104,11 @@ if(isset($_POST) && !empty($_POST))
                         $bikIsElectric = 0;
                     }
 
-                    $cityName = $_POST['city'];
+                    $cityName = htmlspecialchars($_POST['city']);
 
                     $cityId = $dao->GetCityId($cityName);
 
                     $lastId = $dao->AddBikeToDatabase($bikeFoundDate, $bikFoundLocation, $bikBrand, $bikColor, $bikSerialNumber, $bikHeight, $bikIsElectric, $cityId[0]['idCity']);
-
-                    //echo "<br><br><br><br><br><br><br><br><br><br>";
 
                     for($i=0;$i<count($newName);$i++)
                     {

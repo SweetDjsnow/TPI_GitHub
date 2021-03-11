@@ -42,26 +42,37 @@ class Database
         }
     }
 
+    //Fonction qui reçoit la requête SQL et un tableau des paramètres pour bind et exécuter
+    //une requête GET (SELECT, etc...)
     function BindRequestAndExecuteGet($query, $params)
     {
+        //Se connecte à la base de donnée
         $this->Connect();
 
+        //Prépare la requête
         $req = $this->connector->prepare($query);
 
+        //Si les paramètres ne sont pas null, execute avec le tableau en paramètre
+        //Sinon exécute simplement la requête sans rien bind
         if(isset($params) && $params != null)
             $req->execute($params);
         else
             $req->execute();
 
 
+        //Fetch les résultats en tableau associatif
         $result = $req->fetchAll(PDO::FETCH_ASSOC);
 
+        //Déconnecte de la base de données
         $this->dbUnconnect();
 
+        //Retourne les résultats
         return $result;
 
     }
 
+    //Fonction qui reçoit la requête SQL et un tableau des paramètres pour bind et exécuter
+    //une requête qui ajoute du contenu ou en modifie (Insert, update, etc...). Ne retourne pas de résultat
     function BindRequestAndExecuteSet($query, $params)
     {
         $this->Connect();
@@ -279,8 +290,11 @@ class Database
             $params['bikIsElectric'] = 1;
         /////////////////////////////////////////////////////////////
 
+        //Récupère les clés du tableau associatif
         $keys = array_keys($POST);
 
+        //Pour chaque clés dans le tableau, vérifie que le nom de l'input est correct
+        //Si ce n'est pas le cas, la requête affichera une erreur
         foreach($keys as $key => $value)
         {
             if($value != 'bikBrand' && $value != 'bikColor' && $value != 'bikSerialNumber' && $value != 'bikHeight' && $value != 'bikIsElectric')
@@ -315,8 +329,6 @@ class Database
         }
         $query .= ";";
 
-        var_dump($query);
-
 
         if(!$hasError)
         {
@@ -328,7 +340,7 @@ class Database
         }
         else
         {
-            echo "<br><br><br><p>Il y'a eu une erreur lors de l'envoi de la requête, action annulée !</p>";
+            echo "Il y'a eu une erreur lors de l'envoi de la requête, action annulée !</p>";
         }
     }
 
@@ -368,6 +380,7 @@ class Database
         return $this->BindRequestAndExecuteGet($query, $params);
     }
 
+    //Récupère tous les noms des couleurs de la base de données
     function GetAllColorNames()
     {
         $query = "SELECT colName FROM t_color;";
@@ -375,6 +388,7 @@ class Database
         return $this->BindRequestAndExecuteGet($query, $params = null);
     }
 
+    //Recupère tous les receveurs de la base de données
     function GetAllReceiver()
     {
         $query = "SELECT recLastName, recFirstName, idReceiver FROM t_receiver";
@@ -382,6 +396,7 @@ class Database
         return $this->BindRequestAndExecuteGet($query, $params = null);
     }
 
+    //Recupère tous les donneurs de la base de données
     function GetAllGiver()
     {
         $query = "SELECT givLastName, givFirstName, idGiver FROM t_giver";
@@ -389,6 +404,8 @@ class Database
         return $this->BindRequestAndExecuteGet($query, $params = null);
     }
 
+    //Update le receveur et le donneur d'un vélo. Cette fonction est appelée lorsque l'utilisateur
+    //rend un vélo.
     function SetReceiverAndGiverOfBike($idBike, $idReceiver, $idGiver, $actualDate)
     {
         $query = "UPDATE t_bikes SET idReceiver = :idReceiver, idGiver = :idGiver, bikHasBeenRetrieved = 1, bikRetrieveDate = :actualDate WHERE idBike = :idBike;";
@@ -403,6 +420,7 @@ class Database
         $this->BindRequestAndExecuteSet($query, $params);
     }
 
+    //Recupère toutes les informations concernant le receveur avec l'id passé en paramètre
     function GetReceiverInfos($idReceiver)
     {
         $query = "SELECT * FROM t_receiver WHERE idReceiver = :idReceiver";
@@ -414,6 +432,7 @@ class Database
         return $this->BindRequestAndExecuteGet($query, $params);
     }
 
+    //Recupère toutes les informations concernant le donneur avec l'id passé en paramètre
     function GetGiverInfos($idGiver)
     {
         $query = "SELECT * FROM t_giver WHERE idGiver = :idGiver";
@@ -425,6 +444,7 @@ class Database
         return $this->BindRequestAndExecuteGet($query, $params);
     }
 
+    //Ajoute un receveur dans la base de données avec les informations passées en paramètre
     function AddReceiverToDb($firstName, $lastName, $email, $phoneNumber)
     {
         $query = "INSERT INTO t_receiver (recFirstName, recLastName, recEmail, recPhoneNumber) VALUES (:firstName,:lastName,:email,:phoneNumber);";
@@ -439,6 +459,7 @@ class Database
         $this->BindRequestAndExecuteSet($query, $params);
     }
 
+    //Ajoute un donneur à la base de données avec les informations passées en paramètre
     function AddGiverToDb($firstName, $lastName, $email, $phoneNumber)
     {
         $query = "INSERT INTO t_giver (givFirstName, givLastName, givEmail, givPhoneNumber) VALUES (:firstName,:lastName,:email,:phoneNumber);";
@@ -453,6 +474,7 @@ class Database
         $this->BindRequestAndExecuteSet($query, $params);
     }
 
+    //Update toutes les informations d'un vélo avec les données passées en paramètre
     function UpdateBike($idBike, $bikeFoundDate, $bikFoundLocation, $bikBrand, $bikColor, $bikSerialNumber, $bikHeight, $bikIsElectric, $bikRetrieveDate)
     {
         $query = "UPDATE t_bikes SET bikeFoundDate = :bikeFoundDate, bikFoundLocation = :bikFoundLocation, bikBrand = :bikBrand, bikColor = :bikColor, bikSerialNumber = :bikSerialNumber, bikHeight = :bikHeight, bikIsElectric = :bikIsElectric, bikRetrieveDate = :bikRetrieveDate WHERE idBike = :idBike;";
@@ -472,6 +494,8 @@ class Database
         $this->BindRequestAndExecuteSet($query, $params);
     }
 
+    //Mets à jour l'id du receveur et donneur d'un vélo a NULL et le bool qui définit si le vélo a été
+    //rendu à 0
     function ResetRecieverAndGiver($idBike)
     {
         $query = "UPDATE t_bikes SET idReceiver = NULL, idGiver = NULL, bikHasBeenRetrieved = 0, bikRetrieveDate = NULL WHERE idBike = :idBike;";
@@ -483,6 +507,7 @@ class Database
         $this->BindRequestAndExecuteSet($query, $params);
     }
 
+    //Recupère tous les vélos qui ont été rendus par trimestre
     function GetBikesRetrievedByQuarter()
     {
         $query = "SELECT YEAR(bikRetrieveDate) AS year, QUARTER(bikRetrieveDate) AS quarter, COUNT(idBike) AS numberOfBikes
@@ -493,6 +518,7 @@ class Database
         return $this->BindRequestAndExecuteGet($query, $params = null);
     }
 
+    //Recupère tous les vélos qui ont été rendu pour chaques années
     function GetBikesRetrievedByYear()
     {
         $query = "SELECT YEAR(bikRetrieveDate) AS year, COUNT(idBike) AS numberOfBikes FROM t_bikes WHERE bikHasBeenRetrieved = 1 GROUP BY YEAR(bikRetrieveDate) ORDER BY YEAR(bikRetrieveDate)";
@@ -500,6 +526,7 @@ class Database
         return $this->BindRequestAndExecuteGet($query, $params = null);
     }
 
+    //Fonction utilisée pour vérifier si un utilisateur est déjà dans la base de données
     function CheckIfUserAlreadyExist($username)
     {
         $query = "SELECT useUsername FROM t_user WHERE useUsername = :username";
