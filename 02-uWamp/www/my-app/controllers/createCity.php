@@ -1,6 +1,4 @@
 <?php
-    ////////////////////////////////////////////////////////////////////
-    ///////////////////////////CREATION DE LA VILLE/////////////////////
 
     include '../models/dao.php';
 
@@ -15,21 +13,6 @@
     $cityName = urldecode($_GET['cityName']);
     $officeAddress = urldecode($_GET['officeAddress']);
     //////////////////////////////////////////////////////
-
-
-    ////Exécute la fonction du model pour créer la ville
-    $cityId = $dao->CreateCity($firstName,$lastName,$email,$phoneNumber,$cityName,$officeAddress,$npa);
-
-    foreach($_GET as $parameters)
-    {
-        echo urldecode($parameters."<br>");
-    }
-
-    echo "<br><br>Création terminée<br><br>";
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
-
-
 
     ///////////////////////////////////////////////////////////////////////
     ////////////////////////CREATION DE L'UTLISATEUR///////////////////////
@@ -51,39 +34,73 @@
 
 
     $usernameFull = $usernameFirstPart.'.'.$usernameLastPart;
-    $passwordPlain = random_password(8);
-    $hashedPwd = password_hash($passwordPlain, PASSWORD_DEFAULT);
-
-    $dao->CreateUserAdmin($usernameFull, $hashedPwd, $cityId[0]['idCity'], $firstName, $lastName, $phoneNumber, $email);
-
-    //////////////Contenu du mail + headers////////////////
-    $msg = "Votre demande d'ouverture de compte pour la commune {$cityName} a été acceptée !\r\n
-            Voici vos données de login :\r\n
-            Nom d'utilisateur : ".$usernameFull."\r\n
-            Mot de passe : ".$passwordPlain."\r\n";
-
-    $name = "Found Your Bike";
-    $from = "found.your.bike@outlook.fr";
-    $to = $email;
-    $subject = "Demande d'ouverture de compte Found Your Bike";
-
-    $headers  = "MIME-Version: 1.0\r\n";
-    $headers .= "Content-type: text/plain; charset=utf-8\r\n";
-    $headers .= "Content-Transfer-Encoding: 8bit\r\n";
-    $headers .= "From: {$name} <{$from}>\r\n";
-    $headers .= "Reply-To: <{$from}>\r\n";
-    $headers .= "X-Mailer: PHP/".phpversion()."\r\n";
-    ////////////////////////////////////////////////////////
-
-    ////Envoi du mail de confirmation
-    try
+    if(isset($_SESSION) && $_SESSION['useIsSuperAdmin'] == 1)
     {
-        mail($to,$subject, $msg, $headers);
-        echo 'mail envoyé';
+        if(empty($dao->CheckIfUserAlreadyExist($usernameFull)))
+        {
+            $passwordPlain = random_password(8);
+            $hashedPwd = password_hash($passwordPlain, PASSWORD_DEFAULT);
+
+            $dao->CreateUserAdmin($usernameFull, $hashedPwd, $cityId[0]['idCity'], $firstName, $lastName, $phoneNumber, $email);
+
+            ///////////////////Fin création username///////////////////////////
+            ///////////////////////////////////////////////////////////////////
+
+
+            ////////////////////////////////////////////////////////////////////
+            ///////////////////////////CREATION DE LA VILLE/////////////////////
+
+            ////Exécute la fonction du model pour créer la ville
+            $cityId = $dao->CreateCity($firstName,$lastName,$email,$phoneNumber,$cityName,$officeAddress,$npa);
+
+            foreach($_GET as $parameters)
+            {
+                echo urldecode($parameters."<br>");
+            }
+
+            echo "<br><br>Création terminée<br><br>";
+            ///////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////
+
+
+            //////////////Contenu du mail + headers////////////////
+            $msg = "Votre demande d'ouverture de compte pour la commune {$cityName} a été acceptée !\r\n
+                    Voici vos données de login :\r\n
+                    Nom d'utilisateur : ".$usernameFull."\r\n
+                    Mot de passe : ".$passwordPlain."\r\n";
+
+            $name = "Found Your Bike";
+            $from = "found.your.bike@outlook.fr";
+            $to = $email;
+            $subject = "Demande d'ouverture de compte Found Your Bike";
+
+            $headers  = "MIME-Version: 1.0\r\n";
+            $headers .= "Content-type: text/plain; charset=utf-8\r\n";
+            $headers .= "Content-Transfer-Encoding: 8bit\r\n";
+            $headers .= "From: {$name} <{$from}>\r\n";
+            $headers .= "Reply-To: <{$from}>\r\n";
+            $headers .= "X-Mailer: PHP/".phpversion()."\r\n";
+            ////////////////////////////////////////////////////////
+
+            ////Envoi du mail de confirmation
+            try
+            {
+                mail($to,$subject, $msg, $headers);
+                echo 'mail envoyé';
+            }
+            catch(Exception $e)
+            {
+                echo 'FAIL : '.$e;
+            }
+        }
+        else
+        {
+            echo "Le nom d'utilisateur existe déjà, action annulée !";
+        }
     }
-    catch(Exception $e)
+    else
     {
-        echo 'FAIL : '.$e;
+        header("location: ../views/mainPage.php");
     }
 
 

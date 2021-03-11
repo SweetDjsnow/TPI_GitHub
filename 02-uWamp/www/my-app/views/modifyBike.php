@@ -117,7 +117,7 @@ var_dump($bikeInfos);
                     </tr>
                     <tr>
                         <th>Rendu le: </th>
-                        <td><input type="date" name="bikRetrieveDate" value="<?php echo $bikeInfos[0]['bikRetrieveDate']; ?>" <?php if($bikeInfos[0]['bikRetrieveDate'] == null){echo "disabled";} ?>></td>
+                        <td><input type="date" name="bikRetrieveDate" value="<?php echo $bikeInfos[0]['bikRetrieveDate']; ?>" <?php if($bikeInfos[0]['bikRetrieveDate'] == null){echo "disabled = 'disabled'";} ?>></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="border-bottom: 2px solid gray;"></td>

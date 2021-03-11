@@ -279,35 +279,38 @@ class Database
             $params['bikIsElectric'] = 1;
         /////////////////////////////////////////////////////////////
 
+        $keys = array_keys($POST);
+
+        foreach($keys as $key => $value)
+        {
+            if($value != 'bikBrand' && $value != 'bikColor' && $value != 'bikSerialNumber' && $value != 'bikHeight' && $value != 'bikIsElectric')
+            {
+                $hasError = true;
+                break;
+            }
+        }
+
 
         //Boucle pour l'écriture de la requête
         foreach($params as $key => $value)
         {
-            if($key == 'bikBrand' || $key == 'bikColor' || $key == 'bikSerialNumber' || $key == 'bikHeight' || $key == 'bikIsElectric')
+            //Vérifie que le paramètre passé par le $POST n'est pas vide
+            if($value != '')
             {
-                //Vérifie que le paramètre passé par le $POST n'est pas vide
-                if($value != '')
+                //Si le paramètre n'est pas vide et que c'est le tout premier
+                if($isFirstParameter)
                 {
-                    //Si le paramètre n'est pas vide et que c'est le tout premier
-                    if($isFirstParameter)
-                    {
-                        //Rajoute le "WHERE" + le nom de la clé du tableau $POST (qui correspond aux noms des colonnes de la base de données) et sa valeur
-                        $query .= " WHERE {$key} = :$key";
-                        //Mets la variable à FALSE car il n'ya plus besoin d'ajouter "WHERE" au début de la requête
-                        $isFirstParameter = false;
-                    }
-                    //Si les autres paramètres ne sont pas vides et que le premier paramètre a été ajouté au string
-                    else
-                    {
-                        //Rajoute "AND" + le nom de la clé du tableau $POST et sa valeur
-                        $query .= " AND {$key} = :$key";
-                    }
+                    //Rajoute le "WHERE" + le nom de la clé du tableau $POST (qui correspond aux noms des colonnes de la base de données) et sa valeur
+                    $query .= " WHERE {$key} = :$key";
+                    //Mets la variable à FALSE car il n'ya plus besoin d'ajouter "WHERE" au début de la requête
+                    $isFirstParameter = false;
                 }
-            }
-            else
-            {
-                $hasError = true;
-                break;
+                //Si les autres paramètres ne sont pas vides et que le premier paramètre a été ajouté au string
+                else
+                {
+                    //Rajoute "AND" + le nom de la clé du tableau $POST et sa valeur
+                    $query .= " AND {$key} = :$key";
+                }
             }
         }
         $query .= ";";
@@ -325,7 +328,7 @@ class Database
         }
         else
         {
-            echo "Il y'a eu une erreur lors de l'envoi de la requête, action annulée !";
+            echo "<br><br><br><p>Il y'a eu une erreur lors de l'envoi de la requête, action annulée !</p>";
         }
     }
 
@@ -495,6 +498,17 @@ class Database
         $query = "SELECT YEAR(bikRetrieveDate) AS year, COUNT(idBike) AS numberOfBikes FROM t_bikes WHERE bikHasBeenRetrieved = 1 GROUP BY YEAR(bikRetrieveDate) ORDER BY YEAR(bikRetrieveDate)";
 
         return $this->BindRequestAndExecuteGet($query, $params = null);
+    }
+
+    function CheckIfUserAlreadyExist($username)
+    {
+        $query = "SELECT useUsername FROM t_user WHERE useUsername = :username";
+
+        $params = array(
+            'username' => $username
+        );
+
+        return $this->BindRequestAndExecuteGet($query, $params);
     }
 
 }

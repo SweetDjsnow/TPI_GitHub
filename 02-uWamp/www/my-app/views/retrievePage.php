@@ -72,21 +72,21 @@
                     </tr>
                     <tr>
                         <td style="border-right: solid gray 2px;">
-                            <form action="../controllers/addReceiver.php?id=<?php echo $_GET['id']; ?>" method="POST" class="create-form">
-                                <input type="text" placeholder="Prénom" name="firstName">
-                                <input type="text" placeholder="Nom de famille" name="lastName">
+                            <form action="../controllers/addReceiver.php?id=<?php echo htmlspecialchars($_GET['id']); ?>" method="POST" class="create-form">
+                                <input type="text" placeholder="Prénom" name="firstName" required>
+                                <input type="text" placeholder="Nom de famille" name="lastName" required>
                                 <input type="text" placeholder="Adresse email" name="email">
-                                <input type="text" placeholder="Numéro de téléphone" name="phoneNumber">
-                                <button style="width: 60%;">Ajouter</button>
+                                <input type="text" placeholder="Numéro de téléphone" name="phoneNumber" required>
+                                <button style="width: 60%;" name="submitBtn">Ajouter</button>
                             </form>
                         </td>
                         <td>
-                            <form action="../controllers/addGiver.php?id=<?php echo $_GET['id']; ?>" method="POST" class="create-form">
-                                <input type="text" placeholder="Prénom" name="firstName">
-                                <input type="text" placeholder="Nom de famille" name="lastName">
+                            <form action="../controllers/addGiver.php?id=<?php echo htmlspecialchars($_GET['id']); ?>" method="POST" class="create-form">
+                                <input type="text" placeholder="Prénom" name="firstName" required>
+                                <input type="text" placeholder="Nom de famille" name="lastName" required>
                                 <input type="text" placeholder="Adresse email" name="email">
-                                <input type="text" placeholder="Numéro de téléphone" name="phoneNumber">
-                                <button style="width: 60%;">Ajouter</button>
+                                <input type="text" placeholder="Numéro de téléphone" name="phoneNumber" required>
+                                <button style="width: 60%;" name="submitBtn">Ajouter</button>
                             </form>
                         </td>
                     </tr>

@@ -17,19 +17,21 @@ $dao = new Database();
         
 
         <div class="signup-page">
+            
             <h1 class="title-forms">Annoncer</h1>
+            <?php if(isset($_SESSION['uploadSuccess']) && $_SESSION['uploadSuccess'] == 1){ echo"<p style='text-align: center; color: white; padding-top: 50px;'>Vélo ajouté à la base de données !</p>"; $_SESSION['uploadSuccess'] = 0;} ?>
             <div class="form">
                 <form class="login-form" action="../controllers/addBike.php" method="POST" enctype="multipart/form-data">
                     <label for="image">Image:</label>
-                    <input type="file" name="fileToUpload[]" id="fileToUpload" multiple/>
+                    <input type="file" name="fileToUpload[]" id="fileToUpload" multiple required/>
                     <label for="dateInput">Trouvé le :</label>
-                    <input type="date" name="bikeFoundDate" id="dateInput" />
+                    <input type="date" name="bikeFoundDate" id="dateInput" required/>
                     <label for="locationFound">Lieu de la trouvaille :</label>
-                    <input type="text" name="bikFoundLocation" id="locationFound" />
+                    <input type="text" name="bikFoundLocation" id="locationFound" required/>
                     
                     <label for="slct">Marque:</label>
                     <div class="select">
-                        <select name="bikBrand" id="slct">
+                        <select name="bikBrand" id="slct" required>
                             <?php
                                 $brands = $dao->GetAllBrands();
                                 foreach($brands as $key => $value)
@@ -42,7 +44,7 @@ $dao = new Database();
                     
                     <label for="color">Couleur:</label>
                     <div class="select">
-                        <select name="color" id="slct">
+                        <select name="color" id="slct" required>
                             <?php
                                 $colors = $dao->GetAllColorNames();
                                 foreach($colors as $key => $value)
@@ -54,17 +56,17 @@ $dao = new Database();
                     </div>
 
                     <label for="serialNumber">Numero de série:</label>
-                    <input type="text" name="bikSerialNumber" id="serialNumber">
+                    <input type="text" name="bikSerialNumber" id="serialNumber" required>
 
                     <label for="height">Taille du cadre:</label>
-                    <input type="text" name="bikHeight" id="height">
+                    <input type="text" name="bikHeight" id="height" required>
 
                     <label for="electric">Electrique ?</label>
-                    <input type="checkbox" name="bikIsElectric">
+                    <input type="checkbox" name="bikIsElectric" required>
 
                     <label for="slct">Retrouvé par la commune:</label>
                     <div class="select">
-                        <select name="city" id="slct">
+                        <select name="city" id="slct" required>
                             <?php
                                 $cities = $dao->GetAllCities();
                                 foreach($cities as $key => $value)

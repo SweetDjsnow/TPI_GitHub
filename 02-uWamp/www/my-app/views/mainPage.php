@@ -6,11 +6,13 @@
 
     $dao = new Database();
 
+    ///Récupère le nombre total de vélos dans la base de données pour l'afficher sur la mainpage
     $numberOfBikes = $dao->GetNumberOfBikes();
     $numberOfBikes = $numberOfBikes[0]['COUNT(*)'];
 
     var_dump($numberOfBikes);
 
+    /////Résultats des requêtes pour les statistiques
     $statsQuarter = $dao->GetBikesRetrievedByQuarter();
     $statsYear = $dao->GetBikesRetrievedByYear();
 
