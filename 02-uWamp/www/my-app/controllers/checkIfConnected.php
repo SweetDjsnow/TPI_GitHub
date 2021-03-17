@@ -1,24 +1,18 @@
 <?php
 
+//Si la session n'est pas encore démarrée, la démarre
 if(session_status()== PHP_SESSION_NONE)
 {
     session_start();
 }
 
+//Si $SESSION est set et pas vide
 if(isset($_SESSION) && !empty($_SESSION))
 {
+    //Si le username est set et pas vide
     if(isset($_SESSION['useUsername']) && !empty($_SESSION['useUsername']))
     {
         
-
-        if($_SESSION['useIsAdmin'] == 1)
-        {
-            
-        }
-        if($_SESSION['useIsSuperAdmin'] == 1)
-        {
-            
-        }
     }
     else
     {

@@ -4,6 +4,12 @@
 
     $dao = new Database();
 
+    if(session_status()== PHP_SESSION_NONE)
+    {
+        session_start();
+    }
+
+
     /////////////Décode les paramètres de l'URL///////////
     $firstName = urldecode($_GET['firstName']);
     $lastName = urldecode($_GET['lastName']);
@@ -18,7 +24,7 @@
     ////////////////////////CREATION DE L'UTLISATEUR///////////////////////
 
 
-    ////Générer le username
+    ////////////Générer le username//////////////////
     $usernameFirstPart = strtolower(substr($firstName, 0, 2));
 
     $usernameLastPart = strtolower(str_replace(' ', '', $lastName));
@@ -31,16 +37,22 @@
     {
         $usernameLastPart = substr($usernameLastPart,0,strlen($usernameLastPart));
     }
+    ////////////////////////////////////////////////
 
 
     $usernameFull = $usernameFirstPart.'.'.$usernameLastPart;
+    //Check si l'utilisateur est super-admin (admin du site)
     if(isset($_SESSION) && $_SESSION['useIsSuperAdmin'] == 1)
     {
+        //Check si un utilisateur a déjà ce nom
         if(empty($dao->CheckIfUserAlreadyExist($usernameFull)))
         {
+            //Génère un mot de passe aléatoire à 8 charactères
             $passwordPlain = random_password(8);
+            //hash le mot de passe
             $hashedPwd = password_hash($passwordPlain, PASSWORD_DEFAULT);
 
+            //Exécute la fonction pour crééer l'utilisateur "admin" de la commune
             $dao->CreateUserAdmin($usernameFull, $hashedPwd, $cityId[0]['idCity'], $firstName, $lastName, $phoneNumber, $email);
 
             ///////////////////Fin création username///////////////////////////
@@ -52,11 +64,6 @@
 
             ////Exécute la fonction du model pour créer la ville
             $cityId = $dao->CreateCity($firstName,$lastName,$email,$phoneNumber,$cityName,$officeAddress,$npa);
-
-            foreach($_GET as $parameters)
-            {
-                echo urldecode($parameters."<br>");
-            }
 
             echo "<br><br>Création terminée<br><br>";
             ///////////////////////////////////////////////////////////////////////

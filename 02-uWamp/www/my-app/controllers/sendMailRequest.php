@@ -27,7 +27,8 @@ Email : ".$_POST['email']."\r\n
 Numero de téléphone : ".$_POST['phoneNumber']."\r\n
 Addresse du bureau : ".$_POST['officeAddress']."\r\n
 Code postal : ".$_POST['npa']."\r\n
-Accepter la demande ? : http://localhost/my-app/controllers/createCity.php?firstName={$firstname}&lastName={$lastName}&email={$email}&phoneNumber={$phoneNumber}&officeAddress={$officeAddress}&npa={$npa}&cityName={$cityName}";
+Accepter la demande ? : http://localhost/my-app/controllers/createCity.php?firstName={$firstname}&lastName={$lastName}&email={$email}&phoneNumber={$phoneNumber}
+                        &officeAddress={$officeAddress}&npa={$npa}&cityName={$cityName}";
 
 $name = "Found Your Bike";
 $from = "found.your.bike@outlook.fr";

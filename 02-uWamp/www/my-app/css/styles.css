@@ -17,6 +17,11 @@
   padding-left: 10%;
 }
 
+.add-retrieve-titles
+{
+  text-align: center;
+}
+
 .main-page-icon
 {
   width: 35%;
@@ -27,6 +32,11 @@
   max-width: 1000px;
   position: relative;
   margin: auto;
+}
+
+.add-retrieve-forms
+{
+  text-align: center;
 }
 
 /* Hide the images by default */

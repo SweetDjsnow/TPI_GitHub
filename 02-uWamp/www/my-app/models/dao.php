@@ -368,6 +368,7 @@ class Database
         return $this->BindRequestAndExecuteGet($query, $params);
     }
 
+    //Fonction qui récupère le nom de toutes les couleurs dans la table t_color
     function GetAllColorNames()
     {
         $query = "SELECT colName FROM t_color;";
@@ -375,6 +376,7 @@ class Database
         return $this->BindRequestAndExecuteGet($query, $params = null);
     }
 
+    //Fonction qui récupère tous les receveurs de la table t_receiver
     function GetAllReceiver()
     {
         $query = "SELECT recLastName, recFirstName, idReceiver FROM t_receiver";
@@ -382,6 +384,7 @@ class Database
         return $this->BindRequestAndExecuteGet($query, $params = null);
     }
 
+    //Fonction qui récupère tous les donneurs de la table t_giver
     function GetAllGiver()
     {
         $query = "SELECT givLastName, givFirstName, idGiver FROM t_giver";

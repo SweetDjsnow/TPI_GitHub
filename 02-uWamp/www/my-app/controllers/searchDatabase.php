@@ -1,17 +1,29 @@
 <?php
 
-include '../controllers/checkIfConnected.php';
+if(session_status()== PHP_SESSION_NONE)
+{
+    session_start();
+}
 
-include '../models/dao.php';
+if(isset($_SESSION))
+{
+    if(isset($_SESSION['isConnected']) && !empty($_SESSION['isConnected']))
+    {
+        if(isset($_POST))
+        {
+            include '../models/dao.php';
 
-$dao = new Database();
+            $dao = new Database();
 
-$result = $dao->SearchInDatabase($_POST);
+            $result = $dao->SearchInDatabase($_POST);
 
-$numberOfResults = count($result);
+            $numberOfResults = count($result);
 
 
-include '../views/resultPage.php';
+            include '../views/resultPage.php';
+        }
+    }
+}
 
 
 ?>

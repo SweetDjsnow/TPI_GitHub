@@ -1,6 +1,5 @@
 <?php
 
-var_dump($_POST);
 
 ///////////////////Données du formulaire////////////////////////
 $firstname = $_POST['firstName'];

@@ -2,12 +2,22 @@
 
 include '../controllers/checkIfConnectedAdmin.php';
 include '../models/dao.php';
-include '../views/navBar.php';
 
 $dao = new Database();
 $idBike = $_GET['id'];
+
 $bikeInfos = $dao->GetBikeInfos($idBike);
-var_dump($bikeInfos);
+
+        
+if(empty($bikeInfos))
+{
+    header("location: ./mainPage.php");
+}
+
+include '../views/navBar.php';
+
+$dao = new Database();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -100,19 +110,7 @@ var_dump($bikeInfos);
                     <tr>
                         <th>A été rendu: </th>
                         <td>
-                            <div class="select">
-                                <select name="bikHasBeenRetrieved" id="slct"  class="select-modify" disabled>
-                                    <option value="0" 
-                                    <?php if($bikeInfos[0]['bikHasBeenRetrieved'] == '0')
-                                            echo 'selected="selected"';
-                                     ?>>Non</option>
-
-                                    <option value="1" <?php if($bikeInfos[0]['bikHasBeenRetrieved'] == '1')
-                                            echo 'selected="selected"';
-                                     ?>
-                                     >Oui</option>
-                                </select>
-                            </div>
+                            <input type="text" name="bikHasBeenRetrieved" value="<?php if($bikeInfos[0]['bikHasBeenRetrieved'] == '0'){echo "Non";}else{echo "Oui";}?>" disabled="disabled">
                         </td>
                     </tr>
                     <tr>

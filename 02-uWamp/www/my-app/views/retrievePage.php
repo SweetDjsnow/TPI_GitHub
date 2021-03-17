@@ -2,9 +2,20 @@
 
     include '../controllers/checkIfConnected.php';
     include '../models/dao.php';
+    
+    $dao = new Database();
+    $idBike = $_GET['id'];
+
+    $bikeInfos = $dao->GetBikeInfos($idBike);
+
+            
+    if(empty($bikeInfos)) 
+    {
+        header("location: ./mainPage.php");
+    }
+
     include '../views/navBar.php';
 
-    $dao = new Database();
 
 ?>
 
@@ -55,7 +66,7 @@
                         
                         <tr>
                             <td colspan="2">
-                                <button style="width: 60%;margin-bottom: 20px; margin-top: 10px;">Rendre</button>
+                                <button style="width: 60%;margin-bottom: 20px; margin-top: 10px; margin-left: 20%;">Rendre</button>
                             </td>
                         </tr>
                     </form>
@@ -63,15 +74,15 @@
                         <td colspan="2" style="padding-bottom: 30px;"></td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="add-retrieve-titles">
                             Ajouter un receveur
                         </td>
-                        <td>
+                        <td class="add-retrieve-titles">
                             Ajouter un donneur
                         </td>
                     </tr>
                     <tr>
-                        <td style="border-right: solid gray 2px;">
+                        <td style="border-right: solid gray 2px;" class="add-retrieve-forms">
                             <form action="../controllers/addReceiver.php?id=<?php echo htmlspecialchars($_GET['id']); ?>" method="POST" class="create-form">
                                 <input type="text" placeholder="Prénom" name="firstName" required>
                                 <input type="text" placeholder="Nom de famille" name="lastName" required>
@@ -80,7 +91,7 @@
                                 <button style="width: 60%;" name="submitBtn">Ajouter</button>
                             </form>
                         </td>
-                        <td>
+                        <td class="add-retrieve-forms">
                             <form action="../controllers/addGiver.php?id=<?php echo htmlspecialchars($_GET['id']); ?>" method="POST" class="create-form">
                                 <input type="text" placeholder="Prénom" name="firstName" required>
                                 <input type="text" placeholder="Nom de famille" name="lastName" required>

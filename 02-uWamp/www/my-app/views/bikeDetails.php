@@ -1,12 +1,23 @@
 <?php
+
 include '../controllers/checkIfConnected.php';
 include '../models/dao.php';
-include '../views/navBar.php';
 
-$idBike = $_GET['id'];
 
 $dao = new Database();
+$idBike = $_GET['id'];
+
 $bikeInfos = $dao->GetBikeInfos($idBike);
+
+        
+if(empty($bikeInfos))
+{
+    header("location: ./mainPage.php");
+}
+
+
+include '../views/navBar.php';
+
 $idCity = $bikeInfos[0]['idCity'];
 $cityName = $dao->GetCityName($idCity);
 $photos = $dao->GetPhotosLinkedToBike($bikeInfos[0]['idBike']);

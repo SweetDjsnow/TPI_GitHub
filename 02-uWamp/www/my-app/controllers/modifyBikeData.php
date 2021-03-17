@@ -2,34 +2,47 @@
 
 include '../models/dao.php';
 
-session_start();
+if(session_status()== PHP_SESSION_NONE)
+{
+    session_start();
+}
 
+//Vérifie qu l'utilisateur est connecté et admin
 if(isset($_SESSION) && $_SESSION['useIsAdmin'] == 1)
 {
-    $bikeFoundDate = htmlspecialchars($_POST['bikFoundDate']);
-    $bikFoundLocation = htmlspecialchars($_POST['bikFoundLocation']);
-    $bikBrand = htmlspecialchars($_POST['bikBrand']);
-    $bikColor = htmlspecialchars($_POST['color']);
-    $bikSerialNumber = htmlspecialchars($_POST['bikSerialNumber']);
-    $bikHeight = htmlspecialchars($_POST['bikHeight']);
-    $bikIsElectric = htmlspecialchars($_POST['bikIsElectric']);
-    if(isset($_POST['bikRetrieveDate']))
-        $bikRetrieveDate = htmlspecialchars($_POST['bikRetrieveDate']);
-    else
-        $bikRetrieveDate = NULL;
-    htmlspecialchars($idBike = $_GET['id']);
+    if(isset($_POST['bikFoundDate']) && isset($_POST['bikFoundLocation']) && isset($_POST['bikBrand']) && isset($_POST['color']) && isset($_POST['bikSerialNumber']) && isset($_POST['bikHeight']) && isset($_POST['bikIsElectric']))
+    {
+        //Insérer les variables passées en POST dans des variables séparées
+        $bikeFoundDate = htmlspecialchars($_POST['bikFoundDate']);
+        $bikFoundLocation = htmlspecialchars($_POST['bikFoundLocation']);
+        $bikBrand = htmlspecialchars($_POST['bikBrand']);
+        $bikColor = htmlspecialchars($_POST['color']);
+        $bikSerialNumber = htmlspecialchars($_POST['bikSerialNumber']);
+        $bikHeight = htmlspecialchars($_POST['bikHeight']);
+        $bikIsElectric = htmlspecialchars($_POST['bikIsElectric']);
+        if(isset($_POST['bikRetrieveDate']))
+            $bikRetrieveDate = htmlspecialchars($_POST['bikRetrieveDate']);
+        else
+            $bikRetrieveDate = NULL;
+        /////////////////////////////////////////////////////////////////
 
-    $dao = new Database();
+        //Get l'id dans l'url
+        htmlspecialchars($idBike = $_GET['id']);
 
-    $dao->UpdateBike($idBike, $bikeFoundDate, $bikFoundLocation, $bikBrand, $bikColor, $bikSerialNumber, $bikHeight, $bikIsElectric, $bikRetrieveDate);
+        $dao = new Database();
 
-    header("location: ../views/modifyBike.php?id={$idBike}");
+        //Exécute la fonction pour mettre à jour le vélo
+        $dao->UpdateBike($idBike, $bikeFoundDate, $bikFoundLocation, $bikBrand, $bikColor, $bikSerialNumber, $bikHeight, $bikIsElectric, $bikRetrieveDate);
+
+        //Redirige sur la page de modification du vélo
+        header("location: ../views/modifyBike.php?id={$idBike}");
+    }
 }
 else
 {
+    //Redirige sur la page principale
     header("location: ../views/mainPage.php");
 }
 
-var_dump($_POST);
 
 ?>

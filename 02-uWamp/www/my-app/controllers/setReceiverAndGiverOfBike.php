@@ -1,14 +1,40 @@
 <?php
 
-include '../models/dao.php';
+if(session_status()== PHP_SESSION_NONE)
+{
+    session_start();
+}
 
-$dao = new Database();
+if(isset($_SESSION))
+{
+    if(isset($_SESSION['isConnected']) && !empty($_SESSION['isConnected']))
+    {
+        if(isset($_POST))
+        {
+            if(isset($_POST['retriever']) && isset($_POST['giver']))
+            {
+                if(!empty($_POST['retriever']) && !empty($_POST['giver']))
+                {
+                    include '../models/dao.php';
 
-$date = date('Y-m-d');
+                    $dao = new Database();
 
-var_dump($_POST);
-var_dump($_GET);
+                    $date = date('Y-m-d');
 
-$dao->SetReceiverAndGiverOfBike($_GET['id'], $_POST['retriever'], $_POST['giver'], $date);
+                    $id = htmlspecialchars($_GET['id']);
+
+                    $dao->SetReceiverAndGiverOfBike($id, $_POST['retriever'], $_POST['giver'], $date);
+                
+                    header("location: ../views/bikeDetails.php?id={$id}");
+                }
+            }
+        }
+    }
+}
+else
+{
+    echo "session not set";
+}
+
 
 ?>

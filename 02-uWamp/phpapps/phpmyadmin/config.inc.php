@@ -38,10 +38,10 @@ $cfg['Servers'][$i]['AllowNoPassword'] = false;
  */
 
 /* User used to manipulate with storage */
-// $cfg['Servers'][$i]['controlhost'] = '';
-// $cfg['Servers'][$i]['controlport'] = '';
-// $cfg['Servers'][$i]['controluser'] = 'pma';
-// $cfg['Servers'][$i]['controlpass'] = 'pmapass';
+//$cfg['Servers'][$i]['controlhost'] = 'findbike21.section-inf.ch';
+//$cfg['Servers'][$i]['controlport'] = '';
+//$cfg['Servers'][$i]['controluser'] = 'findbike21_user';
+//$cfg['Servers'][$i]['controlpass'] = 'Dds7g?ft7n3KT';
 
 /* Storage database and tables */
 // $cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';
