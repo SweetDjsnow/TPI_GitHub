@@ -380,7 +380,7 @@ class Database
         return $this->BindRequestAndExecuteGet($query, $params);
     }
 
-    //Fonction qui récupère le nom de toutes les couleurs dans la table t_color
+    //Récupère tous les noms des couleurs de la base de données
     function GetAllColorNames()
     {
         $query = "SELECT colName FROM t_color;";
@@ -388,7 +388,7 @@ class Database
         return $this->BindRequestAndExecuteGet($query, $params = null);
     }
 
-    //Fonction qui récupère tous les receveurs de la table t_receiver
+    //Recupère tous les receveurs de la base de données
     function GetAllReceiver()
     {
         $query = "SELECT recLastName, recFirstName, idReceiver FROM t_receiver";
@@ -396,7 +396,7 @@ class Database
         return $this->BindRequestAndExecuteGet($query, $params = null);
     }
 
-    //Fonction qui récupère tous les donneurs de la table t_giver
+    //Recupère tous les donneurs de la base de données
     function GetAllGiver()
     {
         $query = "SELECT givLastName, givFirstName, idGiver FROM t_giver";
@@ -442,18 +442,6 @@ class Database
         );
 
         return $this->BindRequestAndExecuteGet($query, $params);
-    }
-
-    //Fonction qui supprime un vélo de la base de données en fonction de son id
-    function DeleteBike($idBike)
-    {
-        $query = "DELETE FROM t_bikes WHERE idBike = :idBike";
-
-        $params = array(
-            'idBike' => $idBike
-        );
-
-        return $this->BindRequestAndExecuteSet($query, $params);
     }
 
     //Ajoute un receveur dans la base de données avec les informations passées en paramètre
