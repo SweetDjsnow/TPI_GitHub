@@ -20,7 +20,7 @@ class Database
         ///Un try catch pour récupérer l'erreur et l'afficher si la connexion échoue
         try
         {
-            $this->connector= new PDO('mysql:host=localhost;dbname=db_pre_tpi','root','root');
+            $this->connector= new PDO('mysql:host=localhost;dbname=db_findbike21','findbike21_user','Dds7g?ft7n3KT');
 
         }
         catch (Exception $e)
@@ -536,6 +536,32 @@ class Database
         );
 
         return $this->BindRequestAndExecuteGet($query, $params);
+    }
+
+    function CheckIfBikeExists($id)
+    {
+        $query = "SELECT COUNT(*) FROM t_bikes WHERE idBike = :idBike";
+
+        $params = array(
+            'idBike' => $id
+        );
+
+        return $this->BindRequestAndExecuteGet($query, $params);
+    }
+
+    function DeleteBike($id)
+    {
+        $query = "DELETE FROM t_photo WHERE idBike = :idBike";
+
+        $params = array(
+            'idBike' => $id
+        );
+
+        $this->BindRequestAndExecuteSet($query, $params);
+
+        $query = "DELETE FROM t_bikes WHERE idBike = :idBike";
+
+        $this->BindRequestAndExecuteSet($query, $params);
     }
 
 }

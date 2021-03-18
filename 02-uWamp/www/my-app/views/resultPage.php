@@ -3,7 +3,20 @@
 include '../controllers/checkIfConnected.php';
 include '../views/navBar.php';
 $photosDir = '../img/bike_photos/';
+
 ?>
+
+<script>
+
+function deleteConfirmation(id)
+{
+    if(!confirm('Are you sure you want to delete this item?')) 
+        return false;
+    else
+        window.location.href = "http://findbike21.section-inf.ch/my-app/controllers/deleteBike.php?id="+id;
+}
+
+</script>
 
 <!DOCTYPE html>
 <html>
@@ -34,15 +47,15 @@ $photosDir = '../img/bike_photos/';
                                             }
                                             echo ">";
                                             if(isset($_SESSION) && $_SESSION['useIsAdmin'] == 1)
-                                                echo "<a href='../controllers/deleteBike.php?id={$id}' class='delete-button'><img src='../img/close.png'></a>";
+                                                echo "<a class='delete-button' onclick='deleteConfirmation({$id})'><img src='../img/close.png'></a>";
                                                 echo "<p>Marque: ".$value['bikBrand']."</p>
                                                 <p>Couleur: ".$value['bikColor']."</p>
                                                 <p>Serial: ".$value['bikSerialNumber']."</p>";
 
                                                 if($value['bikHasBeenRetrieved'] == '0')
-                                                    echo "<p style='color: red;'>Le vélo n'a pas été rendu</p>";
+                                                    echo "<p style='color: red; font-weight: bold;'>Le vélo n'a pas été rendu</p>";
                                                 else
-                                                    echo "<p style='color: green;'>Le vélo a été récupéré</p>";
+                                                    echo "<p style='color: green; font-weight: bold;'>Le vélo a été récupéré</p>";
                                                     
                                                 echo "<img src='{$photosDir}".$photoToShow[0]['phoPath']."' class='img-result-page'>
                                                 <table class='table-results'>

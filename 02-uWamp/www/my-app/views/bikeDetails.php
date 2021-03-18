@@ -180,7 +180,7 @@ function showSlides(n) {
         </div>
 
         <div class="back-btn-div">
-        <a href="../views/mainPage.php">
+        <a href="../controllers/searchDatabase.php">
             <button class="back-btn"><img src="../img/left-arrow.png" alt="Back Arrow"></button>
         </a>
         </div>
