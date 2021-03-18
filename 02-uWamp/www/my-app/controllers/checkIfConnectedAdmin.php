@@ -6,6 +6,7 @@ if(session_status()== PHP_SESSION_NONE)
     session_start();
 }
 
+
 ///Check si la variable de session a été set et n'est pas vide
 if(isset($_SESSION) && !empty($_SESSION))
 {
@@ -16,25 +17,25 @@ if(isset($_SESSION) && !empty($_SESSION))
         if($_SESSION['useIsAdmin'] != 1)
         {
             //Si l'utilisateur est connecté mais n'est pas admin, le renvoie sur la page principale (après connexion)
-            if($_SESSION['useIsConnected'] == 1)
-                header("location: ./mainPage.php");
+            if($_SESSION['isConnected'] == 1)
+                header("location: ../views/mainPage.php");
             //Si il ne l'est pas, le renvoie sur la page de login
             else
-                header("location: ./index.php");
+                header("location: ../views/index.php");
         }
     }
     else
     {
         session_destroy();
     
-        header("location: ./index.php");
+        header("location: ../views/index.php");
     }
 }
 else
 {
     session_destroy();
     
-    header("location: ./index.php");
+    header("location: ../views/index.php");
 }
 
 

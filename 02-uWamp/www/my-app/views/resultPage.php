@@ -33,6 +33,8 @@ $photosDir = '../img/bike_photos/';
                                                 echo "style = 'margin-bottom: 30px;'";
                                             }
                                             echo ">";
+                                            if(isset($_SESSION) && $_SESSION['useIsAdmin'] == 1)
+                                                echo "<a href='../controllers/deleteBike.php?id={$id}' class='delete-button'><img src='../img/close.png'></a>";
                                                 echo "<p>Marque: ".$value['bikBrand']."</p>
                                                 <p>Couleur: ".$value['bikColor']."</p>
                                                 <p>Serial: ".$value['bikSerialNumber']."</p>";
