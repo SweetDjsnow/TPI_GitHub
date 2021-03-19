@@ -62,7 +62,7 @@ $dao = new Database();
                     <input type="text" name="bikHeight" id="height" required>
 
                     <label for="electric">Electrique ?</label>
-                    <input type="checkbox" name="bikIsElectric" required>
+                    <input type="checkbox" name="bikIsElectric">
 
                     <label for="slct">Retrouvé par la commune:</label>
                     <div class="select">
