@@ -10,7 +10,7 @@ $photosDir = '../img/bike_photos/';
 
 function deleteConfirmation(id)
 {
-    if(!confirm('Are you sure you want to delete this item?')) 
+    if(!confirm('Voulez-vous vraiment supprimer ce vélo ?')) 
         return false;
     else
         window.location.href = "http://findbike21.section-inf.ch/my-app/controllers/deleteBike.php?id="+id;
