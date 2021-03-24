@@ -160,7 +160,7 @@ $dao = new Database();
             </div>
 
             <div class="back-btn-div">
-                    <a href="../views/mainPage.php">
+                    <a href='../controllers/searchDatabase.php'>
                         <button class="back-btn"><img src="../img/left-arrow.png" alt="Back Arrow"></button>
                     </a>
             </div>
@@ -169,5 +169,9 @@ $dao = new Database();
         
 
     </body>
+
+    <?php
+            include '../views/footer.html';
+        ?>
 
 </html>

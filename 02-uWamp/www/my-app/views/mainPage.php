@@ -112,8 +112,13 @@
                 
         </div>
         
+        
 
     </body>
+
+    <?php
+            include '../views/footer.html';
+        ?>
 
 </html>
 

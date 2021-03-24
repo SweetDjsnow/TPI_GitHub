@@ -187,4 +187,8 @@ function showSlides(n) {
 
     </body>
 
+    <?php
+            include '../views/footer.html';
+        ?>
+
 </html>

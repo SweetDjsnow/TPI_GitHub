@@ -1,5 +1,43 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+
+.container-footer
+{
+    margin-bottom: 0px;
+    margin-top: 100px;
+    height: 100px;
+    background-color: #2b2b2b;
+    color: white;
+    box-shadow: black;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%), 5px 5px 5px 5px rgb(0 0 0 / 24%);
+    text-align: center;
+}
+
+.container-footer table
+{
+  color: white;
+  margin: auto;
+}
+
+.footer-left-column
+{
+  text-align: center;
+  width: 15em;
+  padding-top: 30px;
+}
+
+.footer-right-column
+{
+  text-align: center;
+  padding-top: 30px;
+  width: 15em;
+}
+
+.footer-td
+{
+  text-align: center;
+}
+
 .login-page {
   width: 360px;
   padding: 8% 0 0;
@@ -12,7 +50,6 @@
 }
 .all-result-div
 {
-
   height: 100%;
   padding-left: 10%;
 }

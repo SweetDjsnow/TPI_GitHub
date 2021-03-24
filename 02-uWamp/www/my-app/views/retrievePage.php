@@ -123,6 +123,10 @@
 
     </body>
 
+    <?php
+            include '../views/footer.html';
+        ?>
+
 </html>
 
 <?php

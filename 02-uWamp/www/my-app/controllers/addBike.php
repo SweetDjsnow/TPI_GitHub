@@ -121,60 +121,19 @@ if(isset($_POST) && !empty($_POST))
                                 $dao->AddPhotoToDatabase($newName[$i], $lastId[0]['MAX(idBike)']);
                             }
 
-<<<<<<< HEAD
                             $_SESSION['uploadSuccess'] = 1;
                             header("location: ../views/addPage.php");
                             
                         }
-=======
-                if($numberFilesUploaded < count($_FILES['fileToUpload']['name']))
-                {
-                    //var_dump($_FILES['fileToUpload']['name'][0]);
-                    echo "Erreur lors de l'upload d'une ou plusieurs des photos. Action annulée.";
-                }
-                else
-                {
-                    //Variables du vélo
-                    $bikeFoundDate = htmlspecialchars($_POST['bikeFoundDate']);
-                    $bikFoundLocation = htmlspecialchars($_POST['bikFoundLocation']);
-                    $bikBrand = htmlspecialchars($_POST['bikBrand']);
-                    $bikColor = htmlspecialchars($_POST['color']);
-                    $bikSerialNumber = htmlspecialchars($_POST['bikSerialNumber']);
-                    $bikHeight = htmlspecialchars($_POST['bikHeight']);
-                    $bikIsElectric = 0;
-                    if(isset($_POST['bikIsElectric']))
-                    {
-                        $bikIsElectric = 1;
->>>>>>> 046a35bb8bd769c5e7fc2e20dc194f8fcb208b4c
                     }
                     else
                     {
                         echo "Un ou plusieurs attributs sont vides, remplissez correctement tous les formulaires";
                     }
-<<<<<<< HEAD
                 }
                 else
                 {
                     echo "Le formulaire n'a pas pu être envoyé correctement, réessayez.";
-=======
-
-                    $cityName = htmlspecialchars($_POST['city']);
-
-                    $cityId = $dao->GetCityId($cityName);
-
-                    $lastId = $dao->AddBikeToDatabase($bikeFoundDate, $bikFoundLocation, $bikBrand, $bikColor, $bikSerialNumber, $bikHeight, $bikIsElectric, $cityId[0]['idCity']);
-
-                    for($i=0;$i<count($newName);$i++)
-                    {
-                        //var_dump($newName);
-                        //var_dump($lastId[0]['MAX(idBike)']);
-                        $dao->AddPhotoToDatabase($newName[$i], $lastId[0]['MAX(idBike)']);
-                    }
-
-                    $_SESSION['uploadSuccess'] = 1;
-                    header("location: ../views/addPage.php");
-                    
->>>>>>> 046a35bb8bd769c5e7fc2e20dc194f8fcb208b4c
                 }
             }
             else

@@ -63,4 +63,8 @@ $dao = new Database();
         
     </body>
 
+    <?php
+            include '../views/footer.html';
+        ?>
+
 </html>

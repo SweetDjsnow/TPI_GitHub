@@ -52,22 +52,14 @@
             //hash le mot de passe
             $hashedPwd = password_hash($passwordPlain, PASSWORD_DEFAULT);
 
+            ////Exécute la fonction du model pour créer la ville
+            $cityId = $dao->CreateCity($firstName,$lastName,$email,$phoneNumber,$cityName,$officeAddress,$npa);
+
             //Exécute la fonction pour crééer l'utilisateur "admin" de la commune
             $dao->CreateUserAdmin($usernameFull, $hashedPwd, $cityId[0]['idCity'], $firstName, $lastName, $phoneNumber, $email);
 
             ///////////////////Fin création username///////////////////////////
             ///////////////////////////////////////////////////////////////////
-
-
-            ////////////////////////////////////////////////////////////////////
-            ///////////////////////////CREATION DE LA VILLE/////////////////////
-
-            ////Exécute la fonction du model pour créer la ville
-            $cityId = $dao->CreateCity($firstName,$lastName,$email,$phoneNumber,$cityName,$officeAddress,$npa);
-
-            echo "<br><br>Création terminée<br><br>";
-            ///////////////////////////////////////////////////////////////////////
-            ///////////////////////////////////////////////////////////////////////
 
 
             //////////////Contenu du mail + headers////////////////
