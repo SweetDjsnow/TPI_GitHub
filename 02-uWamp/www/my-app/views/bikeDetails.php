@@ -61,7 +61,7 @@ function showSlides(n) {
 <html>
     <head>
         <link rel="stylesheet" href="../css/styles.css">
-        <title>Page Title</title>
+        <title>Détails</title>
     </head>
     <body>
     <?php
@@ -95,8 +95,15 @@ function showSlides(n) {
                     ?>
 
                     <!-- Next and previous buttons -->
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <?php 
+                        if($numberOfPhotos > 1)
+                        {
+                            echo '<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides(1)">&#10095;</a>';
+                        } 
+                    ?>
+                    
+                    
                 </div>
                 <br>
 

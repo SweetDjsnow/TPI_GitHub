@@ -25,7 +25,7 @@ function deleteConfirmation(id)
         <title>Résultats</title>
     </head>
     <body>
-        <h1 class="title-forms-result"><?php echo $numberOfResults; ?> Résultats</h1>
+        <h1 class="title-forms-result"><?php echo $numberOfResults[0]['COUNT(*)']; ?> Résultats</h1>
             <div class="all-result-div">
                 <?php
                     $i = 0;
@@ -41,7 +41,7 @@ function deleteConfirmation(id)
                                 echo "<div class='result-page'>
                                         <div class='search-page'>
                                             <div class='form-result' ";
-                                            if($i == $numberOfResults - 1)
+                                            if($i == $numberOfResults[0]['COUNT(*)'] - 1)
                                             {
                                                 echo "style = 'margin-bottom: 30px;'";
                                             }
@@ -80,7 +80,38 @@ function deleteConfirmation(id)
                     {
                         echo "<h1>Aucuns résultats trouvés...</h1>";
                     }
+
+                   
                 ?>
+            </div>
+            <div class="page-number-container">
+                    <p>Page : 
+                    <?php 
+                        if(isset($_GET['page']))
+                        {
+                            echo $_GET['page'];
+                        }
+                        else
+                        {
+                            echo "1";
+                        }
+                    ?></p>
+            </div>
+            <div class="change-page-container">
+            <?php
+                    $tp = $numberOfResults[0]['COUNT(*)'] / $resultsPerPage;
+                    $previous = $pc -1;
+                    $next = $pc +1;
+                    if ($pc>1) 
+                    {
+                        echo " <a href='?page=$previous'>&#8592;</a> ";
+                    }
+                    echo "|";
+                    if ($pc<$tp)
+                    {
+                        echo " <a href='?page=$next'>&#8594;</a>";
+                    }
+            ?>
             </div>
                     <div class="back-btn-div">
                         <a href="../views/searchPage.php">

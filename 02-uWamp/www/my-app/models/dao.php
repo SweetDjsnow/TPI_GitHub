@@ -63,6 +63,7 @@ class Database
         //Fetch les résultats en tableau associatif
         $result = $req->fetchAll(PDO::FETCH_ASSOC);
 
+        
         //Déconnecte de la base de données
         $this->dbUnconnect();
 
@@ -266,15 +267,95 @@ class Database
 
     //Fonction utilisée lors de la recherche des vélos dans la DB, la variable $_POST est passée en paramètre
     //Afin de créer le string de la requête selon les paramètres qui ont été choisis
-    function SearchInDatabase($POST)
+    function SearchInDatabase($POST, $offset, $resultsPerPage)
     {
         //bool pour savoir si c'est le premier paramètre
         $isFirstParameter = true;
         $hasError = false;
         $params = array();
 
+
         //début du string de la requête
         $query = "SELECT * FROM t_bikes";
+
+        //Assigne les valeurs de $POST à des variables indépendantes
+        $bikBrand = '';
+        if(isset($POST['bikBrand']))
+            $params['bikBrand'] = htmlspecialchars($POST['bikBrand'], ENT_QUOTES);
+        if(isset($POST['bikColor']))
+            $params['bikColor'] = htmlspecialchars($POST['bikColor'], ENT_QUOTES);
+        if(isset($POST['bikSerialNumber']) && $POST['bikSerialNumber'] != '')
+            $params['bikSerialNumber'] = htmlspecialchars($POST['bikSerialNumber'], ENT_QUOTES);
+        if(isset($POST['bikHeight']) && $POST['bikHeight'] != '')
+            $params['bikHeight'] = htmlspecialchars($POST['bikHeight'], ENT_QUOTES);
+        if(isset($POST['bikIsElectric']))
+            $params['bikIsElectric'] = 1;
+        /////////////////////////////////////////////////////////////
+
+        //Récupère les clés du tableau associatif
+        $keys = array_keys($POST);
+
+        //Pour chaque clés dans le tableau, vérifie que le nom de l'input est correct
+        //Si ce n'est pas le cas, la requête affichera une erreur
+        foreach($keys as $key => $value)
+        {
+            if($value != 'bikBrand' && $value != 'bikColor' && $value != 'bikSerialNumber' && $value != 'bikHeight' && $value != 'bikIsElectric')
+            {
+                $hasError = true;
+                break;
+            }
+        }
+
+
+        //Boucle pour l'écriture de la requête
+        foreach($params as $key => $value)
+        {
+            //Vérifie que le paramètre passé par le $POST n'est pas vide
+            if($value != '')
+            {
+                //Si le paramètre n'est pas vide et que c'est le tout premier
+                if($isFirstParameter)
+                {
+                    //Rajoute le "WHERE" + le nom de la clé du tableau $POST (qui correspond aux noms des colonnes de la base de données) et sa valeur
+                    $query .= " WHERE {$key} = :$key";
+                    //Mets la variable à FALSE car il n'ya plus besoin d'ajouter "WHERE" au début de la requête
+                    $isFirstParameter = false;
+                }
+                //Si les autres paramètres ne sont pas vides et que le premier paramètre a été ajouté au string
+                else
+                {
+                    //Rajoute "AND" + le nom de la clé du tableau $POST et sa valeur
+                    $query .= " AND {$key} = :$key";
+                }
+            }
+        }
+        $query .= " LIMIT $offset, $resultsPerPage;";
+
+
+        if(!$hasError)
+        {
+            //Exécute la requête et retourne le résultat
+            if($isFirstParameter == true)
+                return $this->BindRequestAndExecuteGet($query, $params = null);
+            else
+                return $this->BindRequestAndExecuteGet($query, $params);
+        }
+        else
+        {
+            echo "Il y'a eu une erreur lors de l'envoi de la requête, action annulée !</p>";
+        }
+    }
+
+    function CountAllResults($POST)
+    {
+        //bool pour savoir si c'est le premier paramètre
+        $isFirstParameter = true;
+        $hasError = false;
+        $params = array();
+
+
+        //début du string de la requête
+        $query = "SELECT COUNT(*) FROM t_bikes";
 
         //Assigne les valeurs de $POST à des variables indépendantes
         $bikBrand = '';

@@ -24,7 +24,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="../css/styles.css">
-        <title>Page Title</title>
+        <title>Page principale</title>
         
     </head>
     <body>

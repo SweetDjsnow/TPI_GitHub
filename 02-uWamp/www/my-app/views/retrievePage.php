@@ -23,7 +23,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="../css/styles.css">
-        <title>Page Title</title>
+        <title>Rendre le vélo</title>
     </head>
     <body>
         <h1 class="retrieve-page-title">Définir le receveur et donneur du vélo</h1>

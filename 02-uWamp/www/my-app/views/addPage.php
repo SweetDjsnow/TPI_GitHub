@@ -11,7 +11,7 @@ $dao = new Database();
 <html>
     <head>
         <link rel="stylesheet" href="../css/styles.css">
-        <title>Inscription</title>
+        <title>Annoncer</title>
     </head>
     <body>
         

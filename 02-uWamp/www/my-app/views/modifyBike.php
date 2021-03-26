@@ -16,19 +16,19 @@ if(empty($bikeInfos))
 
 include '../views/navBar.php';
 
-$dao = new Database();
 
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="../css/styles.css">
-        <title>Page Title</title>
+        <title>Modifier</title>
     </head>
     <body>
 
         <div class="main-page-form">
             <h1 style="text-align: center;">Modifier le vélo</h1>
+            <?php if(isset($_SESSION['bikeUpdated']) && $_SESSION['bikeUpdated'] == 'true'){ echo "<h3 style='color: white;'>Le vélo a été modifié !</h3>"; } ?>
             <div class="form-modify">
                 <form action="../controllers/modifyBikeData.php?id=<?php echo $idBike; ?>" method="POST">
                 <table class="table-details" style="float: left;">
@@ -172,6 +172,9 @@ $dao = new Database();
 
     <?php
             include '../views/footer.html';
+
+            if(isset($_SESSION['bikeUpdated']) && $_SESSION['bikeUpdated'] == 'true')
+                $_SESSION['bikeUpdated'] = 'false';
         ?>
 
 </html>

@@ -5,6 +5,9 @@ include '../models/dao.php';
 if(session_status()== PHP_SESSION_NONE)
 {
     session_start();
+    
+    if(isset($_SESSION['bikeUpdated']) && $_SESSION['bikeUpdated'] == 'true')
+        $_SESSION['bikeUpdated'] = 'false';
 }
 
 //Vérifie qu l'utilisateur est connecté et admin
@@ -33,6 +36,8 @@ if(isset($_SESSION) && $_SESSION['useIsAdmin'] == 1)
 
         //Exécute la fonction pour mettre à jour le vélo
         $dao->UpdateBike($idBike, $bikeFoundDate, $bikFoundLocation, $bikBrand, $bikColor, $bikSerialNumber, $bikHeight, $bikIsElectric, $bikRetrieveDate);
+
+        $_SESSION['bikeUpdated'] = 'true';
 
         //Redirige sur la page de modification du vélo
         header("location: ../views/modifyBike.php?id={$idBike}");

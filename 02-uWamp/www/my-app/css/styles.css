@@ -19,6 +19,28 @@
   margin: auto;
 }
 
+.change-page-container
+{
+    float: right;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 50px;
+}
+
+.page-number-container
+{
+  float: right;
+  width: 100%;
+  text-align: center;
+}
+
+.change-page-container a
+{
+  text-decoration: none;
+}
+
 .footer-left-column
 {
   text-align: center;
@@ -742,7 +764,7 @@ select {
 .back-btn
 {
   background-color: #289446;
-  width: 66%;
+  width: 75%;
   margin-bottom: 25px;
   border: 0;
   transition: 0.5s;
