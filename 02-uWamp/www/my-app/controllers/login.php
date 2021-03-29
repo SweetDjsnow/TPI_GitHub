@@ -36,6 +36,10 @@ if(isset($_POST))
                     $_SESSION['useIsSuperAdmin'] = $foundUser[0]['useIsSuperAdmin'];
                     $_SESSION['isConnected'] = true;
 
+                    $city = $dao->GetCityName($foundUser[0]['idCity']);
+
+                    $_SESSION['useCity'] = $city[0]['citName'];
+
                     //Redirige sur la page principale du site
                     header('location: ../views/mainPage.php');
                 }

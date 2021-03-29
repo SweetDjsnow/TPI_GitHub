@@ -65,17 +65,8 @@ $dao = new Database();
                     <input type="checkbox" name="bikIsElectric">
 
                     <label for="slct">Retrouvé par la commune:</label>
-                    <div class="select">
-                        <select name="city" id="slct" required>
-                            <?php
-                                $cities = $dao->GetAllCities();
-                                foreach($cities as $key => $value)
-                                {
-                                    echo '<option value = "'.$value['citName'].'">'.$value['citName'].'</option>';
-                                }
-                            ?>
-                        </select>
-                    </div>
+                    
+                    <input type="text" name="city" value="<?php echo $_SESSION['useCity']; ?>" readonly>
 
                     <button type="submit" name="submitBtn" value="submit">Annoncer</button>
                 </form>

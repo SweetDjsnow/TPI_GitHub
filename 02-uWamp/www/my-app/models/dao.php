@@ -181,7 +181,7 @@ class Database
     //Recherche un utilisateur à partir de son username et retourne son username, password(hashé), si il est admin et super admin
     function SearchUser($username)
     {
-        $query = "SELECT useUsername, usePassword, useIsAdmin, useIsSuperAdmin from t_user where useUsername = :username";
+        $query = "SELECT useUsername, usePassword, useIsAdmin, useIsSuperAdmin, idCity from t_user where useUsername = :username";
 
         $params = array(
             ':username' => $username
@@ -290,6 +290,10 @@ class Database
             $params['bikHeight'] = htmlspecialchars($POST['bikHeight'], ENT_QUOTES);
         if(isset($POST['bikIsElectric']))
             $params['bikIsElectric'] = 1;
+        if(isset($POST['bikHasBeenRetrieved']))
+            $params['bikHasBeenRetrieved'] = 1;
+        else
+            $params['bikHasBeenRetrieved'] = 0;
         /////////////////////////////////////////////////////////////
 
         //Récupère les clés du tableau associatif
@@ -299,7 +303,7 @@ class Database
         //Si ce n'est pas le cas, la requête affichera une erreur
         foreach($keys as $key => $value)
         {
-            if($value != 'bikBrand' && $value != 'bikColor' && $value != 'bikSerialNumber' && $value != 'bikHeight' && $value != 'bikIsElectric')
+            if($value != 'bikBrand' && $value != 'bikColor' && $value != 'bikSerialNumber' && $value != 'bikHeight' && $value != 'bikIsElectric' && $value != 'bikHasBeenRetrieved')
             {
                 $hasError = true;
                 break;
@@ -369,6 +373,10 @@ class Database
             $params['bikHeight'] = htmlspecialchars($POST['bikHeight'], ENT_QUOTES);
         if(isset($POST['bikIsElectric']))
             $params['bikIsElectric'] = 1;
+        if(isset($POST['bikHasBeenRetrieved']))
+            $params['bikHasBeenRetrieved'] = 1;
+        else
+            $params['bikHasBeenRetrieved'] = 0;
         /////////////////////////////////////////////////////////////
 
         //Récupère les clés du tableau associatif
@@ -378,7 +386,7 @@ class Database
         //Si ce n'est pas le cas, la requête affichera une erreur
         foreach($keys as $key => $value)
         {
-            if($value != 'bikBrand' && $value != 'bikColor' && $value != 'bikSerialNumber' && $value != 'bikHeight' && $value != 'bikIsElectric')
+            if($value != 'bikBrand' && $value != 'bikColor' && $value != 'bikSerialNumber' && $value != 'bikHeight' && $value != 'bikIsElectric' && $value != 'bikHasBeenRetrieved')
             {
                 $hasError = true;
                 break;

@@ -5,7 +5,7 @@ if(session_status()== PHP_SESSION_NONE)
     session_start();
 }
 
-$resultsPerPage = "3";
+$resultsPerPage = "8";
 
 if(isset($_SESSION))
 {
@@ -94,5 +94,5 @@ else
 ?>
 
 <?php
-            include '../views/footer.html';
-        ?>
+    include '../views/footer.html';
+?>
