@@ -32,7 +32,7 @@
 
         <div class="main-page-form">
                 <?php 
-                    echo "<h1 class='main-page-title'>Il y'a actuellement {$numberOfBikes} vélos dans la base de donnée</h1>"; 
+                    echo "<h1 class='main-page-title'>Il y a actuellement {$numberOfBikes} vélos dans la base de données</h1>"; 
                 ?>
             <div class="form-buttons">
                 <div>

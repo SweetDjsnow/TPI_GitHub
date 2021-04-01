@@ -13,60 +13,119 @@ $dao = new Database();
         <link rel="stylesheet" href="../css/styles.css">
         <title>Annoncer</title>
     </head>
+    <script>
+        function addBrand()
+        {
+            var brand = prompt("Entrez un nom de marque de vélo à ajouter.");
+            if(brand != null)
+            {
+                window.location.href = "http://findbike21.section-inf.ch/my-app/controllers/addBrand.php?brand="+brand;
+            }
+        }
+        function addColor()
+        {
+            var color = prompt("Entrez un nom de couleur à ajouter !");
+            if(color != null)
+            {
+                window.location.href = "http://findbike21.section-inf.ch/my-app/controllers/addColor.php?color="+color;
+            }
+        }
+    </script>
     <body>
         
 
-        <div class="signup-page">
+        <div class="add-page">
             
             <h1 class="title-forms">Annoncer</h1>
+            <?php if(isset($_SESSION['brandAdded']) && $_SESSION['brandAdded'] == 'true'){ echo "<p style='text-align: center; color: white; padding-top: 50px;'>Marque ajoutée à la base de données !</p>"; $_SESSION['brandAdded'] = 'false'; } ?>
             <?php if(isset($_SESSION['uploadSuccess']) && $_SESSION['uploadSuccess'] == 1){ echo"<p style='text-align: center; color: white; padding-top: 50px;'>Vélo ajouté à la base de données !</p>"; $_SESSION['uploadSuccess'] = 0;} ?>
-            <div class="form">
+            <?php if(isset($_SESSION['colorAdded']) && $_SESSION['colorAdded'] == 'true'){ echo "<p style='text-align: center; color: white; padding-top: 50px;'>Couleur ajoutée à la base de données !</p>"; $_SESSION['colorAdded'] = 'false'; } ?>
+            <div class="form-add">
                 <form class="login-form" action="../controllers/addBike.php" method="POST" enctype="multipart/form-data">
-                    <label for="image">Image:</label>
-                    <input type="file" name="fileToUpload[]" id="fileToUpload" multiple required/>
-                    <label for="dateInput">Trouvé le :</label>
-                    <input type="date" name="bikeFoundDate" id="dateInput" required/>
-                    <label for="locationFound">Lieu de la trouvaille :</label>
-                    <input type="text" name="bikFoundLocation" id="locationFound" required/>
+
                     
-                    <label for="slct">Marque:</label>
-                    <div class="select">
-                        <select name="bikBrand" id="slct" required>
-                            <?php
-                                $brands = $dao->GetAllBrands();
-                                foreach($brands as $key => $value)
-                                {
-                                    echo '<option value = "'.$value['braName'].'">'.$value['braName'].'</option>';
-                                }
-                            ?>
-                        </select>
+                        <label for="image">Image (*.jpeg, *.jpg, *.png):</label>
+                    <div class="input-wrapper">
+                        <input type="file" name="fileToUpload[]" id="fileToUpload" multiple required/>
                     </div>
+                    
+                        <label for="dateInput">Trouvé le :</label>
+                    <div class="input-wrapper">
+                        <input type="date" name="bikeFoundDate" id="dateInput" required/>
+                    </div>
+                    
+                        <label for="locationFound">Lieu de la trouvaille :</label>
+                    <div class="input-wrapper">
+                        <input type="text" name="bikFoundLocation" id="locationFound" required/>
+                    </div>
+                    
+                    <label for="newBrand">Marque: </label>
+                    
+                        <table style="margin: auto;">
+                            <tr>
+                                <td>
+                                    <div class="select-brand">
+                                        <select name="bikBrand" id="slct" required>
+                                            <?php
+                                                $brands = $dao->GetAllBrands();
+                                                foreach($brands as $key => $value)
+                                                {
+                                                    echo '<option value = "'.$value['braName'].'">'.$value['braName'].'</option>';
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a onclick="addBrand()"><img src="../img/add-brand.png" class="add-brand-icon"></button>
+                                </td>
+                            </tr>
+
+                        </table>
+                    
                     
                     <label for="color">Couleur:</label>
-                    <div class="select">
-                        <select name="color" id="slct" required>
-                            <?php
-                                $colors = $dao->GetAllColorNames();
-                                foreach($colors as $key => $value)
-                                {
-                                    echo '<option value = "'.$value['colName'].'">'.$value['colName'].'</option>';
-                                }
-                            ?>
-                        </select>
+                    <table style="margin: auto;">
+                            <tr>
+                                <td>
+                                    <div class="select-brand">
+                                        <select name="color" id="slct" required>
+                                            <?php
+                                                $colors = $dao->GetAllColorNames();
+                                                foreach($colors as $key => $value)
+                                                {
+                                                    echo '<option value = "'.$value['colName'].'">'.$value['colName'].'</option>';
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a onclick="addColor()"><img src="../img/add-brand.png" class="add-brand-icon"></button>
+                                </td>
+                            </tr>
+                    </table>
+
+                    
+                        <label for="serialNumber">Numero de série:</label>
+                    <div class="input-wrapper">
+                        <input type="text" name="bikSerialNumber" id="serialNumber" required>
                     </div>
 
-                    <label for="serialNumber">Numero de série:</label>
-                    <input type="text" name="bikSerialNumber" id="serialNumber" required>
-
-                    <label for="height">Taille du cadre:</label>
-                    <input type="text" name="bikHeight" id="height" required>
-
-                    <label for="electric">Electrique ?</label>
-                    <input type="checkbox" name="bikIsElectric">
-
-                    <label for="slct">Retrouvé par la commune:</label>
                     
-                    <input type="text" name="city" value="<?php echo $_SESSION['useCity']; ?>" readonly>
+                        <label for="height">Taille du cadre:</label>
+                    <div class="input-wrapper">
+                        <input type="text" name="bikHeight" id="height" required>
+                    </div>
+
+                    
+                        <label for="electric">Electrique ?</label>
+                    <div class="input-wrapper">
+                        <input type="checkbox" name="bikIsElectric">
+                    </div>
+
+                    
+                    
 
                     <button type="submit" name="submitBtn" value="submit">Annoncer</button>
                 </form>

@@ -15,7 +15,7 @@ if(isset($_POST) && !empty($_POST))
         {
             if(!empty($_FILES))
             {
-                if(isset($_POST['bikeFoundDate']) && isset($_POST['bikFoundLocation']) && isset($_POST['bikBrand']) && isset($_POST['color']) && isset($_POST['bikSerialNumber']) && isset($_POST['bikHeight']))
+                if(isset($_POST['bikeFoundDate']) && isset($_POST['bikFoundLocation']) && isset($_POST['bikBrand']) && isset($_POST['color']) && isset($_POST['bikSerialNumber']) && isset($_POST['bikHeight']) && isset($_SESSION['idCity']))
                 {
                     if($_POST['bikeFoundDate'] != '' && $_POST['bikFoundLocation'] != '' && $_POST['bikBrand'] != '' && $_POST['color'] != '' && $_POST['bikSerialNumber'] != '' && $_POST['bikHeight'] != '')
                     {
@@ -104,13 +104,12 @@ if(isset($_POST) && !empty($_POST))
                                 $bikIsElectric = 1;
                             else
                                 $bikIsElectric = 0;
-                            $cityName = $_POST['city'];
                             ///////////////////////////////////////////////
 
-                            $cityId = $dao->GetCityId($cityName);
+                            $cityId = $_SESSION['idCity'];
 
                             ///La fonction qui ajoute un vélo dans la base de données retourne également l'ID du vélo qui vient d'être ajouté
-                            $lastId = $dao->AddBikeToDatabase($bikeFoundDate, $bikFoundLocation, $bikBrand, $bikColor, $bikSerialNumber, $bikHeight, $bikIsElectric, $cityId[0]['idCity']);
+                            $lastId = $dao->AddBikeToDatabase($bikeFoundDate, $bikFoundLocation, $bikBrand, $bikColor, $bikSerialNumber, $bikHeight, $bikIsElectric, $cityId);
 
                             //echo "<br><br><br><br><br><br><br><br><br><br>";
 

@@ -151,7 +151,18 @@ function showSlides(n) {
                     </tr>
                     <tr>
                         <th>Electrique: </th>
-                        <td><?php echo $bikeInfos[0]['bikIsElectric'];?></td>
+                        <td>
+                        <?php 
+                            if($bikeInfos[0]['bikIsElectric'] == 0)
+                            {
+                                echo 'Non';
+                            }
+                            else
+                            {
+                                echo 'Oui';
+                            }
+                        ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>Rendu le: </th>

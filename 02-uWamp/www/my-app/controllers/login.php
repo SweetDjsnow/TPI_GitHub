@@ -39,6 +39,7 @@ if(isset($_POST))
                     $city = $dao->GetCityName($foundUser[0]['idCity']);
 
                     $_SESSION['useCity'] = $city[0]['citName'];
+                    $_SESSION['idCity'] = $foundUser[0]['idCity'];
 
                     //Redirige sur la page principale du site
                     header('location: ../views/mainPage.php');

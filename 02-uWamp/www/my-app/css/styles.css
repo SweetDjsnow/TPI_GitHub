@@ -152,6 +152,13 @@
   transition: 0.3s;
 }
 
+.add-page
+{
+  width: 40%;
+  padding: 5% 0 0;
+  margin: auto;
+}
+
 a .main-page-icon-nav:hover
 {
   transform: translateY(-3px);
@@ -530,6 +537,32 @@ button :hover
   min-height: 660px;
 }
 
+.form-add
+{
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  /*max-width: 360px;*/
+  margin: 0 auto 30px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  margin-top: 75px;
+}
+
+.form-add input
+{
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
 .form-modify
 {
   position: relative;
@@ -591,6 +624,33 @@ button :hover
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
+}
+
+.input-wrapper
+{
+  width: fit-content;
+  margin: auto;
+}
+
+.input-wrapper input
+{
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 20em;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.add-brand-btn
+{
+  background-color: transparent;
+  width: auto;
+  height: auto;
+  padding: 0;
 }
 
 .form-details button
@@ -722,6 +782,27 @@ select::-ms-expand {
   margin-left: auto;
 }
 
+.add-brand-icon
+{
+  width: 32px;
+  margin-bottom: 15px;
+}
+
+.select-brand
+{
+  position: relative;
+  display: flex;
+  width: 15em;
+  height: 3em;
+  line-height: 3;
+  background: #F2F2F2;
+  overflow: hidden;
+  border-radius: .25em;
+  margin-bottom: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .create-form input
 {
   max-width: 50%;
@@ -818,6 +899,24 @@ select {
 }
 /* Transition */
 .select:hover::after {
+  color: #f39c12;
+}
+
+.select-brand::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #cfcfcf;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+/* Transition */
+.select-brand:hover::after {
   color: #f39c12;
 }
 

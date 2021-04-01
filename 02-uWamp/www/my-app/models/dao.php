@@ -97,6 +97,28 @@ class Database
         return $result;
     }
 
+    function AddBrand($brand)
+    {
+        $query = "INSERT INTO t_brand (braName) VALUES (:brand)";
+
+        $params = array(
+            'brand' => $brand
+        );
+
+        $this->BindRequestAndExecuteSet($query, $params);
+    }
+
+    function AddColor($color)
+    {
+        $query = "INSERT INTO t_color (colName) VALUES (:color)";
+
+        $params = array(
+            'color' => $color
+        );
+
+        $this->BindRequestAndExecuteSet($query, $params);
+    }
+
     //Fonction qui récupére le nombre de vélo stockés dans la DB
     function GetNumberOfBikes()
     {
@@ -291,7 +313,12 @@ class Database
         if(isset($POST['bikIsElectric']))
             $params['bikIsElectric'] = 1;
         if(isset($POST['bikHasBeenRetrieved']))
-            $params['bikHasBeenRetrieved'] = 1;
+        {
+            if($POST['bikHasBeenRetrieved'] == 'on')
+            {
+                $params['bikHasBeenRetrieved'] = 1;
+            }
+        }
         else
             $params['bikHasBeenRetrieved'] = 0;
         /////////////////////////////////////////////////////////////
@@ -321,7 +348,23 @@ class Database
                 if($isFirstParameter)
                 {
                     //Rajoute le "WHERE" + le nom de la clé du tableau $POST (qui correspond aux noms des colonnes de la base de données) et sa valeur
-                    $query .= " WHERE {$key} = :$key";
+                    if($key == 'bikHasBeenRetrieved')
+                    {
+                        if($params['bikHasBeenRetrieved'] == 1)
+                        {
+                            $query .= " WHERE ({$key} = :$key OR {$key} = 0)";
+                            $isFirstParameter = false;
+                        }
+                        else
+                        {
+                            $query .= " WHERE {$key} = :$key";
+                            $isFirstParameter = false;
+                        }
+                    }
+                    else
+                    {
+                        $query .= " WHERE {$key} = :$key";
+                    }
                     //Mets la variable à FALSE car il n'ya plus besoin d'ajouter "WHERE" au début de la requête
                     $isFirstParameter = false;
                 }
@@ -329,11 +372,27 @@ class Database
                 else
                 {
                     //Rajoute "AND" + le nom de la clé du tableau $POST et sa valeur
-                    $query .= " AND {$key} = :$key";
+                    if($key == 'bikHasBeenRetrieved')
+                    {
+                        if($params['bikHasBeenRetrieved'] == 1)
+                        {
+                            $query .= " AND ({$key} = :$key OR {$key} = 0)";
+                        }
+                        else
+                        {
+                            $query .= " AND {$key} = :$key";
+                        }
+                    }
+                    else
+                    {
+                        $query .= " AND {$key} = :$key";
+                    }
                 }
             }
         }
         $query .= " LIMIT $offset, $resultsPerPage;";
+
+        var_dump($query);
 
 
         if(!$hasError)
@@ -374,9 +433,15 @@ class Database
         if(isset($POST['bikIsElectric']))
             $params['bikIsElectric'] = 1;
         if(isset($POST['bikHasBeenRetrieved']))
-            $params['bikHasBeenRetrieved'] = 1;
+        {
+            if($POST['bikHasBeenRetrieved'] == 'on')
+            {
+                $params['bikHasBeenRetrieved'] = 1;
+            }
+        }
         else
             $params['bikHasBeenRetrieved'] = 0;
+        
         /////////////////////////////////////////////////////////////
 
         //Récupère les clés du tableau associatif
@@ -404,7 +469,23 @@ class Database
                 if($isFirstParameter)
                 {
                     //Rajoute le "WHERE" + le nom de la clé du tableau $POST (qui correspond aux noms des colonnes de la base de données) et sa valeur
-                    $query .= " WHERE {$key} = :$key";
+                    if($key == 'bikHasBeenRetrieved')
+                    {
+                        if($params['bikHasBeenRetrieved'] == 1)
+                        {
+                            $query .= " WHERE ({$key} = :$key OR {$key} = 0)";
+                            $isFirstParameter = false;
+                        }
+                        else
+                        {
+                            $query .= " WHERE {$key} = :$key";
+                            $isFirstParameter = false;
+                        }
+                    }
+                    else
+                    {
+                        $query .= " WHERE {$key} = :$key";
+                    }
                     //Mets la variable à FALSE car il n'ya plus besoin d'ajouter "WHERE" au début de la requête
                     $isFirstParameter = false;
                 }
@@ -412,11 +493,26 @@ class Database
                 else
                 {
                     //Rajoute "AND" + le nom de la clé du tableau $POST et sa valeur
-                    $query .= " AND {$key} = :$key";
+                    if($key == 'bikHasBeenRetrieved')
+                    {
+                        if($params['bikHasBeenRetrieved'] == 1)
+                        {
+                            $query .= " AND ({$key} = :$key OR {$key} = 0)";
+                        }
+                        else
+                        {
+                            $query .= " AND {$key} = :$key";
+                        }
+                    }
+                    else
+                    {
+                        $query .= " AND {$key} = :$key";
+                    }
                 }
             }
         }
         $query .= ";";
+
 
 
         if(!$hasError)
