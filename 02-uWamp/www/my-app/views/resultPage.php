@@ -118,6 +118,7 @@ function deleteConfirmation(id)
                             <button class="back-btn"><img src="../img/left-arrow.png" alt="Back Arrow"></button>
                         </a>
                     </div>
+            <?php var_dump($result); ?>
     </body>
 
 </html>

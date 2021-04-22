@@ -6,9 +6,10 @@ include '../models/dao.php';
 $dao = new Database();
 $idBike = $_GET['id'];
 
+//Récupère les informations du vélo à partir de son ID
 $bikeInfos = $dao->GetBikeInfos($idBike);
 
-        
+//Si rien n'est trouvé, retourne sur la page principale
 if(empty($bikeInfos))
 {
     header("location: ./mainPage.php");
@@ -46,7 +47,10 @@ include '../views/navBar.php';
                             <div class="select">
                                 <select name="bikBrand" id="slct" class="select-modify">
                                     <?php
+                                        //Récupère toutes les marques dans la base de données
                                         $brands = $dao->GetAllBrands();
+
+                                        //Affiche les marques dans un <select>
                                         foreach($brands as $key => $value)
                                         {
                                             if($value['braName'] != $bikeInfos[0]['bikBrand'])

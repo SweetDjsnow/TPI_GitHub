@@ -234,7 +234,7 @@ class Database
     //Retourne toutes les marques de vélos de la table t_brands
     function GetAllBrands()
     {
-        $query = "SELECT braName FROM t_brand;";
+        $query = "SELECT braName FROM t_brand ORDER BY braName ASC;";
 
         $this->Connect();
 
@@ -568,7 +568,7 @@ class Database
     //Récupère tous les noms des couleurs de la base de données
     function GetAllColorNames()
     {
-        $query = "SELECT colName FROM t_color;";
+        $query = "SELECT colName FROM t_color ORDER BY colName ASC;";
 
         return $this->BindRequestAndExecuteGet($query, $params = null);
     }
@@ -723,6 +723,7 @@ class Database
         return $this->BindRequestAndExecuteGet($query, $params);
     }
 
+    //Vérifie si le vélo existe à partir de l'ID
     function CheckIfBikeExists($id)
     {
         $query = "SELECT COUNT(*) FROM t_bikes WHERE idBike = :idBike";

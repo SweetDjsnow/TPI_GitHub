@@ -88,6 +88,8 @@
                                 <input type="text" placeholder="Nom de famille" name="lastName" required>
                                 <input type="text" placeholder="Adresse email" name="email">
                                 <input type="text" placeholder="Numéro de téléphone" name="phoneNumber" required>
+                                <input type="text" placeholder="Preuve d'achat" name="buyProof" required>
+                                <input type="text" placeholder="Preuve d'identité du receveur" name="idProof" required>
                                 <button style="width: 60%;" name="submitBtn">Ajouter</button>
                             </form>
                         </td>
