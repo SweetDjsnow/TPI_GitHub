@@ -14,11 +14,11 @@ if(isset($_SESSION))
     //Vérifie que le post est set
     if(isset($_POST))
     {
-        if(isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['email']) && isset($_POST['phoneNumber']))
+        if(isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['email']) && isset($_POST['phoneNumber']) && isset($_POST['buyProof']) && isset($_POST['idProof']))
         {
             if(isset($_POST['submitBtn']))
             {
-                if($_POST['firstName'] != '' && $_POST['lastName'] != '' && $_POST['phoneNumber'] != '')
+                if($_POST['firstName'] != '' && $_POST['lastName'] != '' && $_POST['phoneNumber'] != '' && $_POST['buyProof'] != ''&& $_POST['idProof'] != '')
                 {
                     include '../models/dao.php';
 
@@ -29,9 +29,11 @@ if(isset($_SESSION))
                     $lastName = htmlspecialchars($_POST['lastName'], ENT_QUOTES);
                     $email = htmlspecialchars($_POST['email'], ENT_QUOTES);
                     $phoneNumber = htmlspecialchars($_POST['phoneNumber'], ENT_QUOTES);
+                    $idProof = htmlspecialchars($_POST['idProof'], ENT_QUOTES);
+                    $buyProof = htmlspecialchars($_POST['buyProof'], ENT_QUOTES);
 
                     //Exécute la fonctione pour créer le receveur dans la base de données
-                    $dao->AddReceiverToDb($firstName, $lastName, $email, $phoneNumber);
+                    $dao->AddReceiverToDb($firstName, $lastName, $email, $phoneNumber, $idProof, $buyProof);
 
                     
                     header("location: ../views/retrievePage.php?id={$id}");

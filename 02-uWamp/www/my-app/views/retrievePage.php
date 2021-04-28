@@ -21,6 +21,20 @@
 
 <!DOCTYPE html>
 <html>
+<script>
+        function addGiver(id)
+        {
+            var firstName = prompt("Entrez le prénom du donneur");
+            var lastName = prompt("Entrez le nom de famille du donneur");
+            var email = prompt("Entrez l'email du donneur");
+            var phoneNumber = prompt("Finalement entrez le numéro de téléphone du donneur");
+
+            if(firstName != null && lastName != null && email != null && phoneNumber != null)
+            {
+                window.location.href = "http://findbike21.section-inf.ch/my-app/controllers/addGiver.php?id="+id+"&firstName="+firstName+"&lastName="+lastName+"&email="+email+"&phoneNumber="+phoneNumber;
+            }
+        }
+</script>
     <head>
         <link rel="stylesheet" href="../css/styles.css">
         <title>Rendre le vélo</title>
@@ -34,7 +48,7 @@
                         <th>Receveur</th>
                         <th>Donneur</th>
                     </tr>
-                    <?php echo '<form action="../controllers/setReceiverAndGiverOfBike.php?id='.$_GET['id'].'" method="POST">'; ?>
+        <?php echo '<form action="../controllers/setReceiverAndGiverOfBike.php?id='.$_GET['id'].'" method="POST">'; ?>
                         <tr>
                             <td>
                                 <input type="text" placeholder="Prénom" name="firstName" required>
@@ -56,6 +70,7 @@
                                         ?>
                                     </select>
                                 </div>
+                                <a onclick="addGiver(<?php echo $_GET['id'] ?>)"><img src="../img/add-brand.png" class="add-brand-icon"></button>
                             </td>
                         </tr>
                         

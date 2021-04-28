@@ -50,7 +50,7 @@ $dao = new Database();
                     <input type="text" name="bikHeight" placeholder="Taille du vélo (cm)" />
                     <label>Vélo electrique ?</label><input type="checkbox" name="bikIsElectric" placeholder="Vélo electrique ?"/>
                     <label>Afficher les vélos rendus</label><input type="checkbox" name="bikHasBeenRetrieved" placeholder="Afficher les vélos rendus"/>
-                    <button>Envoyer demande</button>
+                    <button>RECHERCHER</button>
                 </form>
 
             

@@ -617,6 +617,13 @@ class Database
         return $this->BindRequestAndExecuteGet($query, $params);
     }
 
+    function GetLastReceiverAddedToDb()
+    {
+        $query = "SELECT idReceiver FROM t_receiver WHERE idReceiver=(SELECT max(idReceiver) FROM t_receiver);";
+
+        return $this->BindRequestAndExecuteGet($query, $params = null);
+    }
+
     //Recupère toutes les informations concernant le donneur avec l'id passé en paramètre
     function GetGiverInfos($idGiver)
     {
@@ -630,15 +637,17 @@ class Database
     }
 
     //Ajoute un receveur dans la base de données avec les informations passées en paramètre
-    function AddReceiverToDb($firstName, $lastName, $email, $phoneNumber)
+    function AddReceiverToDb($firstName, $lastName, $email, $phoneNumber, $buyProof, $idProof)
     {
-        $query = "INSERT INTO t_receiver (recFirstName, recLastName, recEmail, recPhoneNumber) VALUES (:firstName,:lastName,:email,:phoneNumber);";
+        $query = "INSERT INTO t_receiver (recFirstName, recLastName, recEmail, recPhoneNumber, recBuyProof, recIdProof) VALUES (:firstName,:lastName,:email,:phoneNumber,:buyProof,:idProof);";
 
         $params = array(
             'firstName' => $firstName,
             'lastName' => $lastName,
             'email' => $email,
             'phoneNumber' => $phoneNumber,
+            'buyProof' => $buyProof,
+            'idProof' => $idProof
         );
 
         $this->BindRequestAndExecuteSet($query, $params);
