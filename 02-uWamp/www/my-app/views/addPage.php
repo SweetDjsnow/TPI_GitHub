@@ -51,7 +51,7 @@ $dao = new Database();
                     
                         <label for="dateInput">Trouvé le :</label>
                     <div class="input-wrapper">
-                        <input type="date" name="bikeFoundDate" id="dateInput" required/>
+                        <input type="date" name="bikeFoundDate" id="dateInput" max="<?php echo date("Y-m-d"); ?>" required/>
                     </div>
                     
                         <label for="locationFound">Lieu de la trouvaille :</label>

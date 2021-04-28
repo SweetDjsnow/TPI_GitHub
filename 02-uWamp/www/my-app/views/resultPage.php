@@ -34,7 +34,9 @@ function deleteConfirmation(id)
                         foreach($result as $key => $value)
                         {
                             $id = $value['idBike'];
+                            $bikeCityId = $value['idCity'];
                             $photoToShow = $dao->GetPhotosLinkedToBike($id);
+                            $bikeCityName = $dao->GetCityName($bikeCityId);
 
                             if(isset($photoToShow) && !empty($photoToShow))
                             {
@@ -46,8 +48,11 @@ function deleteConfirmation(id)
                                                 echo "style = 'margin-bottom: 30px;'";
                                             }
                                             echo ">";
+                                            
                                             if(isset($_SESSION) && $_SESSION['useIsAdmin'] == 1)
-                                                echo "<a class='delete-button' onclick='deleteConfirmation({$id})'><img src='../img/close.png'></a>";
+                                                if($bikeCityId == $_SESSION['idCity'])
+                                                    echo "<a class='delete-button' onclick='deleteConfirmation({$id})'><img src='../img/close.png'></a>";
+                                                echo "<h4>".$bikeCityName[0]['citName']."</h4>";
                                                 echo "<p>Marque: ".$value['bikBrand']."</p>
                                                 <p>Couleur: ".$value['bikColor']."</p>
                                                 <p>Serial: ".$value['bikSerialNumber']."</p>";
@@ -64,9 +69,10 @@ function deleteConfirmation(id)
                                                             <a href = '../views/bikeDetails.php?id={$id}'>Details</a><br>
                                                         </td>";
                                                         if($_SESSION['useIsAdmin'] == '1')
-                                                            echo "<td style='float: right;'>
-                                                                <a href = '../views/modifyBike.php?id={$id}'>Modifier</a><br>
-                                                            </td>";
+                                                            if($bikeCityId == $_SESSION['idCity'])
+                                                                echo "<td style='float: right;'>
+                                                                    <a href = '../views/modifyBike.php?id={$id}'>Modifier</a><br>
+                                                                </td>";
                                                     echo "</tr>
                                                 </table>
                                             </div>
@@ -118,7 +124,6 @@ function deleteConfirmation(id)
                             <button class="back-btn"><img src="../img/left-arrow.png" alt="Back Arrow"></button>
                         </a>
                     </div>
-            <?php var_dump($result); ?>
     </body>
 
 </html>

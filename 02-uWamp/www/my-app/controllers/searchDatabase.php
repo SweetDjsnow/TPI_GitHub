@@ -40,6 +40,7 @@ if(isset($_SESSION))
             $numberOfResults = $dao->CountAllResults($_POST);
 
 
+
             include '../views/resultPage.php';
         }
         else
@@ -70,7 +71,6 @@ if(isset($_SESSION))
 
                 $numberOfResults = $dao->CountAllResults($_SESSION['lastSearch']);
 
-                
 
                 include '../views/resultPage.php';
             }

@@ -21,7 +21,9 @@ $cityName = urlencode($cityName);
 
 
 //////////////Contenu du mail + headers (les données envoyées depuis le formulaire par l'utilisateur et le lien qui permet d'accepter la demande)//////////
-$msg = "Prénom : ".$_POST['firstName']."\r\n
+$msg = "CREATION D'UNE NOUVELLE COMMUNE :".$_POST['cityName']."\r\n
+==============================================================\r\n
+Prénom : ".$_POST['firstName']."\r\n
 Nom : ".$_POST['lastName']."\r\n
 Email : ".$_POST['email']."\r\n
 Numero de téléphone : ".$_POST['phoneNumber']."\r\n
