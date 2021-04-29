@@ -70,8 +70,8 @@
                                         ?>
                                     </select>
                                 </div>
-                                <a onclick="addGiver(<?php echo $_GET['id'] ?>)"><img src="../img/add-brand.png" class="add-brand-icon"></button>
                             </td>
+                            <td><a onclick="addGiver(<?php echo $_GET['id'] ?>)"><img src="../img/add-brand.png" class="add-brand-icon"></button></td>
                         </tr>
                         
                         <tr>
